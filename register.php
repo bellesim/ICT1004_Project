@@ -7,14 +7,13 @@ and open the template in the editor.
 <html>
     <head>
         <meta charset="UTF-8">
-        <title></title>
+        <link rel="stylesheet" href="css/main.css">
+
+        <title>Login</title>
     </head>
-    <body>
-        <div class="container">
-            <p>Enter your contents here! :) </p>
-        </div>   
-        <?php
-        // put your code here
-        ?>
-    </body>
+ <?php include "nav.inc.php"; ?>
+<body>
+</body>  
+<?php include "footer.inc.php";  ?>
+    
 </html>

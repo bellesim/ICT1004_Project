@@ -19,8 +19,9 @@
   <a href="profile.php">My Profile</a>
   <a href="appt_booked.php">My Appointment</a>
 
-  <button class="button button">Login</button>
-  <!--<div class="button" href="login.php">Login</div> -->
+  <form action="login.php">
+    <button class="button button">Login</button>
+  </form>
 
   <a href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="myFunction()">&#9776;</a>
 </div>
