@@ -3,7 +3,14 @@ session_start();
 // session_regenerate_id();
 include 'dbFunctions.php';
 
-        
+// checks input for malicious or unwanted content
+function sanitize_input($data){
+    $data = trim($data);
+    $data = stripslashes($data);
+    $data = htmlspecialchars($data);
+    return $data;
+}
+
 // validate name 
 // condition: do not contain space only (e.g. "     ")
 //          : must be alphabet (no numbers/special characters are allowed)  
