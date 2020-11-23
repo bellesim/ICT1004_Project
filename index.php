@@ -1,7 +1,6 @@
 <?php
 $msg ="Incorrect ID/Password";
 include 'authentication.php';
-ob_start();
 
 if(!isset($_SESSION['NRIC'])){
     if ((isset($_POST['NRIC'])) && (isset($_POST['password']))) {
@@ -11,7 +10,6 @@ if(!isset($_SESSION['NRIC'])){
         $_SESSION['loginfail'] = "Please log in first.";
         header('Location:login.php');
     }
-    //problem
     $link = db();
     $passwordquery=$link->prepare("SELECT PatPassword FROM Patient WHERE PatNRIC=?");
     $passwordquery->bind_param('s',$entered_UserName);
@@ -26,10 +24,10 @@ if(!isset($_SESSION['NRIC'])){
         // if record found,store details into session
         if(mysqli_num_rows($result)==1){
             $row = mysqli_fetch_array($result);
-            $_SESSION['PatNRIC'] = $row["PatNRIC"];
-            $_SESSION['PatFirstName'] = $row["PatFirstName"];
-            $_SESSION['PatLastName'] = $row["PatLastName"];
-            $_SESSION['PatEmail'] = $row["PatEmail"];
+            $_SESSION['nric'] = $row["PatNRIC"];
+            $_SESSION['firstname'] = $row["PatFirstName"];
+            $_SESSION['lastname'] = $row["PatLastName"];
+            $_SESSION['email'] = $row["PatEmail"];
         } else {
             $_SESSION['loginfail'] = "Incorrect username or password";
             header('Location:login.php');

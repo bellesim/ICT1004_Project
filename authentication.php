@@ -1,4 +1,4 @@
-<?php
+ <?php
 session_start();
 // session_regenerate_id();
 include 'dbFunctions.php';
@@ -34,47 +34,47 @@ function check_email($input) {
         return true;
     }
 }
-function authenticate($nric, $enteredpassword) {
-   $link = db();
-   if(empty($nric) || empty($enteredpassword)){
-       die("Username or password is empty!");
-   }
-   $passwordquery = $link->prepare("SELECT PatPassword FROM Patient WHERE PatNRIC='$nric'");
-   $passwordquery->execute();
-   $password->bind_result($encryptedpassword);
-   if($passwordquery->fetch());
-   if(password_verify($enteredpassword, $encryptedpassword)){
-       $passwordquery->close();
-       $sql = $link->prepare("SELECT PatNRIC, PatFirstName, PatLastName, PatEmail FROM Patient WHERE PatNRIC='$nric'");
-       $sql->execute();
-       $sql->bind_result($nric,$fname,$lname,$email);
-       if($sql->fetch()){
-           $_SESSION['nric'] = $nric;
-           $_SESSION['firstname'] = $fname;
-           $_SESSION['lastname'] = $lname;
-           $_SESSION['email'] = $email;
-           echo "Login Successful";
-       } else {
-           echo 'Invalid user or wrong password';
-       } 
-    } else {
-           echo 'Invalid user or wrong password';
-       }
+// function authenticate($nric, $enteredpassword) {
+//    $link = db();
+//    if(empty($nric) || empty($enteredpassword)){
+//        die("Username or password is empty!");
+//    }
+//    $passwordquery = $link->prepare("SELECT PatPassword FROM Patient WHERE PatNRIC='$nric'");
+//    $passwordquery->execute();
+//    $passwordquery->bind_result($encryptedpassword);
+//    if($passwordquery->fetch());
+//    if(password_verify($enteredpassword, $encryptedpassword)){
+//        $passwordquery->close();
+//        $sql = $link->prepare("SELECT PatNRIC, PatFirstName, PatLastName, PatEmail FROM Patient WHERE PatNRIC='$nric'");
+//        $sql->execute();
+//        $sql->bind_result($nric,$fname,$lname,$email);
+//        if($sql->fetch()){
+//            $_SESSION['nric'] = $nric;
+//            $_SESSION['firstname'] = $fname;
+//            $_SESSION['lastname'] = $lname;
+//            $_SESSION['email'] = $email;
+//            echo "Login Successful";
+//        } else {
+//            echo 'Invalid user or wrong password';
+//        } 
+//     } else {
+//            echo 'Invalid user or wrong password';
+//        }
 
-   }
+//    }
 
 
 
-// username and password grab from form by post operation
-if (isset($_POST['NRIC'])) {
-    if (check_NRIC($_POST['NRIC'])) {
-        $NRIC = $_POST["NRIC"];
-        if (isset($_POST[password])) {
-            if (check_password($_POST['password'])) {
-                $password = $_POST["password"];
-                authenticate($NRIC, $password);
-            }
-        }
-    }
-}
-?>
+// // username and password grab from form by post operation
+// if (isset($_POST['NRIC'])) {
+//     if (check_NRIC($_POST['NRIC'])) {
+//         $NRIC = $_POST["NRIC"];
+//         if (isset($_POST[password])) {
+//             if (check_password($_POST['password'])) {
+//                 $password = $_POST["password"];
+//                 authenticate($NRIC, $password);
+//             }
+//         }
+//     }
+// }
+?> 
