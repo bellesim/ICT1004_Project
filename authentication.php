@@ -1,6 +1,8 @@
  <?php
 include 'dbFunctions.php';
 
+$link = db();
+
 // checks input for malicious or unwanted content
 function sanitize_input($data){
     $data = trim($data);
@@ -84,7 +86,7 @@ function check_allergies($input){
 }
 
 function authenticate($nric, $enteredpassword) {
-   $link = db();
+//    $link = db();
    if(empty($nric) || empty($enteredpassword)){
        die("Username or password is empty!");
    }
@@ -112,35 +114,36 @@ function authenticate($nric, $enteredpassword) {
 
    }
 
-   function changePassword($nric, $oldpassword, $newpassword) { 
-    $link = db();
-    if (empty($newpassword) || empty($oldpassword)) {
-        die("passwords are empty!");
-    }
-    $passwordquery = $link->prepare("SELECT PatPassword from Patient WHERE PatNRIC=?");
-    $passwordquery->bind_param("s", $_SESSION['NRIC']);  
-    $passwordquery->execute();
-    $passwordquery->bind_result($encryptedpassword);
-    $passwordquery->fetch();
-    $passwordquery->close();
-    if (password_verify($oldpassword, $encryptedpassword)) {
-        if (check_password($newpassword)) {
-            $password = password_hash($newpassword, PASSWORD_BCRYPT);
-            $sql = $link->prepare("UPDATE Patient set PatPassword=? WHERE PatNRIC=?");
-            $sql->bind_param('ss', $password, $$_SESSION['NRIC']);
-            if ($sql->execute()){
-                $_SESSION['passwordchange'] = 'Password Successfully Changed';
-                header('Location:profile.php'); //route to main page.
-            } else {
-                $_SESSION['passwordchange'] = 'Password Change Unsuccessful';
-            }
-        } else {
-            echo "invalid new password";
-        }
-    } else {
-        echo "Wrong Old password";
-    }
-}
+//    function changePassword($nric, $oldpassword, $newpassword) { 
+//     if (empty($newpassword) || empty($oldpassword)) {
+//         die("passwords are empty!");
+//     }
+//     $passwordquery = $link->prepare("SELECT PatPassword from Patient WHERE PatNRIC=?");
+//     $passwordquery->bind_param("s", $_SESSION['NRIC']);  
+//     $passwordquery->execute();
+//     $passwordquery->bind_result($encryptedpassword);
+//     $passwordquery->fetch();
+//     $passwordquery->close();
+//     if (password_verify($oldpassword, $encryptedpassword)) {
+//         if (check_password($newpassword)) {
+//             $password = password_hash($newpassword, PASSWORD_BCRYPT);
+//             $sql = $link->prepare("UPDATE Patient set PatPassword=? WHERE PatNRIC=?");
+//             $sql->bind_param('ss', $password, $_SESSION['NRIC']);
+//             if ($sql->execute()){
+//                 $sql->close();
+//                 $_SESSION['passwordchange'] = 'Password Successfully Changed';
+//                 header('Location:profile.php'); //route to main page.
+//             } else {
+//                 $_SESSION['passwordchange'] = 'Password Change Unsuccessful';
+//             }
+//         } else {
+//             echo "invalid new password";
+//         }
+//     } else {
+//         echo "Wrong Old password";
+//     }
+//     $link->close();
+// }
 
 
 

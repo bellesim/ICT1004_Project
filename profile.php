@@ -1,7 +1,6 @@
 <?php 
 $msg = "Please log in first.";
 include 'profile_process.php';
-
 $_SESSION['NRIC'] = "S8512067J";
 ?>
 
@@ -67,7 +66,7 @@ $_SESSION['NRIC'] = "S8512067J";
     </div><br>
     <form action="profile_edit.php">
     <button class="uk-button" type="submit">Edit Profile</button></form>
-    <form action="changePassword.php">
+      <form action="changePassword.php">
     <button class="uk-button" type="submit">Change Password</button>
 </form>
 
