@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html>
     <head>
         <meta charset="UTF-8">
@@ -18,9 +17,6 @@
 
     </head>
     
-    <header>
-        
-    </header>
     
     <body>
     <div class="detailsContainer m-0 h-full  ml-24 uk-width-1-2@m" >
@@ -50,7 +46,7 @@
     <input class="uk-input" type="text" placeholder="Enter Height" name="height" >     
     </div>
     <div class="uk-width-1-4@s">
-    <p>Height</p>
+    <p>Weight</p>
     <input class="uk-input" type="text" placeholder="Enter Weight" name="weight" > 
     </div>
     <div class="uk-width-1-4@s">
@@ -58,7 +54,8 @@
     <input class="uk-input" type="text" placeholder="Enter Allergies" name="allergies" required>
     </div>
     </div><br>
-    <button type="submit" class="uk-button">Edit Profile</button>
+    <button type="submit" class="uk-button">Update Details</button>
+    </div>
     </form>
 </div>  
 

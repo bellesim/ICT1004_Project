@@ -27,14 +27,17 @@ $_SESSION['NRIC'] = "S8512067J";
 </head>
 <body>
 <?php include "nav.inc.php";?> 
-<div class="profileContainer mt-16 ">
-<h2 id="myAccount" class="text-black text-4xl font-bold  ml-24 mb-4">Your Account</h2>   
-<div class="detailsContainer m-0 h-full bg-gray-100">
-    <div class="uk-card uk-card-default uk-card-body uk-width-1-2@m ">
+<div class="profileContainer mt-16  ml-24 ">
+<h2 id="myAccount" class="text-black text-4xl font-bold  mb-4">Your Account</h2>   
+<h1 class="uk-heading-divider"></h1>
+
+<div class="detailsContainer m-0 h-full  ">
+    <div class="uk-width-1-2@m ">
     <h3 class="uk-card-title font-bold">Account Details</h3><br>
     <div class="uk-grid-small" uk-grid>
     <div class="uk-width-1-1">
     <p>What's your first name?</p>
+    <label><?php echo $fname ?><label>
     <input class="uk-input" type="text" value="<?php echo $fname ?>" readonly>    
     </div>
     <div class="uk-width-1-1">
@@ -54,8 +57,8 @@ $_SESSION['NRIC'] = "S8512067J";
     <input class="uk-input" type="text" value="<?php echo $height ?>"readonly>       
     </div>
     <div class="uk-width-1-4@s">
-    <p>Height</p>
-    <input class="uk-input" type="text" value="<?php echo $height ?>"readonly>    
+    <p>Weight</p>
+    <input class="uk-input" type="text" value="<?php echo $weight ?>"readonly>    
     </div>
     <div class="uk-width-1-4@s">
     <p>Allergies</p>
@@ -63,11 +66,15 @@ $_SESSION['NRIC'] = "S8512067J";
     </div>
     </div><br>
     <form action="profile_edit.php">
-    <button class="uk-button" type="submit">Edit Profile</button>
+    <button class="uk-button" type="submit">Edit Profile</button></form>
+    <form action="changePassword.php">
+    <button class="uk-button" type="submit">Change Password</button>
+</form>
+
     </div>
 </div>
 </div>
-    <!-- <?php include "footer.inc.php"; ?> -->
+    <?php include "footer.inc.php"; ?>
 
 </body>
 </html>

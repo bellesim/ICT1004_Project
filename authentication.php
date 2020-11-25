@@ -1,6 +1,4 @@
  <?php
-session_start();
-// session_regenerate_id();
 include 'dbFunctions.php';
 
 // checks input for malicious or unwanted content
@@ -63,39 +61,11 @@ function check_contact($input) {
         return true;
     }
 }
-<<<<<<< HEAD
-// function authenticate($nric, $enteredpassword) {
-//    $link = db();
-//    if(empty($nric) || empty($enteredpassword)){
-//        die("Username or password is empty!");
-//    }
-//    $passwordquery = $link->prepare("SELECT PatPassword FROM Patient WHERE PatNRIC='$nric'");
-//    $passwordquery->execute();
-//    $passwordquery->bind_result($encryptedpassword);
-//    if($passwordquery->fetch());
-//    if(password_verify($enteredpassword, $encryptedpassword)){
-//        $passwordquery->close();
-//        $sql = $link->prepare("SELECT PatNRIC, PatFirstName, PatLastName, PatEmail FROM Patient WHERE PatNRIC='$nric'");
-//        $sql->execute();
-//        $sql->bind_result($nric,$fname,$lname,$email);
-//        if($sql->fetch()){
-//            $_SESSION['nric'] = $nric;
-//            $_SESSION['firstname'] = $fname;
-//            $_SESSION['lastname'] = $lname;
-//            $_SESSION['email'] = $email;
-//            echo "Login Successful";
-//        } else {
-//            echo 'Invalid user or wrong password';
-//        } 
-//     } else {
-//            echo 'Invalid user or wrong password';
-//        }
-=======
 
 // validate weight or height
 // condition: do not contain space only (e.g. "     ")
 //          : must be integer or double (for double, only 1 decimal point is allowed)
-function check_double_format($input){
+function check_double_format($input) {
     if((strlen(str_replace(' ', '', $input)) == 0)||(!preg_match('/^[0-9]+(\.[0-9]{1})?$/', $input))){
         return false;
     }else{
@@ -108,7 +78,7 @@ function check_double_format($input){
 function check_allergies($input){
     if(strlen(str_replace(' ', '', $input)) == 0){
         return false;
-    }else{
+    } else{
         return true;
     }
 }
@@ -139,27 +109,41 @@ function authenticate($nric, $enteredpassword) {
     } else {
            echo 'Invalid user or wrong password';
        }
->>>>>>> afc497254ae543da47426664a2db8f3f26eb3008
 
-//    }
+   }
+
+   function changePassword($nric, $oldpassword, $newpassword) { 
+    $link = db();
+    if (empty($newpassword) || empty($oldpassword)) {
+        die("passwords are empty!");
+    }
+    $passwordquery = $link->prepare("SELECT PatPassword from Patient WHERE PatNRIC=?");
+    $passwordquery->bind_param("s", $_SESSION['NRIC']);  
+    $passwordquery->execute();
+    $passwordquery->bind_result($encryptedpassword);
+    $passwordquery->fetch();
+    $passwordquery->close();
+    if (password_verify($oldpassword, $encryptedpassword)) {
+        if (check_password($newpassword)) {
+            $password = password_hash($newpassword, PASSWORD_BCRYPT);
+            $sql = $link->prepare("UPDATE Patient set PatPassword=? WHERE PatNRIC=?");
+            $sql->bind_param('ss', $password, $$_SESSION['NRIC']);
+            if ($sql->execute()){
+                $_SESSION['passwordchange'] = 'Password Successfully Changed';
+                header('Location:profile.php'); //route to main page.
+            } else {
+                $_SESSION['passwordchange'] = 'Password Change Unsuccessful';
+            }
+        } else {
+            echo "invalid new password";
+        }
+    } else {
+        echo "Wrong Old password";
+    }
+}
 
 
 
-<<<<<<< HEAD
-// // username and password grab from form by post operation
-// if (isset($_POST['NRIC'])) {
-//     if (check_NRIC($_POST['NRIC'])) {
-//         $NRIC = $_POST["NRIC"];
-//         if (isset($_POST[password])) {
-//             if (check_password($_POST['password'])) {
-//                 $password = $_POST["password"];
-//                 authenticate($NRIC, $password);
-//             }
-//         }
-//     }
-// }
-?> 
-=======
 // username and password grab from form by post operation
 if (isset($_POST['NRIC'])) {
     if (check_NRIC($_POST['NRIC'])) {
@@ -173,4 +157,3 @@ if (isset($_POST['NRIC'])) {
     }
 }
 ?>
->>>>>>> afc497254ae543da47426664a2db8f3f26eb3008
