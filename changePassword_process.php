@@ -1,6 +1,7 @@
 <?php
 session_start();
 include 'dbFunctions.php';
+
 if (!isset($_SESSION['NRIC'])) {
     header("Location: error.php");
 }
@@ -66,6 +67,20 @@ $pwd = $cfmPwd = "";
 $oldpwd="";
 $success = true;
 
+
+?>
+    </head>
+
+    <body>
+        <?php
+        include "nav.inc.php";
+        ?>
+        <main class="container">
+                    <?php
+                    updatePassword();
+
+
+
 if($_SERVER["REQUEST_METHOD"] == "POST") {
     //Old password 
     if(empty($_POST['oldPassword'])) {
@@ -74,7 +89,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
     } else {
         //cannot take db pw parameter
         if(password_verify($_POST['oldPassword'], $password)){
-            $old_pw = sanitize_input($_POST["oldPassword"]);
+            $old_pw = $_POST["oldPassword"];
+            $success = true;
         }
     }
 
@@ -85,10 +101,12 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
     } else {
         if(strlen($_POST['newPassword'])<8) {
             $pwdErr= "\n* Please enter the password with at least 8 characters";
+            $success = false;
+
         }
 
         else {
-            $new_pw = sanitize_input($_POST['newPassword']);
+            $new_pw = $_POST['newPassword'];
         }
     }
 
@@ -99,9 +117,11 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
     } else {
         if (($_POST["newPassword"]) != ($_POST["confirmPassword"])) {
             $cfmPwdErr = "\n* Your passwords do not match";
+            $success = false;
+
 
 		} else {
-			$cfmPwd = sanitize_input($_POST["confirmPassword"]);
+			$cfmPwd = $_POST["confirmPassword"];
     }
 }
 }
@@ -111,16 +131,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
         $data = htmlspecialchars($data);
         return($data);
     }
-    ?>
-    </head>
-
-    <body>
-        <?php
-        include "nav.inc.php";
-        ?>
-        <main class="container">
-                    <?php
-                    updatePassword();
                       if ($success) {
                       $_SESSION['NRIC'] = $nric;
                     //   echo "<h1>Profile Updated</h1>";
