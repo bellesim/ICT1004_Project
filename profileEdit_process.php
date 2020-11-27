@@ -19,6 +19,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
         $validate_fname = check_fullname($fname);
         if(!$validate_fname){
             $success = false;
+            $errorMsg.= "First name is required.<br>";
+
         }
     }
 
@@ -31,6 +33,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
         $validate_lname = check_fullname($lname);
         if(!$validate_lname){
             $success = false;
+            $errorMsg.= "Last name is required.<br>";
+
         }
     }
 
@@ -43,6 +47,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
         $validate_email = check_email($email);
         if(!$validate_email){
             $success = false;
+            $errorMsg.= "Email is required.<br>";
+
         }
     }
 
@@ -55,6 +61,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
         $validate_mobile = check_contact($mobile);
         if(!$validate_mobile){
             $success = false;
+            $errorMsg.= "Mobile is required.<br>";
+
         }
     }
 
@@ -67,6 +75,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
         $validate_height = check_double_format($height);
         if(!$validate_height){
             $success = false;
+            $errorMsg.= "Height is required.<br>";
+
         }
     }
 
@@ -79,18 +89,21 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
         $validate_weight = check_double_format($weight);
         if(!$validate_weight){
             $success = false;
+            $errorMsg.= "Weight is required.<br>";
+
         }
     }
 
      //Weight
      if(empty($_POST['allergies'])) {
-        $errorMsg.= "Weight is required.<br>";
+        $errorMsg.= "Allergies is required.<br>";
         $success = false;
     } else {
         $allergies = sanitize_input($_POST['allergies']);
-        $validate_allergies = check_double_format($allergies);
         if(!$validate_allergies){
             $success = false;
+            $errorMsg.= "Allergies is required.<br>";
+
         }
     }
 }
