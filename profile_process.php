@@ -1,6 +1,6 @@
 <?php 
 session_start();
-// include 'dbFunctions.php';
+include 'dbFunctions.php';
 include 'authentication.php';
 
 if (!isset($_SESSION['NRIC'])) {
