@@ -82,4 +82,21 @@ function check_allergies($input){
     }
 }
 
+function check_appt_time($input){
+    if (!preg_match("/^\d{4}$/",$input)) {
+        return false;
+    } else {
+        return true;
+    }
+}
+
+function check_appt_date($input){
+    if (!preg_match("/^([0-9]{4}|[0-9]{2})-([0]?[1-9]|[1][0-2])-([0]?[1-9]|[1|2][0-9]|[3][0|1])$/",$input)) {
+        return false;
+    } else {
+        return true;
+    }
+}
+
+
 ?>

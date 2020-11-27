@@ -14,6 +14,7 @@
     <?php
         include "nav.inc.php";
         include "authentication.php";
+        include "dbFunctions.php";
         $lname = $fname = $email = $pwd_hashed = $errorMsg = "";
         $success = $validate_nric_fin = $db_success = true;
         $empty_field = false;
@@ -32,10 +33,7 @@
         function authenticateUser(){     
             global $fname, $lname, $nric_fin, $pwd_hashed, $errorMsg, $db_success;    
             
-            // create database connection  
-            $config = parse_ini_file('../../private/db-config.ini');    
-            $conn = new mysqli($config['servername'], $config['username'], $config['password'], $config['dbname']);    
-            
+            $conn = db();
             // check connection    
             if ($conn->connect_error){        
                 $errorMsg = "Connection failed: " . $conn->connect_error;        
@@ -105,9 +103,7 @@
                     <p class="mt-8">Please try again.</p>
                     <button class="loginformbutton font-semibold"><a href="login.php">Back to Login</a></button>
                 </div>
-    
-               
-                
+
                 <?php
                 }
         } else {

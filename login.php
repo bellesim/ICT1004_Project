@@ -77,7 +77,7 @@ session_start();
                     </div>
                     <div class="uk-margin">
                         <label class="uk-form-label text-purple-800 font-semibold" for="pwd">Password*</label>
-                        <button class="pwdrequirement" type="button" uk-toggle="target: #modal-close-default">Click to view requirement</button>
+                        <button class="pwdrequirement" type="button" uk-toggle="target: #modal-pwd-requirement">Click to view requirement</button>
                         <div class="uk-form-controls">
                         <input class="uk-input uk-form-width-large placeholder-gray-700" type="password" id="pwd"
                             required name="pwd" placeholder="Enter password">
@@ -113,8 +113,8 @@ session_start();
                     </div>
                     
 
-                    <!-- This is the modal with the default close button -->
-                    <div id="modal-close-default" uk-modal>
+                    <!-- pop up model for password requirement -->
+                    <div id="modal-pwd-requirement" uk-modal>
                         <div class="uk-modal-dialog uk-modal-body uk-margin-auto-vertical">
                             <button class="uk-modal-close-default" type="button" uk-close></button>
                             <h1 class="text-purple-800 font-semibold">Password Requirements</h1><br>

@@ -13,7 +13,7 @@
                 ?>
             
             <a href="profile.php">My Profile</a>
-            <a href="appt_booked.php">My Appointment</a>
+            <a href="appt.php">My Appointment</a>
             
             <!-- display username and logout button -->
             <div class="flex flex-row-reverse">
