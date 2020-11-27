@@ -1,7 +1,4 @@
- <?php
-include 'dbFunctions.php';
-
-$link = db();
+<?php
 
 // checks input for malicious or unwanted content
 function sanitize_input($data){
@@ -35,20 +32,54 @@ function check_password($input) {
     }
 }
 
-
-
-
-
-// username and password grab from form by post operation
-if (isset($_POST['NRIC'])) {
-    if (check_NRIC($_POST['NRIC'])) {
-        $NRIC = $_POST["NRIC"];
-        if (isset($_POST[password])) {
-            if (check_password($_POST['password'])) {
-                $password = $_POST["password"];
-                authenticate($NRIC, $password);
-            }
-        }
+// validate NRIC/FIN
+// condition: is in correct format start with S/T/F/G, follow by 7 digits and end with an alphabet
+function check_NRIC($input) {
+    if (!preg_match("/^[STFG]\d{7}[A-Z]$/", $input)) {
+        return false;
+    } else {
+        return true;
     }
 }
+
+// validate email with filter_var function (to double confirm)
+function check_email($input) {
+    if (!filter_var($input, FILTER_VALIDATE_EMAIL)) {
+        return false;
+    } else {
+        return true;
+    }
+}
+
+// validate contact number
+// condition: 8 digits only and the 1st digit must be 6/8/9
+function check_contact($input) {
+    if (!preg_match("/^(6|8|9)\d{7}$/",$input)) {
+        return false;
+    } else {
+        return true;
+    }
+}
+
+// validate weight or height
+// condition: do not contain space only (e.g. "     ")
+//          : must be integer or double (for double, only 1 decimal point is allowed)
+function check_double_format($input){
+    if((strlen(str_replace(' ', '', $input)) == 0)||(!preg_match('/^[0-9]+(\.[0-9]{1})?$/', $input))){
+        return false;
+    }else{
+        return true;
+    }
+}
+
+// validate allergies
+// condition: do not contain space only (e.g. "     ")
+function check_allergies($input){
+    if(strlen(str_replace(' ', '', $input)) == 0){
+        return false;
+    }else{
+        return true;
+    }
+}
+
 ?>

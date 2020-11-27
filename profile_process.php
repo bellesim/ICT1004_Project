@@ -1,6 +1,8 @@
 <?php 
 session_start();
-include 'dbFunctions.php';
+// include 'dbFunctions.php';
+include 'authentication.php';
+
 if (!isset($_SESSION['NRIC'])) {
     header("Location: error.php");
 }
@@ -14,6 +16,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 
 function showProfile() {
     global $nric, $fname, $lname, $email, $mobile, $height, $weight, $allergies, $errorMsg, $success;
+
     $link = db();
     // check connection    
     if ($link->connect_error){        
@@ -41,6 +44,7 @@ function showProfile() {
     }    
     $link->close();
 }
+
 ?>
 
 <html lang="en">

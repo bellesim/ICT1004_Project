@@ -1,6 +1,7 @@
 <?php 
 $msg = "Please log in first.";
 include 'profile_process.php';
+// include 'authentication.php';
 $_SESSION['NRIC'] = "S8512067J";
 ?>
 

@@ -1,6 +1,7 @@
 <?php
 session_start();
 include 'dbFunctions.php';
+include 'authentication.php';
 if (!isset($_SESSION['NRIC'])) {
     header("Location: error.php");
 }
@@ -15,52 +16,83 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
         $sucess = false;
     } else {
         $fname = sanitize_input($_POST['firstname']);
+        $validate_fname = check_fullname($fname);
+        if(!$validate_fname){
+            $success = false;
+        }
     }
 
     //Last Name
-     $lname = sanitize_input($_POST['lastname']);
-    
+     if(empty($_POST['lastname'])) {
+        $errorMsg.= "Last name is required.<br>";
+        $sucess = false;
+    } else {
+        $lname = sanitize_input($_POST['lastname']);
+        $validate_lname = check_fullname($lname);
+        if(!$validate_lname){
+            $success = false;
+        }
+    }
 
     //Email
     if(empty($_POST['email'])) {
         $errorMsg.= "Email is required.<br>";
-        $sucess = false;
+        $success = false;
     } else {
         $email = sanitize_input($_POST['email']);
-    }
-
-     //Password
-     if(empty($_POST['password'])) {
-        $errorMsg.= "Password is required.<br>";
-        $sucess = false;
-    } else {
-        $pwd_hashed = sanitize_input($_POST['password']);
+        $validate_email = check_email($email);
+        if(!$validate_email){
+            $success = false;
+        }
     }
 
     //Mobile
     if(empty($_POST['mobile'])) {
         $errorMsg.= "Mobile is required.<br>";
-        $sucess = false;
+        $success = false;
     } else {
         $mobile = sanitize_input($_POST['mobile']);
+        $validate_mobile = check_contact($mobile);
+        if(!$validate_mobile){
+            $success = false;
+        }
     }
 
     //Height
-    $height = sanitize_input($_POST['height']);
+    if(empty($_POST['height'])) {
+        $errorMsg.= "Height is required.<br>";
+        $success = false;
+    } else {
+        $height = sanitize_input($_POST['height']);
+        $validate_height = check_double_format($height);
+        if(!$validate_height){
+            $success = false;
+        }
+    }
 
-    
-    //Height
-    $weight = sanitize_input($_POST['weight']);
-      
-    //Height
-    $allergies = sanitize_input($_POST['allergies']);
+     //Weight
+     if(empty($_POST['weight'])) {
+        $errorMsg.= "Weight is required.<br>";
+        $success = false;
+    } else {
+        $weight = sanitize_input($_POST['weight']);
+        $validate_weight = check_double_format($weight);
+        if(!$validate_weight){
+            $success = false;
+        }
+    }
 
-}
-function sanitize_input($data) {
-    $data = trim($data);
-    $data = stripslashes($data);
-    $data = htmlspecialchars($data);
-    return($data);
+     //Weight
+     if(empty($_POST['allergies'])) {
+        $errorMsg.= "Weight is required.<br>";
+        $success = false;
+    } else {
+        $allergies = sanitize_input($_POST['allergies']);
+        $validate_allergies = check_double_format($allergies);
+        if(!$validate_allergies){
+            $success = false;
+        }
+    }
 }
 
 
@@ -73,6 +105,7 @@ function updateUserInfo() {
         $db_success = false;    
         
     } else {
+        //Mock NRIC 
         $tempnric=$_SESSION['NRIC'];    
         $stmt = $link->prepare("SELECT * FROM Patient WHERE PatNRIC=?");  
         $stmt->bind_param("s",$tempnric);  
@@ -102,6 +135,7 @@ function updateUserInfo() {
     }
     $link->close();
 }
+
 ?>
 <html>
     <head>
@@ -129,13 +163,12 @@ function updateUserInfo() {
                     updateUserInfo();
                       if ($success) {
                       $_SESSION['NRIC'] = $nric;
-                    //   echo "<h1>Profile Updated</h1>";
-                    //   echo "<p>Your profile has been successfully updated!</p>";
-                    //   echo "User account with username " . $_SESSION['NRIC'] . " successfully updated!";
-                    //   echo "<div class='error-actions'>
-                    //   <a href='index.php' class='btn btn-primary btn-lg'><span class='glyphicon glyphicon-home'></span>
-                    //   Return to Home </a>
-                    //   </div>";
+                      echo "<h1>Profile Updated</h1>";
+                      echo "<p>Your profile has been successfully updated!</p>";
+                      echo "User account with username " . $_SESSION['NRIC'] . " successfully updated!";
+                      echo "<div class='error-actions'>
+                      <a href='index.php'>Return to Home </a>
+                      </div>";
                     echo "
                     <div id='modal-example' uk-modal>
                     <div class='uk-modal-dialog uk-modal-body'>
@@ -147,8 +180,7 @@ function updateUserInfo() {
                       echo "<h1>Unable to Update Profile</h1>";
                       echo "Reason: " . $errorMsg;
                       echo "<div class='error-actions'>
-                      <a href='userprofile.php' class='btn btn-primary btn-lg'><span class='glyphicon glyphicon-home'></span>
-                      Return to User Profile </a>
+                      <a href='profile_edit.php'>Return to Profile </a>
                       </div>";
                       } 
                     ?>
