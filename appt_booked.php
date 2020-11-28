@@ -91,8 +91,9 @@
                 $ApptStartTime = str_replace(':', '', $ApptStartTime);
                 
                 $stmt = $conn->prepare("
-                    SELECT * FROM `clinic`.`Patient` WHERE `PatNRIC` = '$NRIC';");
+                    SELECT * FROM `clinic`.`Patient` WHERE `PatNRIC` = ?;");
                 // Bind & execute the query statement:
+                $stmt->bind_param("s", $NRIC);
                 if (!$stmt->execute()){
                     $errorMsg = "Execute failed: (" . $stmt->errno . ") " . $stmt->error;
                     $success = false;
@@ -110,8 +111,9 @@
 
                 $stmt = $conn->prepare("
                     SELECT * FROM `clinic`.`Appointment` 
-                    WHERE `ApptDate` = $ApptDate AND `ApptStartTime` = $ApptStartTime AND `PatID` = $PatID AND `DocID` = $DocID AND `ClinicID` = $ClinicID ;");
+                    WHERE `ApptDate` = ? AND `ApptStartTime` = ? AND `PatID` = ? AND `DocID` = ? AND `ClinicID` = ? ;");
                 // Bind & execute the query statement:
+                $stmt->bind_param("ssiii", $ApptDate, $ApptStartTime, $PatID, $DocID, $ClinicID);
                 if (!$stmt->execute()){
                     $errorMsg = "Execute failed: (" . $stmt->errno . ") " . $stmt->error;
                     $success = false;
