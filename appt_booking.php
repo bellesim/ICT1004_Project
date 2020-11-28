@@ -12,7 +12,6 @@
         <script src="js/uikit-icons.min.js"></script>
         <script src="js/components/autocomplete.js"></script>
     </head>
-
         <header>
         </header>
 
@@ -22,13 +21,17 @@
         <?php
             $currentdate = new DateTime();
             $currentdate = $currentdate->setTimezone(new DateTimeZone('Asia/Singapore'));
+            $interval = new DateInterval('P1D');
+            $currentdate->add($interval);
             $currentdate = $currentdate->format('yy-m-d');
         ?>
         
         <form action="appt_booked.php" method="post" class="form-control">
                 <div class="form-group">
                     <label>Appointment Date</label>
-                    <input type="date" name="ApptDate" class="form-control" min="<?php echo $currentdate;?>">
+                    
+                    
+                    <input type="date" name="ApptDate" class="form-control" required min="<?php echo $currentdate;?>">
                 </div>
 
                 <div class="form-group">

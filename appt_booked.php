@@ -16,45 +16,58 @@
     <body>
         
     <?php
-    function sanitizeinput(){
-        
+    
+    function sanitize_input($data)
+    {
+        $data = trim($data);
+        $data = stripslashes($data);
+        $data = htmlspecialchars($data);
+        return $data;
     }
     
-    $PatID = 1;
+    $NRIC = "S1234567A";
+    
     $ClinicID = 1;
     
     if(isset($_POST['submit'])) {
-        global $PatID, $ApptSubmitTime, $ApptDate, $ApptStartTime, $ApptDuration, $errorMsg, $DocID, $ClinicID, $success;
+        global $PatID, $ApptSubmitTime, $ApptDate, $ApptStartTime, $ApptDuration, $errorMsg, $DocID, $ClinicID, $success, $NRIC;
         $success = true;
         if (empty($_POST["ApptDate"]))
             {
                 $errorMsg .= "You must choose a date for your appointment.<br>";
                 $success = false;
-                echo $errorMsg;
             }
             
         if (empty($_POST["ApptStartTime"]))
             {
                 $errorMsg .= "You must choose a time for your appointment.<br>";
                 $success = false;
-                echo $errorMsg;
             }
+            
+        else{
+            $ApptStartTime = $_POST['ApptStartTime'];
+            $ApptStartTime = sanitize_input($ApptStartTime);
+            if (strlen($ApptStartTime == 4)){
+                $errorMsg .= "Error with time chosen.<br>";
+                $success = false;
+            }
+        }
             
         if (empty($_POST["ApptType"]))
             {
                 $ApptType = "General"; //Default if the patient does not know what appointment they need
             }else{
-                $ApptType = '"'.$_POST['ApptType'].'"';
+                $ApptType = $_POST['ApptType'];
+                $ApptType = sanitize_input($ApptType);
+                $ApptType = '"'.$ApptType.'"';
+                
             }
             
         if (empty($_POST["DocID"]))
             {
                 $errorMsg .= "You must choose a doctor for your appointment.<br>";
                 $success = false;
-                echo $errorMsg;
             }
-        
-            
         
         $currentdatetime = new DateTime();
         $currentdatetime = $currentdatetime->setTimezone(new DateTimeZone('Asia/Singapore'));
@@ -64,55 +77,76 @@
         // Create database connection.
         
         if ($success){
-        $config = parse_ini_file('../../private/db-config.ini');
-        $conn = new mysqli($config['servername'], $config['username'],$config['password'], $config['dbname']);
-        // Check connection
-        if ($conn->connect_error) {
-            $errorMsg = "Connection failed: " . $conn->connect_error;
-            $success = false;
-        } else {
-            $currentdatetime = '"'.$currentdatetime.'"';
-            $ApptDate = '"'.$_POST['ApptDate'].'"';
-            $ApptStartTime = $_POST['ApptStartTime'];
-            $DocID = $_POST['DocID'];
-            $ClinicID = 1;
-            $ApptStartTime = str_replace(':', '', $ApptStartTime);
-
-            
-            $stmt = $conn->prepare("
-                SELECT * FROM `clinic`.`Appointment` 
-                WHERE `ApptDate` = $ApptDate AND `ApptStartTime` = $ApptStartTime AND `PatID` = $PatID AND `DocID` = $DocID AND `ClinicID` = $ClinicID ;");
-            // Bind & execute the query statement:
-            if (!$stmt->execute()){
-                $errorMsg = "Execute failed: (" . $stmt->errno . ") " . $stmt->error;
+            $config = parse_ini_file('../../private/db-config.ini');
+            $conn = new mysqli($config['servername'], $config['username'],$config['password'], $config['dbname']);
+            // Check connection
+            if ($conn->connect_error) {
+                $errorMsg = "Connection failed: " . $conn->connect_error;
                 $success = false;
-            };
-            $result = $stmt->get_result();
+            } else {
+                $currentdatetime = $currentdatetime;
+                $ApptDate = $_POST['ApptDate'];
+                $DocID = $_POST['DocID'];
+                $ClinicID = 1;
+                $ApptStartTime = str_replace(':', '', $ApptStartTime);
+                
+                $stmt = $conn->prepare("
+                    SELECT * FROM `clinic`.`Patient` WHERE `PatNRIC` = '$NRIC';");
+                // Bind & execute the query statement:
+                if (!$stmt->execute()){
+                    $errorMsg = "Execute failed: (" . $stmt->errno . ") " . $stmt->error;
+                    $success = false;
+                };
+                $result = $stmt->get_result();
+                $row = $result->fetch_assoc(); 
+                if ($result->num_rows > 0) {
+                    $PatID = $row["PatID"];
+                }
+                else{
+                    $errorMsg = "Your patient ID was not found, please contact your administrator";
+                }
+                $stmt->close();
+                
 
-            
-            if ($result->num_rows > 0) {
-                echo "Sorry, there is already an appointment booked at this timeslot, please choose a different timeslot";
-                //Do not insert 2 appointments at the same time.
-            }else{
-            $stmt->close();
+                $stmt = $conn->prepare("
+                    SELECT * FROM `clinic`.`Appointment` 
+                    WHERE `ApptDate` = $ApptDate AND `ApptStartTime` = $ApptStartTime AND `PatID` = $PatID AND `DocID` = $DocID AND `ClinicID` = $ClinicID ;");
+                // Bind & execute the query statement:
+                if (!$stmt->execute()){
+                    $errorMsg = "Execute failed: (" . $stmt->errno . ") " . $stmt->error;
+                    $success = false;
+                };
+                $result = $stmt->get_result();
 
-            $stmt = $conn->prepare("
-                INSERT INTO `clinic`.`Appointment` (`ApptSubmitTime`, `ApptDate`, `ApptStartTime`, `ApptDuration`, `PatID`, `DocID`, `ClinicID`) 
-                VALUES ($currentdatetime, $ApptDate, $ApptStartTime, 60, $PatID, $DocID, $ClinicID);");
+                if ($result->num_rows > 0) {
+                    $stmt->close();
+                    $success = false;
+                    echo "Sorry, there is already an appointment booked at this timeslot, please choose a different timeslot";
+                    //Do not insert 2 appointments with the same details
+                } else{ //If no other appointments with the same details are found, INSERT to the database
+                $stmt->close();
 
-            if (!$stmt->execute()){
-                $errorMsg = "Execute failed: (" . $stmt->errno . ") " . $stmt->error;
-                echo $errorMsg;
-                $success = false;
-            };
-            
-            
-            $stmt->close();
-            
+                $stmt = $conn->prepare("
+                    INSERT INTO `clinic`.`Appointment` (`ApptSubmitTime`, `ApptDate`, `ApptStartTime`, `ApptDuration`, `PatID`, `DocID`, `ClinicID`) 
+                    VALUES (?, ?, ?, 60, ?, ?, ?);");
+
+                $stmt->bind_param("sssiii", $currentdatetime, $ApptDate, $ApptStartTime, $PatID, $DocID, $ClinicID);
+                if (!$stmt->execute()){
+                    $errorMsg = "Execute failed: (" . $stmt->errno . ") " . $stmt->error;
+                    echo $errorMsg;
+                    $success = false;
+                };
+
+
+                $stmt->close();
+
+                }
             }
-            }
 
-        $conn->close();
+            $conn->close();
+        }
+        else{
+            echo $errorMsg;
         }
     }
     
