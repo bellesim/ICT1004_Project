@@ -19,11 +19,36 @@
     
     <div class="container">
         <?php
+        global $ClinicName;
             $currentdate = new DateTime();
             $currentdate = $currentdate->setTimezone(new DateTimeZone('Asia/Singapore'));
             $interval = new DateInterval('P1D');
             $currentdate->add($interval);
             $currentdate = $currentdate->format('yy-m-d');
+            
+            $ClinicID = 1;
+            global $patid, $errorMsg, $success ;
+            // Create database connection.
+        
+            $config = parse_ini_file('../../private/db-config.ini');
+            $conn = new mysqli($config['servername'], $config['username'],$config['password'], $config['dbname']);
+            
+            $stmt = $conn->prepare("
+                SELECT ClinicName FROM clinic.Clinic WHERE ClinicID = ?");
+            $stmt->bind_param("i", $ClinicID);
+            // Bind & execute the query statement:
+            if (!$stmt->execute()){
+                $errorMsg = "Execute failed: " . $stmt->errno . " " . $stmt->error;
+                $success = false;
+            };
+            $result = $stmt->get_result();
+            $row = $result->fetch_assoc(); 
+            
+            $ClinicName = $row[ClinicName]; //Clinic name is found here. Use it as needed
+            echo "This clinic is $ClinicName";
+            
+            $stmt->close();
+            
         ?>
         
         <form action="appt_booked.php" method="post" class="form-control">
@@ -57,20 +82,16 @@
                     </br>
 
         <?php 
-        $ClinicID = 1;
-        global $patid, $errorMsg, $success ;
-        // Create database connection.
         
-        $config = parse_ini_file('../../private/db-config.ini');
-        $conn = new mysqli($config['servername'], $config['username'],$config['password'], $config['dbname']);
         // Check connection
         if ($conn->connect_error) {
             $errorMsg = "Connection failed: " . $conn->connect_error;
             $success = false;
         } else {
             $stmt = $conn->prepare("
-                SELECT * FROM clinic.Doctor WHERE ClinicID = $ClinicID");
+                SELECT * FROM clinic.Doctor WHERE ClinicID = ?");
             // Bind & execute the query statement:
+            $stmt->bind_param("i", $ClinicID);
             if (!$stmt->execute()){
                 $errorMsg = "Execute failed: " . $stmt->errno . " " . $stmt->error;
                 $success = false;
