@@ -1,0 +1,9 @@
+<?php
+    session_start();
+    unset($_SESSION["NRIC"]);
+    unset($_SESSION["username"]);
+    unset($_SESSION["last_activity"]);
+    unset($_SESSION["inactive_timeout"]);
+    session_destroy();
+    header("Location:index.php");
+?>

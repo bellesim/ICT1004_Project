@@ -1,27 +1,25 @@
 <!DOCTYPE html>
-
-<html>
-    <head>
-        <meta charset="UTF-8">
-        <link rel="stylesheet" href="css/main.css">
-        <title>Home</title>
-        <?php include "nav.inc.php"; ?>
-
-    </head>
+<?php
+    session_start();
+    if (isset($_SESSION["NRIC"])&&isset($_SESSION["username"])){
+    ?>
+    <html>
+        <head>
+            <?php include "head.inc.php"; ?>
+        </head>
+        <body>
+            <?php include "nav.inc.php"; ?>
+            <?php include "timeout.inc.php"; ?>
+            <div class="container">
+                <p>Enter your contents here for My Profile! :)</p>
+            </div>            
+            <?php include "footer.inc.php";  ?>
+        </body>
+    </html>
+    <?php
     
-    <header>
-        
-    </header>
-    
-    <body>
-
-        <div class="container">
-            <p>Enter your contents here for My Profile! :) </p>
-        </div>            
-            
-        
-        
-<?php include "footer.inc.php";  ?>
-
-    </body>
-</html>
+    }else{
+        // show 404 error page
+        include "404error.php";  
+    }
+?>
