@@ -31,14 +31,13 @@ session_start();
                                     <div class="card">
                                         <img src="images/vivaClinic.jpg" alt="viva" style="width:100%">
                                         <h3><b><?php echo $row['ClinicName']?></b></h3>
-                                        
                                         <p><?php echo $row['ClinicAddress']?></p>
                                         <p><?php echo $row['ClinicPostalCode']?></p>
                                         <p><?php echo $row['ClinicContactNo']?></p>
                                                                                 
                                         <form action="appt_booking.php" method="POST">
                                             <input type="hidden" id="ClinicID" name="ClinicID" value=" <?php echo $row["ClinicID"]; ?> " readonly>
-                                            <button onclick="window.location.href = 'appt_booking.php'" class="apptButton">Make appointment</button>
+                                            <button type="submit" class="apptButton">Make appointment</button>
                                         </form>
                                     </div>
                                 </div><?php
