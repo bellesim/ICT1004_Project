@@ -23,10 +23,10 @@
                 $success = false;
             } else {
                 if(!check_appt_time($_POST["new_appt_time"])){
-                    $errorMsg .= "&#10008;  The appointment time is not valid. <br>";
+                    $errorMsg .= "&#10008;  Invalid appointment time. <br>";
                     $success = false;
                 }else{
-                    $new_appt_time = $_POST["new_appt_time"];
+                    $new_appt_time = sanitize_input($_POST["new_appt_time"]);
                 }
                 
             }
@@ -35,14 +35,12 @@
                 $success = false;
             } else {
                 if(!check_appt_date($_POST["new_appt_date"])){
-                    $errorMsg .= "&#10008;  The appointment date is not valid. <br>";
+                    $errorMsg .= "&#10008;  Invalid appointment date. <br>";
                     $success = false;
                 }else{
-                    $new_appt_date = $_POST["new_appt_date"];
+                    $new_appt_date = sanitize_input($_POST["new_appt_date"]);
                 }
             }
-
-
 
             function retrieveDateChecker() {
                 global $errorMsg, $dbsuccess, $apptid, $new_appt_date, $new_appt_time, $clinicid;

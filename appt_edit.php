@@ -54,6 +54,8 @@
                             $date1 = date_create($date_created);
                             $date2 = date_create($row["ApptDate"]);
                             $diff = date_diff($date1, $date2);
+                            $dateThree=date_create();
+                            date_modify($dateThree,"+3 days");
 
                             if (($diff->format("%R%a")) > 3) {
                                 ?>
@@ -86,14 +88,15 @@
 
                                         <div class="uk-card uk-card-default uk-card-body">
                                             <label for="new_appt_date">Choose a new Date:</label>
-                                            <input class="uk-input uk-form-width-medium" type="text" id="datepicker" name="new_appt_date" pattern="\d{4}-\d{1,2}-\d{1,2}" placeholder="YYYY-MM-DD" required>
-                                        </div>    
+                                            <input class="uk-input uk-form-width-medium" type="date" id="new_appt_date"
+                                                   name="new_appt_date" min="<?PHP echo date_format($dateThree,"Y-m-d");?>" pattern="\d{1,2}/\d{1,2}/\d{4}" required>
+                                        </div> 
 
 
                                         <div class="uk-card uk-card-default uk-card-body">
                                             <label for="new_appt_time">Choose a new Time:</label>
                                             <select id="new_appt_time" name="new_appt_time" class="uk-select uk-form-width-medium" required>
-                                                <option value=""> </option>
+                                                <option value="0800">0800-0900</option>
                                                 <option value="0900">0900-1000</option>
                                                 <option value="1000">1000-1100</option>
                                                 <option value="1100">1100-1200</option>
