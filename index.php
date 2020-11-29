@@ -45,6 +45,7 @@ session_start();
         <!-- /TEXT -->
       </div>
     </div>
+    </div>
     <!-- /TOP -->
 		<section id="content" class="uk-section uk-section-default ">
 			<div class="uk-container ">

@@ -3,7 +3,7 @@
             if (isset($_SESSION["NRIC"])&&isset($_SESSION["username"])){
                 ?>
               <div class="uk-position-top">
-              			<div class="nav" data-uk-sticky="cls-active: uk-background-secondary uk-box-shadow-medium; top: 100vh; animation: uk-animation-slide-top">
+			<div class="nav" data-uk-sticky="cls-active: uk-background-secondary uk-box-shadow-medium; top: 100vh; animation: uk-animation-slide-top">
           <div class="uk-container uk-container-large">
             <nav class="uk-navbar-container uk-navbar-transparent" data-uk-navbar>
               <!-- <div class="uk-navbar-left">

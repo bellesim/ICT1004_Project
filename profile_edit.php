@@ -3,19 +3,85 @@
     session_start();
     if (isset($_SESSION["NRIC"])&&isset($_SESSION["username"])){
     ?>
-    <html>
-        <head>
-            <?php include "head.inc.php"; ?>
-        </head>
-        <body>
-            <?php include "nav.inc.php"; ?>
-            <?php include "timeout.inc.php"; ?>
-            <div class="container">
-                <p>Enter your contents here for Profile edit! :)</p>
-            </div>            
+  <?php
+session_start();
+ 
+?>
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Home</title>
+		<link rel="icon" href="img/favicon.ico">
+		<!-- CSS FILES -->
+        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/uikit@latest/dist/css/uikit.min.css">
+        <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="css/index.css">
+
+	</head>
+	<body>
+  <?php include "timeout.inc.php"; ?>
+        
+              <div class="uk-flex uk-flex-center uk-flex-middle uk-height-viewport uk-position-z-index uk-position-relative" data-uk-height-viewport="min-height: 400 mt-8">
+                    <!-- <img src="images/profile.png" class="h-full w-6/12 " > -->
+             <?php include "nav.inc.php"; ?>
+                <div class="uk-card uk-card-default uk-card-body uk-width-1-2@m mt-20 mb-20">
+                <h2 class="text-2xl font-semibold">Your Account</h2>
+                <p class="uk-heading-divider"><p>
+                 <form role="form" method="post" action="profileEdit_process.php">
+    <div class="uk-grid-small mt-8" uk-grid>
+    <div class="uk-width-1-1">
+    <p class="mb-2">What's your first name?</p>
+    <input class="uk-input rounded h-12 bg-gray-100" type="text" placeholder="Enter First Name" name="firstname" required>    
+    </div>
+    <div class="uk-width-1-1">
+    <p class="mb-2">What's your last name?</p>
+    <input class="uk-input rounded h-12 bg-gray-100" type="text" placeholder="Enter Last Name" name="lastname" required>
+    </div>
+    <div class="uk-width-1-1">
+    <p class="mb-2">Email</p>
+    <input class="uk-input rounded h-12 bg-gray-100" type="text" placeholder="Enter Email" name="email" required>
+    </div>
+    <div class="uk-width-1-1">
+    <p class="mb-2"> Mobile</p>
+    <input class="uk-input rounded h-12 bg-gray-100" type="text" placeholder="Enter Mobile" name="mobile" required>
+    </div>
+    <div class="uk-width-1-4@s">
+    <p class="mb-2">Height</p>
+    <input class="uk-input rounded h-12 bg-gray-100" type="text" placeholder="Enter Height" name="height" >     
+    </div>
+    <div class="uk-width-1-4@s">
+    <p class="mb-2">Weight</p>
+    <input class="uk-input rounded h-12 bg-gray-100" type="text" placeholder="Enter Weight" name="weight" > 
+    </div>
+    <div class="uk-width-1-4@s">
+    <p class="mb-2">Allergies</p>
+    <input class="uk-input rounded h-12 bg-gray-100" type="text" placeholder="Enter Allergies" name="allergies" required>
+    </div>
+    </div><br>
+    <div class="uk-margin-bottom">
+    <button type="submit" class="uk-button uk-button-primary uk-width-1-1 m-0 rounded h-12 bg-blue-800" href="profile_edit.php">Update Profile</button>
+      </div>    
+   </div>
+    </form><br>
+                 
+                </div>
+            
+            </fieldset>
+                </div>
+             </div>
+                
             <?php include "footer.inc.php";  ?>
-        </body>
-    </html>
+	
+	
+		
+		
+		<!-- JS FILES -->
+		<script src="https://cdn.jsdelivr.net/npm/uikit@latest/dist/js/uikit.min.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/uikit@latest/dist/js/uikit-icons.min.js"></script>
+	</body>
+</html>
     <?php
     
     }else{
@@ -23,3 +89,5 @@
         include "404error.php";  
     }
 ?>
+
+
