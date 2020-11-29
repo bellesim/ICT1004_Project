@@ -30,7 +30,7 @@ session_start();
     <div class="uk-light wrap uk-background-norepeat uk-background-cover uk-background-center-center uk-cover-container uk-background-secondary">
       <img src="images/banner.jpg" alt="banner" data-uk-cover data-uk-img
       >
-      <div class="uk-flex uk-flex-center uk-flex-middle uk-height-viewport uk-position-z-index uk-position-relative" data-uk-height-viewport="min-height: 400" style="background-color: rgba(105,105,105, 0.5);">
+      <div class="uk-flex uk-flex-center uk-flex-middle uk-height-viewport uk-position-z-index uk-position-relative" data-uk-height-viewport="min-height: 400" style="background-color: rgba(0,0,0, 0.3);">
             <?php include "nav.inc.php";?>
         <!-- TEXT -->
         <div class="uk-container uk-container-small uk-flex-auto uk-text-center" data-uk-scrollspy="target: > .animate; cls: uk-animation-slide-bottom-small uk-invisible; delay: 300">
@@ -44,6 +44,7 @@ session_start();
         </div>
         <!-- /TEXT -->
       </div>
+    </div>
     </div>
     <!-- /TOP -->
 		<section id="content" class="uk-section uk-section-default ">
@@ -59,7 +60,7 @@ session_start();
 					<li>
 						<div class="uk-grid uk-child-width-1-2@l uk-flex-middle" data-uk-grid data-uk-scrollspy="target: > div; cls: uk-animation-slide-left-medium">
 							<div>
-								<img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="images/schedule_planning.png" alt="" data-uk-img>
+								<img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="images/schedule_planning.png" alt="Schedule Appointments" data-uk-img>
 							</div>
 							<div data-uk-scrollspy-class="uk-animation-slide-right-medium">
 								<h2 class="font-semibold text-2xl">Schedule Appointments</h6>
@@ -76,7 +77,7 @@ session_start();
 					<li>
                     <div class="uk-grid uk-child-width-1-2@l uk-flex-middle" data-uk-grid data-uk-scrollspy="target: > div; cls: uk-animation-slide-left-medium">
 							<div>
-								<img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="img/marketing-1.svg" alt="" data-uk-img>
+								<img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="images/personalised_treatments.png" alt="Personalised Treatments" data-uk-img>
 							</div>
 							<div data-uk-scrollspy-class="uk-animation-slide-right-medium">
 								<h2 class="font-semibold text-2xl">Personalised Treatments</h6>
@@ -110,7 +111,7 @@ session_start();
         </div>
     </div>
     <div>
-    <div class="uk-card uk-card-default ">
+    <div class="uk-card uk-card-default " >
             <div class="uk-card-media-top">
                 <img src="images/banner.jpg" alt="Clinic One">
             </div>
@@ -144,11 +145,13 @@ session_start();
     </div>
     <div>
     <div class="uk-margin-bottom">
-    <button type="submit" class="uk-button uk-button-primary uk-width-1-1 rounded h-12 bg-blue-800">View Clinics</button>
-
-        </div>
+    </div>
 
 </div>
+<a href="clinic.php"class="uk-button uk-button-primary uk-width-1-4 rounded h-12 bg-blue-800 " title="View Clinics">View Clinics</a>
+
+
+
 		</section>
         <?php include "footer.inc.php"; ?>
 
