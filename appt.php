@@ -5,15 +5,13 @@
     ?>
     <html>
         <head>
-            <?php include "head.inc.php"; 
-            include "nav.inc.php"; 
-            include "timeout.inc.php";
-            include "dbFunctions.php";
-            ?>
+            <?php include "head.inc.php"; ?>
         </head>
         <body>
             <?php 
-            
+            include "nav.inc.php"; 
+            include "timeout.inc.php";
+            include "dbFunctions.php";
             $success = true;
 
             function retrieveApptFromDB() {

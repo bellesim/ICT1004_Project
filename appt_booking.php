@@ -1,6 +1,54 @@
   
 <!DOCTYPE html>
-<?php
+
+
+        
+        
+        
+        
+        
+        
+        
+        <!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Marketing - UIkit 3 KickOff</title>
+		<link rel="icon" href="img/favicon.ico">
+		<!-- CSS FILES -->
+		<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/uikit@latest/dist/css/uikit.min.css">
+        <link rel="stylesheet" type="text/css" href="css/main.css">
+        <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+
+	</head>
+	<body>
+		<!-- TOP -->
+		<!--<div class="top-wrap uk-position-relative uk-light uk-background-secondary"> !-->
+        <div class="top-wrap uk-position-relative" uk-background-primary style="background-color: #515151;"> 
+        <div class="uk-flex uk-flex-center uk-flex-middle h-20">
+            <?php include "nav.inc.php";?>
+            </div>
+        </div>
+	<!-- /TOP -->
+		<section id="content" class="uk-section uk-section-default">
+			<div class="uk-container">
+				<div class="uk-section uk-section-small uk-padding-remove-top">
+					<ul class="uk-subnav uk-subnav-pill uk-flex uk-flex-center" data-uk-switcher="connect: .uk-switcher; animation: uk-animation-fade">
+						<li><a class="rounded" href="#">Appointment</a></li>
+					</ul>
+				</div>
+
+				<ul class="uk-switcher uk-margin">
+					<li>
+						<div class="uk-grid uk-child-width-1-2@l uk-flex-middle" data-uk-grid data-uk-scrollspy="target: > div; cls: uk-animation-slide-left-medium">
+							<div>
+                                <img src="images/indeximage.png" alt="aboutus"data-uk-img>
+                            </div>
+							<div data-uk-scrollspy-class="uk-animation-slide-right-medium">
+								<h2 class="font-semibold text-4xl">Make an appointment</h6>
+								<p class="subtitle-text">
+									<?php
     session_start();
     
     if (isset($_SESSION["NRIC"]) && isset($_SESSION["username"])){
@@ -31,9 +79,6 @@
                     </head>
                     <body>
                         <?php 
-                        include "nav.inc.php"; 
-                        include "timeout.inc.php"; 
-
 
                         $currentdate = new DateTime();
                         $currentdate = $currentdate->setTimezone(new DateTimeZone('Asia/Singapore'));
@@ -114,7 +159,6 @@
                                 <button onclick="window.location.href = 'appt_booking.php'" class="apptButton">Make appointment</button>
                             </form>
                         </div> 
-                        <?php include "footer.inc.php";  ?>
                     </body>
                 </html>
             <?php
@@ -130,17 +174,33 @@
     }else{
         ?>
         <html>
-            <head>
-                <?php include "head.inc.php"; ?>
-            </head>
+           
             <body>
-                <?php include "nav.inc.php"; ?>
                 <div class="space-y-6 text-black" style="margin: auto; width: 50%; ">
                     <h1 class="font-bold text-2xl text-purple-800">Unable to Book!</h1>
                     <p>Please login before you book an appointment.</p>
-                <a href="login.php" class="uk-button uk-button-primary uk-button-medium uk-width-2-3 uk-width-auto@s rounded ml-24">Login</a>
                 </div>    
         </html>
     <?php                    
     }
 ?>
+								</p>
+								
+							</div>
+						</div>
+					</li>
+				
+				</ul>
+				
+				
+			</div>
+		</section>
+
+		
+		 <?php include "footer.inc.php"; ?>
+
+        <!-- JS FILES -->
+        <script src="https://cdn.jsdelivr.net/npm/uikit@latest/dist/js/uikit.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/uikit@latest/dist/js/uikit-icons.min.js"></script>
+    </body>
+</html>
