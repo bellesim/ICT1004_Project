@@ -156,7 +156,7 @@
 
                                 </div>
                                 <input type="hidden" id="ClinicID" name="ClinicID" value=" <?php echo $ClinicID; ?> " readonly><br>
-                                <button onclick="window.location.href = 'appt_booking.php'" class="apptButton">Make appointment</button>
+                                <button onclick="window.location.href = 'appt_booking.php'" class="uk-button uk-button-primary uk-width-1-1 rounded h-12 bg-blue-800" href="#modal-overflow">Make appointment</button>
                             </form>
                         </div> 
                     </body>

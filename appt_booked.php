@@ -211,7 +211,7 @@
                             <p class="font-bold">Reason(s):</p>
                             <?php echo "<p>".$errorMsg."</p>";?>
                             <p class="mt-8">Please try again.</p>
-                            <button class="loginformbutton font-semibold"><a href="clinic.php">Back to Clinic</a></button>
+                            <button onclick="window.location.href = 'clinic.php.php'" class="uk-button uk-button-primary uk-width-1-1 rounded h-12 bg-blue-800" href="#modal-overflow">Back to Clinic</button>
                         </div>
                         <?php
                     }

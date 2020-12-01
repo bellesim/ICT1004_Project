@@ -185,7 +185,7 @@ session_start();
                                 </div>
                             </div>
                             <div class="text-center">
-                                <button class="loginformbutton font-semibold" type="submit">Register</button>
+                                <button type="submit" class="uk-button uk-button-primary uk-width-1-1 rounded h-12 bg-blue-800" href="#modal-overflow">Register</button>
                             </div>
                         </form>
                     </div>
