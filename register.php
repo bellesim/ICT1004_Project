@@ -35,50 +35,64 @@ session_start();
     </head>
 
     <body>
-        <!--<div class="uk-light wrap uk-background-norepeat uk-background-cover uk-background-center-center uk-cover-container uk-background-secondary">
-            <img src="images/loginhd.jpg" alt="banner" data-uk-cover data-uk-img>
-            <div class="uk-flex uk-flex-center uk-flex-middle uk-height-viewport uk-position-z-index uk-position-relative" data-uk-height-viewport="min-height: 400" style="background-color: rgba(105,105,105, 0.5);">
-                <include "nav.inc.php"; ?>
-                
-            </div>
-        </div>!-->
         <div class="flex">
             <img src="images/login_asset.png" class="h-full w-7/12" >
-            <div id="login" class=" text-left">
-                <div class="uk-card uk-card-default uk-card-body mt-20 uk-position-right">
+                <div class="uk-card uk-card-default uk-card-body uk-width-1@m ">
                     <div class="uk-width uk-padding-small mt-6">
-                        <div class="mb-16">
+                        <div class="mb-12">
                             <h2 class="text-4xl font-bold text-blue-800">Create an account</h2>
-                        <p class="mt-2 text-base">Already have an account? <a href="register.php" class=" font-medium text-blue-600">Sign in</a></p></div>
+                        <p class="mt-2 text-base">Already have an account? <a href="login.php" class=" font-medium text-blue-600">Sign in</a></p></div>
                             <div id="register">
-                
-                        <p class="text-center italic text-red-700 mb-8">* Required</p>
-                        <form action="register_process.php" method="post">
-                            <div class="uk-margin ">
-                              <div class="uk-inline uk-width-1-1">
-                                         <label class="uk-form-label text-base text-blue-800 font-semibold" for="fname">First Name</label>
-                                        <input class="uk-input rounded h-12 bg-gray-100" placeholder="Enter your first name" type="text" id="fname" name="fname" requiredmaxlength="50" name="fname" >
-                                    </div>
+                      <form action="register_process.php" method="post">
+                        <div class="uk-grid-small " uk-grid>
+                            <div class="uk-width-1-1">
+                                <label class="uk-form-label text-blue-800 font-semibold" for="fname">First Name</label>
+                                <input class="uk-input rounded h-12 bg-gray-100" placeholder="Enter your first name" type="text" id="fname" name="fname" required maxlength="50">      
+                            </div>
+                        <div class="uk-width-1-1">
+                                <label class="uk-form-label text-blue-800 font-semibold" for="lname">Last Name</label>
+                                <input class="uk-input rounded h-12 bg-gray-100" placeholder="Enter your last name" type="text" id="fname" name="lname" required maxlength="50">      
+                            </div>
+                        <div class="uk-width-1-1">
+                                <label class="uk-form-label text-blue-800 font-semibold" for="nric_fin">NRIC/FIN</label>
+                                <input class="uk-input rounded h-12 bg-gray-100" placeholder="Enter your NRIC/FIN" type="text" id="nric_fin" name="nric_fin" required maxlength="9">      
+                            </div>
+                            <div class="uk-width-1-1">
+                                <label class="uk-form-label text-blue-800 font-semibold" for="email">Email</label>
+                                <input class="uk-input rounded h-12 bg-gray-100" placeholder="Enter your email" type="text" id="email" name="email" required>     
+                            </div>
+                             <div class="uk-width-1-1">
+                                <label class="uk-form-label text-blue-800 font-semibold" for="contact">Mobile No</label>
+                                <div class="uk-form-controls">
+                                <input class="uk-input rounded h-12 bg-gray-100" placeholder="Enter your mobile number" type="tel" id="contact" name="contact" required pattern="[0-9]{8}">     
+                            </div>
+                            <div class="uk-width-1-1">
+                                <label class="uk-form-label text-blue-800 font-semibold" for="pwd">Password</label>
+                                <button class="pwdrequirement" type="button" uk-toggle="target: #modal-pwd-requirement">Click to view requirement</button>
+                                <input class="uk-input rounded h-12 bg-gray-100" placeholder="Enter password" type="password" id="pwd" name="pwd" required >     
+                            </div>    
+                                <div class="uk-width-1-1">
+                                <label class="uk-form-label text-blue-800 font-semibold" for="pwd_confirm">Confirm Password</label>
+                                <button class="pwdrequirement" type="button" uk-toggle="target: #modal-pwd-requirement">Click to view requirement</button>
+                                <input class="uk-input rounded h-12 bg-gray-100" placeholder="Enter password again" type="password" id="pwd_confirm" name="pwd_confirm" required >     
+                            </div>  
+                                <div class="uk-grid-small mt-8" uk-grid>
+              
+                            <div class="uk-width-1-3@s">
+                                <label class="uk-form-label text-blue-800 font-semibold" for="height">Height</label>
+                                <input class="uk-input rounded h-12 bg-gray-100" placeholder="Enter height" type="text" id="height" name="height" required maxlength="5">     
+                            </div> 
+                            <div class="uk-width-1-3@s">
+                                <label class="uk-form-label text-blue-800 font-semibold" for="weight">Weight</label>
+                                <input class="uk-input rounded h-12 bg-gray-100" placeholder="Enter weight" type="text" id="weight" name="weight" required maxlength="5">     
+                            </div>  
+                            <div class="uk-width-1-3@s">
+                                <label class="uk-form-label text-blue-800 font-semibold" for="allergies">Allergies</label>
+                                <input class="uk-input rounded h-12 bg-gray-100" placeholder="Enter allergies" type="text" id="allergies" name="allergies" required maxlength="200">     
+                            </div>  
                             </div>
                             </div>
-                            <div class="uk-margin ">
-                              <div class="uk-inline uk-width-1-1">
-                                         <label class="uk-form-label text-base text-blue-800 font-semibold" for="lname">Last Name</label>
-                                        <input class="uk-input rounded h-12 bg-gray-100" placeholder="Enter your last name" type="text" id="fname" name="fname" requiredmaxlength="50" name="fname" >
-                                    </div>
-                            </div>
-                            </div>
-                               <div class="uk-margin ">
-                              <div class="uk-inline uk-width-1-1">
-                                         <label class="uk-form-label text-base text-blue-800 font-semibold" for="fname">NRIC/FIN*</label>
-                                        <input class="uk-input rounded h-12 bg-gray-100" placeholder="Enter your NRIC " type="text" id="fname" name="fname" requiredmaxlength="50" name="fname" >
-                                    </div>
-                            </div>
-                            </div>
-                            
-
-
-                            <!-- pop up model for password requirement -->
+                            <!-- pop up model for password requirement
                             <div id="modal-pwd-requirement" uk-modal>
                                 <div class="uk-modal-dialog uk-modal-body uk-margin-auto-vertical">
                                     <button class="uk-modal-close-default" type="button" uk-close></button>
@@ -91,12 +105,11 @@ session_start();
                                         <p>&#10004; At least one symbol</p>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="text-center">
-                                <button type="submit" class="uk-button uk-button-primary uk-width-1-1 rounded h-12 bg-blue-800" href="#modal-overflow">Register</button>
-                            </div>
+                            </div> -->
+                               <div class="uk-margin-bottom">
+                                    <button type="submit" class="uk-button uk-button-primary uk-width-1-1 rounded h-12 bg-blue-800 " href="#modal-overflow">Sign Up</button>
+                                </div>
                         </form>
-                
             </div>
        
     <script src="https://cdn.jsdelivr.net/npm/uikit@latest/dist/js/uikit.min.js"></script>

@@ -43,11 +43,11 @@ session_start();
             </div>
         </div>!-->
         <div class="flex">
-            <img src="images/login_asset.png" class=" w-full" >
+            <img src="images/login_asset.png" class="h-full w-7/12" >
             <div id="login" class=" text-left">
                 <div class="uk-card uk-card-default uk-card-body mt-20">
                     <div class="uk-width uk-padding-small mt-20">
-                        <div class="mb-20  text-center">
+                        <div class="mb-16">
                             <h2 class="text-4xl font-bold text-blue-800">Welcome Back</h2>
                             <div class="text-base">
                             <p class=" mt-6">We make your doctor appointments easier than ever.</p>
@@ -73,11 +73,9 @@ session_start();
                                         <input class="uk-input rounded h-12 bg-gray-100" placeholder="Password" type="password" id="pwd" name="pwd" required>
                                     </div>
                                 </div>
-                                <!-- <div class="uk-margin-small">
-                                    <label><input class="uk-checkbox" type="checkbox"> Keep me logged in</label>
-                                </div> -->
+                            
                                 <div class="uk-margin-bottom">
-                                    <button type="submit" class="uk-button uk-button-primary uk-width-1-1 rounded h-12 bg-blue-800" href="#modal-overflow">LOG IN</button>
+                                    <button type="submit" class="uk-button uk-button-primary uk-width-1-1 rounded h-12 bg-blue-800 " href="#modal-overflow">LOG IN</button>
                                 </div>
                             </fieldset>
                         </form>
