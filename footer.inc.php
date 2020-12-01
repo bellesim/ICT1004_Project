@@ -1,5 +1,5 @@
 	<!-- FOOTER -->
-    <footer class="uk-section uk-padding-remove-bottom" style="background-color:#FFFFFF">
+    <footer class="uk-section uk-padding-remove-bottom" style="background-color:#0F0F0F">
 			<div class="uk-container">
 				<div class="uk-grid uk-grid-large" data-uk-grid>
 					<div class="uk-width-1-2@m">

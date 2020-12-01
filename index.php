@@ -46,14 +46,7 @@ session_start();
         <!-- /TOP -->
         <section id="content" class="uk-section uk-section-default ">
             <div class="uk-container ">
-                <div class="uk-section uk-section-small uk-padding-remove-top">
-                    <ul class="uk-subnav uk-subnav-pill uk-flex uk-flex-center" data-uk-switcher="connect: .uk-switcher; animation: uk-animation-fade">
-                        <li><a class="rounded" >Schedule Appointments</a></li>
-                        <li><a class="rounded">Personalised Treatments</a></li>
-                    </ul>
-                </div>
-
-                <ul class="uk-switcher uk-margin">
+                <ul class="uk-margin">
                     <li>
                         <div class="uk-grid uk-child-width-1-2@l uk-flex-middle" data-uk-grid data-uk-scrollspy="target: > div; cls: uk-animation-slide-left-medium">
                             <div>
@@ -70,84 +63,62 @@ session_start();
                             </div>
                         </div>
                     </li>
-                    <li>
-                        <div class="uk-grid uk-child-width-1-2@l uk-flex-middle" data-uk-grid data-uk-scrollspy="target: > div; cls: uk-animation-slide-left-medium">
-                            <div>
-                                <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="img/marketing-1.svg" alt="" data-uk-img>
-                            </div>
-                            <div data-uk-scrollspy-class="uk-animation-slide-right-medium">
-                                <h2 class="font-semibold text-2xl">Personalised Treatments</h6>
-                                    <h2 class="text-xl mt-4">Take decisions with real time data based on users interaction.</h2>
-                                    <p class="text-base mt-4">
-                                        Personalized medicine is the tailoring of medical treatment to the individual characteristics of each
-                                        patient. The approach relies on scientific breakthroughs in our understanding of how a person's unique
-                                        molecular and genetic profile makes them susceptible to certain diseases.
-                                    </p>
-                            </div>
-                        </div>
-                    </li>
                 </ul>	
             </div>
         </section>
         <!-- BOTTOM -->
         <section class="uk-section">
-            <div class="uk-container uk-text-center uk-section  ">
-                <h2 class="text-4xl font-bold">Partnering Clinics</h2>
+            <div class="uk-container uk-text-center ">
+            <div class="h-10">
+                <h2 class="text-4xl font-bold ">Our Partnering Clinics</h2>
+                <button onclick="window.location.href = 'clinic.php'" class="text-xl font-semibold float-right text-blue-500 mb-4" href="#modal-overflow">See more</button>
+                </div>
             </div>
             <div class="uk-child-width-1-4@m px-24" uk-grid >
                 <div>
-                    <div class="uk-card uk-card-default">
+                    <div class="uk-card uk-card-default ">
                         <div class="uk-card-media-top">
-                            <img src="images/trinity.jpeg" alt="Clinic One">
+                            <img src="images/doctor.jpg" alt="Clinic One">
                         </div>
                         <div class="uk-card-body">
-                            <h3 class="uk-card-title">Trinity Medical Clinic</h3>
-                            <p>providing medical services to the community and our corporate clients. </p>
+                            <h3 class="text-xl font-semibold clinicTitle">Trinity Medical Clinic</h3>
                         </div>
                     </div>
                 </div>
                 <div>
                     <div class="uk-card uk-card-default ">
                         <div class="uk-card-media-top">
-                        <img src="images/faith.png" alt="faith"/>
+                        <img src="images/doctor.jpg" alt="faith"/>
                         </div>
                         <div class="uk-card-body">
-                            <h3 class="uk-card-title">Faith Medical Clinic</h3>
-                            <p>Our range of services have expanded from acute and chronic ailments treatments.</p>
+                          <h3 class="text-xl font-semibold clinicTitle">Trinity Medical Clinic</h3>
                         </div>
                     </div>
                 </div>
                 <div>
                     <div class="uk-card uk-card-default">
                         <div class="uk-card-media-top">
-                        <img src="images/lifelineclinic.png" alt="lifeline"/>
+                        <img src="images/doctor.jpg" alt="lifeline"/>
                         </div>
-                        <div class="uk-card-body">
-                            <h3 class="uk-card-title">Lifeline Bishan Medical Clinic</h3>
-                            <p>Lifeline Bishan Medical Clinic is a General Health Clinic in Bishan, Singapore. </p>
+                        <div class="uk-card-body">                            
+                        <h3 class="text-xl font-semibold clinicTitle">Trinity Medical Clinic</h3>
                         </div>
                     </div>
                 </div>
                 <div>
                     <div class="uk-card uk-card-default">
                         <div class="uk-card-media-top">
-                            <img src="images/viva.png" alt="viva"/>
+                        <img src="images/doctor.jpg" alt="faith"/>
                         </div>
                         <div class="uk-card-body">
-                            <h3 class="uk-card-title">Viva Medical Clinic</h3>
-                            <p>Provides services like health check up, normal flu treatment and vaccinations.</p>
+                            <h3 class="text-xl font-semibold clinicTitle ">Trinity Medical Clinic</h3>
                         </div>
                     </div>
                 </div>
                 <div>
-                    <div class="uk-margin-bottom">
-                        <!--<a href="clinic.php"class="uk-button uk-button-default uk-button-large uk-width-2-3 uk-width-auto@s" title="Book Appointments">Book Apppointments</a>!-->
-                        <button onclick="window.location.href = 'clinic.php'" class="uk-button uk-button-primary uk-width-1-1 rounded h-12 bg-blue-800" href="#modal-overflow">Book appointment</button>
-
-
                     </div>
-
-                </div>
+                
+                    
         </section>
         <?php include "footer.inc.php"; ?>
 

@@ -5,9 +5,7 @@ session_start();
 <html>
     <head>
         <?php
-        include "head.inc.php";
         ?>
-        <?php include "nav.inc.php" ?>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Home</title>
@@ -18,7 +16,7 @@ session_start();
         <link rel="stylesheet" type="text/css" href="css/main.css">
 
 
-        <script>
+        <!-- <script>
             function showtab(evt, tabName) {
                 var i, tabcontent, tablinks;
                 tabcontent = document.getElementsByClassName("tabcontent");
@@ -32,7 +30,7 @@ session_start();
                 document.getElementById(tabName).style.display = "block";
                 evt.currentTarget.className += " active";
             }
-        </script>
+        </script> -->
 
     </head>
 
@@ -45,19 +43,22 @@ session_start();
             </div>
         </div>!-->
         <div class="flex">
-            <img src="images/login_asset.png" class="h-full w-7/12 " >
-            <div id="login" class="tabcontent text-left">
-                <div class="uk-card uk-card-default uk-card-body mt-20 uk-position-center">
+            <img src="images/login_asset.png" class=" w-full" >
+            <div id="login" class=" text-left">
+                <div class="uk-card uk-card-default uk-card-body mt-20">
                     <div class="uk-width uk-padding-small mt-20">
-                        <div class="mb-20   text-center">
+                        <div class="mb-20  text-center">
                             <h2 class="text-4xl font-bold text-blue-800">Welcome Back</h2>
-                            <p class="mt-6">We make your doctor appointments easier than ever.</p>
+                            <div class="text-base">
+                            <p class=" mt-6">We make your doctor appointments easier than ever.</p>
+                        <p class="mt-2">New user? <a href="register.php" class=" font-medium text-blue-600">Create an account</a></p></div>
+
                         </div>
-                        <div class="tabheader">
+                        <!-- <div class="tabheader">
                             <a class="tablink" onclick="showtab(event, 'login')" id="defaultOpen">Login</a>
                             <a class="tablink" onclick="showtab(event, 'register')" >Register</a>
 
-                        </div>
+                        </div> -->
                         <form class="toggle-class" action="login_process.php" method="post">
                             <fieldset class="uk-fieldset">
                                 <div class="uk-margin">
@@ -83,116 +84,7 @@ session_start();
                     </div>
                 </div>
             </div>
-            <div id="register" class="tabcontent text-left active" style="border-bottom: none;">
-                <div class="uk-card uk-card-default uk-card-body mt-20 uk-position-center" style="margin-top: 20%;">
-                    <div class="uk-width uk-padding-small mt-20">
-                        <div class="mb-20   text-center">
-                            <h2 class="text-4xl font-bold text-blue-800">New here? Let's register!</h2>
-                            <p class="mt-6">We make your doctor appointments easier than ever.</p>
-                        </div>
-                        <div class="tabheader">
-                            <a class="tablink" onclick="showtab(event, 'register')" id="defaultOpen">Register</a>
-                            <a class="tablink" onclick="showtab(event, 'login')">Login</a>
-                        </div>
-                        <p class="text-center italic text-red-700 mb-8">* mandatory fields</p>
-                        <form action="register_process.php" method="post">
-                            <div class="uk-margin">
-                                <label class="uk-form-label text-purple-800 font-semibold" for="fname">First Name</label>
-                                <div class="uk-form-controls">
-                                    <input class="uk-input uk-form-width-large placeholder-gray-700" type="text" id="fname"
-                                           maxlength="50" name="fname" placeholder="Enter your first name">
-                                </div>
-                            </div>
-                            <div class="uk-margin">
-                                <label class="uk-form-label text-purple-800 font-semibold" for="lname">Last Name*</label>
-                                <div class="uk-form-controls">
-                                    <input class="uk-input uk-form-width-large placeholder-gray-700" type="text" id="lname"
-                                           required maxlength="50" name="lname" placeholder="Enter your last name">
-                                </div>
-                            </div>
-                            <div class="uk-margin">
-                                <label class="uk-form-label text-purple-800 font-semibold" for="nric_fin">NRIC/FIN*</label>
-                                <div class="uk-form-controls">
-                                    <input class="uk-input uk-form-width-large placeholder-gray-700" type="text" id="nric_fin"
-                                           required maxlength="9" name="nric_fin" placeholder="Enter your NRIC/FIN">
-                                </div>
-                            </div>
-                            <div class="uk-margin">
-                                <label class="uk-form-label text-purple-800 font-semibold" for="email">Email Address*</label>
-                                <div class="uk-form-controls">
-                                    <input class="uk-input uk-form-width-large placeholder-gray-700" type="email" id="email"
-                                           required name="email" placeholder="Enter your email">
-                                </div>
-                            </div>
-                            <div class="uk-margin">
-                                <label class="uk-form-label text-purple-800 font-semibold" for="contact">Contact Number*</label>
-                                <div class="uk-form-controls">
-                                    <input class="uk-input uk-form-width-large placeholder-gray-700" type="tel" id="contact"
-                                           required name="contact" pattern="[0-9]{8}"
-                                           placeholder="Enter your contact number without space (e.g. 98765432)">
-                                </div>
-                            </div>
-                            <div class="uk-margin">
-                                <label class="uk-form-label text-purple-800 font-semibold" for="pwd">Password*</label>
-                                <button class="pwdrequirement" type="button" uk-toggle="target: #modal-pwd-requirement">Click to view requirement</button>
-                                <div class="uk-form-controls">
-                                    <input class="uk-input uk-form-width-large placeholder-gray-700" type="password" id="pwd"
-                                           required name="pwd" placeholder="Enter password">
-                                </div>
-                            </div>                  
-                            <div class="uk-margin">
-                                <label class="uk-form-label text-purple-800 font-semibold" for="pwd_confirm">Reconfirm Password*</label>
-                                <div class="uk-form-controls">
-                                    <input class="uk-input uk-form-width-large placeholder-gray-700" type="password" id="pwd_confirm"
-                                           required name="pwd_confirm" placeholder="Confirm password">
-                                </div>
-                            </div>
-                            <div class="uk-margin">
-                                <label class="uk-form-label text-purple-800 font-semibold" for="height">Height*</label>
-                                <div class="uk-form-controls">
-                                    <input class="uk-input uk-form-width-large placeholder-gray-700" type="text" id="height"
-                                           required maxlength="5" name="height" placeholder="Enter your height in cm (1 decimal point is allowed)">
-                                </div>
-                            </div>
-                            <div class="uk-margin">
-                                <label class="uk-form-label text-purple-800 font-semibold" for="weight">Weight*</label>
-                                <div class="uk-form-controls">
-                                    <input class="uk-input uk-form-width-large placeholder-gray-700" type="text" id="weight"
-                                           required maxlength="5" name="weight" placeholder="Enter your weight in kg (1 decimal point is allowed)">
-                                </div>
-                            </div>
-                            <div class="uk-margin">
-                                <label class="uk-form-label text-purple-800 font-semibold" for="allergies">Allergies*</label>
-                                <div class="uk-form-controls">
-                                    <input class="uk-input uk-form-width-large placeholder-gray-700" type="text" id="allergies"
-                                           required maxlength="200" name="allergies" placeholder="Enter your allergies">
-                                </div>
-                            </div>
-
-
-                            <!-- pop up model for password requirement -->
-                            <div id="modal-pwd-requirement" uk-modal>
-                                <div class="uk-modal-dialog uk-modal-body uk-margin-auto-vertical">
-                                    <button class="uk-modal-close-default" type="button" uk-close></button>
-                                    <h1 class="text-purple-800 font-semibold">Password Requirements</h1><br>
-                                    <div class="text-center">
-                                        <p>&#10004; Minimum 8 characters without space</p>
-                                        <p>&#10004; At least one uppercase</p>
-                                        <p>&#10004; At least one lowercase</p>
-                                        <p>&#10004; At least one number</p>
-                                        <p>&#10004; At least one symbol</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="text-center">
-                                <button type="submit" class="uk-button uk-button-primary uk-width-1-1 rounded h-12 bg-blue-800" href="#modal-overflow">Register</button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-            
-        </div>
+       
     <script src="https://cdn.jsdelivr.net/npm/uikit@latest/dist/js/uikit.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/uikit@latest/dist/js/uikit-icons.min.js"></script>
 </body>
