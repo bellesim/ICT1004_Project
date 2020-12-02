@@ -37,19 +37,20 @@ session_start();
     <body>
         <div class="flex">
             <img src="images/login_asset.png" class="h-full w-7/12" >
-                <div class="uk-card uk-card-default uk-card-body uk-width-1@m ">
+                <div id="login" class=" text-left">
+                <div class="uk-card uk-card-default uk-card-body uk-width-1@m  mt-20">
                     <div class="uk-width uk-padding-small mt-6">
                         <div class="mb-12">
-                            <h2 class="text-4xl font-bold text-blue-800">Create an account</h2>
+                            <h2 class="text-4xl font-bold text-blue-800">Create An Account</h2>
                         <p class="mt-2 text-base">Already have an account? <a href="login.php" class=" font-medium text-blue-600">Sign in</a></p></div>
                             <div id="register">
                       <form action="register_process.php" method="post">
                         <div class="uk-grid-small " uk-grid>
-                            <div class="uk-width-1-1">
+                            <div class="uk-width-1-2">
                                 <label class="uk-form-label text-blue-800 font-semibold" for="fname">First Name</label>
                                 <input class="uk-input rounded h-12 bg-gray-100" placeholder="Enter your first name" type="text" id="fname" name="fname" required maxlength="50">      
                             </div>
-                        <div class="uk-width-1-1">
+                        <div class="uk-width-1-2">
                                 <label class="uk-form-label text-blue-800 font-semibold" for="lname">Last Name</label>
                                 <input class="uk-input rounded h-12 bg-gray-100" placeholder="Enter your last name" type="text" id="fname" name="lname" required maxlength="50">      
                             </div>
@@ -68,12 +69,12 @@ session_start();
                             </div>
                             <div class="uk-width-1-1">
                                 <label class="uk-form-label text-blue-800 font-semibold" for="pwd">Password</label>
-                                <button class="pwdrequirement" type="button" uk-toggle="target: #modal-pwd-requirement">Click to view requirement</button>
+                                <!-- <button class="pwdrequirement" type="button" uk-toggle="target: #modal-pwd-requirement">Click to view requirement</button> -->
                                 <input class="uk-input rounded h-12 bg-gray-100" placeholder="Enter password" type="password" id="pwd" name="pwd" required >     
                             </div>    
                                 <div class="uk-width-1-1">
                                 <label class="uk-form-label text-blue-800 font-semibold" for="pwd_confirm">Confirm Password</label>
-                                <button class="pwdrequirement" type="button" uk-toggle="target: #modal-pwd-requirement">Click to view requirement</button>
+                                <!-- <button class="pwdrequirement" type="button" uk-toggle="target: #modal-pwd-requirement">Click to view requirement</button> -->
                                 <input class="uk-input rounded h-12 bg-gray-100" placeholder="Enter password again" type="password" id="pwd_confirm" name="pwd_confirm" required >     
                             </div>  
                                 <div class="uk-grid-small mt-8" uk-grid>
@@ -108,6 +109,7 @@ session_start();
                             </div> -->
                                <div class="uk-margin-bottom">
                                     <button type="submit" class="uk-button uk-button-primary uk-width-1-1 rounded h-12 bg-blue-800 " href="#modal-overflow">Sign Up</button>
+                                </div>
                                 </div>
                         </form>
             </div>

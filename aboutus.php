@@ -31,8 +31,8 @@ session_start();
             <?php include "nav.inc.php";?>
        		
 		<div class="uk-grid-medium " uk-grid>
-		<div class="mt-24 ml-40 ">
-		<h1 class="k-heading-primary font-bold text-4xl ">About Our Company </h1>
+		<div class="mt-24 ml-40 mt-32 ">
+		<h1 class="k-heading-primary font-bold text-4xl ">Clinics </h1>
 		<p class="text-base mt-4 w-3/4 text-justify">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum nec tellus felis. Phasellus fringilla 
 			finibus turpis id commodo. Vivamus eu nisl sit amet tellus consequat gravida. Sed lobortis mattis eros, in luctus ex porttitor quis. Proin laoreet
 			lacus neque, a pellentesque dui porttitor eget. Pellentesque congue, tortor viverra suscipit pretium, </p>
