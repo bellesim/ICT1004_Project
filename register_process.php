@@ -208,6 +208,7 @@
 
             }else{
                 ?>
+    
                 <div class="uk-card uk-card-default uk-card-body uk-align-center mt-32" style="width: 50%">
                     <div class="space-y-6">
                         <h3 class="uk-card-title font-bold" style="color:#B22222;">Failed to register!</h3>

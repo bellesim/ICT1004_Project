@@ -13,7 +13,6 @@ if (isset($_SESSION["NRIC"]) && isset($_SESSION["username"])) {
                         <li><a href="aboutus.php">About Us</a></li>
                         <li><a href="profile.php">Profile</a></li>
                         <li><a href="appt.php">Appointments</a></li>
-
                     </ul>
                     <a href="#" class="uk-navbar-toggle uk-hidden@s" uk-navbar-toggle-icon uk-toggle="target: #sidenav"></a>
                 </div>
