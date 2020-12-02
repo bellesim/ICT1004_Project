@@ -1,16 +1,16 @@
 <!DOCTYPE html>
 <?php
     session_start();
-    if (isset($_SESSION["NRIC"])&&isset($_SESSION["username"])){    
-
+    if (isset($_SESSION["NRIC"])&&isset($_SESSION["username"])){
     ?>
-    <html>
-        <head>
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
             <?php include "head.inc.php"; ?>
-        </head>
-        <body>
+	</head>
+	<body>
             <?php 
-            include "nav.inc.php"; 
             include "timeout.inc.php"; 
             include "dbFunctions.php";
             $email = $fname = $lname = $email = $pwd_hashed = $mobile = $height = $weight = $allergies = $errorMsg="";
@@ -48,55 +48,65 @@
 
             showProfile();
             ?>
-            <div class="profileContainer mt-16  ml-24 ">
-                <h2 id="myAccount" class="text-black text-4xl font-bold  mb-4">Your Account</h2>   
-                <h1 class="uk-heading-divider"></h1>
-                <div class="detailsContainer m-0 h-full">
-                    <div class="uk-width-1-2\@m">
-                        <h3 class="uk-card-title font-bold">Account Details</h3><br>
-                        <div class="uk-grid-small" uk-grid>
-                            <div class="uk-width-1-1">
-                                <p>What's your first name?</p>
-                                <input class="uk-input" type="text" value="<?php echo $fname ?>" readonly>    
-                            </div>
-                            <div class="uk-width-1-1">
-                                <p>What's your last name?</p>
-                                <input class="uk-input" type="text" value="<?php echo $lname ?>" readonly>
-                            </div>
-                            <div class="uk-width-1-1">
-                                <p>Email</p>
-                                <input class="uk-input" type="text" value="<?php echo $email ?>"readonly>
-                            </div>
-                            <div class="uk-width-1-1">
-                                <p>Mobile</p>
-                                <input class="uk-input" type="text" value="<?php echo $mobile ?>"readonly>
-                            </div>
-                            <div class="uk-width-1-4\@s">
-                                <p>Height</p>
-                                <input class="uk-input" type="text" value="<?php echo $height ?>"readonly>       
-                            </div>
-                            <div class="uk-width-1-4\@s">
-                                <p>Weight</p>
-                                <input class="uk-input" type="text" value="<?php echo $weight ?>"readonly>    
-                            </div>
-                            <div class="uk-width-1-4\@s">
-                                <p>Allergies</p>
-                                <input class="uk-input" type="text" value="<?php echo $allergies ?>" readonly>  
-                            </div>
-                        </div><br>
-                        <form action="profile_edit.php">
-                            <button class="uk-button" type="submit">Edit Profile</button>
-                        </form>
-                        <form action="changePassword.php">
-                            <button class="uk-button" type="submit">Change Password</button>
-                        </form>
-                    </div>
+              <div class="uk-flex uk-flex-center uk-flex-middle uk-height-viewport uk-position-z-index uk-position-relative" data-uk-height-viewport="min-height: 400">
+                                   <?php include "nav.inc.php"; ?>
+
+                    <!-- <img src="images/login_asset.png" class="h-full w-6/12 " > -->
+                <div class="uk-card uk-card-default uk-card-body uk-width-1-2@m mr-6">
+                <h2 class="text-2xl font-semibold">Your Account</h2>
+                <p class="uk-heading-divider"><p>
+                    <div class="uk-width-1-1">
+                <h4 class="text-base font-semibold mt-4">NRIC </h4>
+                <label class="text-base font-normal"><?php echo $nric ?><label>
                 </div>
-            </div>
-            <?php include "footer.inc.php";  ?>
+                    <div class="uk-width-1-1">
+                <h4 class="text-base font-semibold mt-4">First Name</h4>
+                <label class="text-base font-normal"><?php echo $fname ?><label>
+                </div>
+                    <div class="uk-width-1-1">
+                <h4 class="text-base font-semibold mt-4">Last Name</h4>
+                <label class="text-base font-normal"><?php echo $lname ?><label>
+                </div>
+                    <div class="uk-width-1-1">
+                <h4 class="text-base font-semibold mt-4">Email </h4>
+                <label class="text-base font-normal"><?php echo $email ?><label>
+                </div>
+                    <div class="uk-width-1-1">
+                <h4 class="text-base font-semibold mt-4">Mobile </h4>
+                <label class="text-base font-normal"><?php echo $mobile ?><label>
+                </div>
+                <div class="uk-width-1-1">
+                <h4 class="text-base font-semibold mt-4">Height</h4>
+                <label class="text-base font-normal"><?php echo $height ?><label>
+                </div>
+                <div class="uk-width-1-1">
+                <h4 class="text-base font-semibold mt-4">Weight </h4>
+                <label class="text-base font-normal"><?php echo $weight ?><label>
+                </div>
+                <div class="uk-width-1-1">
+                <h4 class="text-base font-semibold mt-4">Allergies </p>
+                <label class="text-base font-normal"><?php echo $allergies?><label>
+                </div><br>
+                    <div class="uk-margin-bottom">                    
+                    <a href="profile_edit.php" class="uk-button uk-button-primary uk-width-1-3 m-0 rounded h-12 bg-blue-800">Edit Profile</a>
+                    <a href="changePassword.php" class="uk-button uk-button-primary uk-width-1-3 m-0 rounded h-12 bg-blue-800">Edit Password</a></div>
+
+                </div>
             
-        </body>
-    </html>
+            </fieldset>
+                </div>
+             </div>
+                
+            <?php include "footer.inc.php";  ?>
+	
+	
+		
+		
+		<!-- JS FILES -->
+		<script src="https://cdn.jsdelivr.net/npm/uikit@latest/dist/js/uikit.min.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/uikit@latest/dist/js/uikit-icons.min.js"></script>
+	</body>
+</html>
     <?php
     
     }else{
@@ -104,3 +114,5 @@
         include "404error.php";  
     }
 ?>
+
+

@@ -206,7 +206,6 @@
                 <div class="space-y-6 text-black" style="margin: auto; width: 50%; ">
                     <h1 class="font-bold text-2xl text-purple-800">Your account is registered successfully!</h1>
                     <p>Welcome to be part of our family, <?php echo $username;?></p>
-                    <p>You will receive an email from us notify that the account is registered successfully. </p>
                     <p>You may proceed to login with your NRIC/FIN and password.</p>
                     <button class="loginformbutton font-semibold"><a href="login.php">Login</a></button>
                 </div>    

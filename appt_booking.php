@@ -29,11 +29,11 @@
                         <?php include "head.inc.php"; ?>
                     </head>
                     <body>
+                        <div class="top-wrap uk-position-relative pb-40"> 
+                            <?php include "nav.inc.php";?>
+                        </div>	
                         <?php 
-                        include "nav.inc.php"; 
                         include "timeout.inc.php"; 
-
-
                         $currentdate = new DateTime();
                         $currentdate = $currentdate->setTimezone(new DateTimeZone('Asia/Singapore'));
                         $interval = new DateInterval('P1D');
@@ -41,19 +41,36 @@
                         $currentdate = $currentdate->format('yy-m-d');
 
                         ?>
+                    <body class='clinic'>
+                         <!-- TOP -->
 
+                            <?php include "nav.inc.php";?>
+
+                         <p style="margin-top: -100px;"></p>
+                        <?php include "timeout.inc.php"; ?>
+                        <section class="uk-section mt-8">
+
+                             <div class="uk-flex uk-flex-center uk-flex-middle uk-height-viewport uk-position-z-index uk-position-relative" data-uk-height-viewport="min-height: 200">
+                                 <img src="images/indeximage.png" alt="index image">
+                                <div class="uk-card uk-card-default uk-card-body uk-width-1-2@m mr-6">
+
+                                <h2 class="text-2xl font-semibold">Make an appointment</h2>
+                                <p class="uk-heading-divider"><p>
                         <div class="container">
+                            
                             <form action="appt_booked.php" method="post" class="form-control">
                                 <p class="italic text-red-700 mb-8">* mandatory fields</p>
-                                <p>Clinic: <?php echo $ClinicName;?></p>
-                                <div class="form-group">
-                                    <label>Appointment Date*</label>
-                                    <input type="date" name="ApptDate" class="form-control" min="<?php echo $currentdate;?>" required>
+                                <div class="uk-width-1-1 mb-8">
+                                    <h4 class="text-base font-semibold mt-4 uk-form-label">Clinic: <?php echo $ClinicName;?> </h4>
+                                </div>
+                                <div class="uk-width-1-1 mb-8">
+                                    <label class="text-base font-semibold mt-4 uk-form-label" for="ApptDate">Appointment Date*: </label>
+                                    <input type="date" name="ApptDate" class="uk-input rounded w-64 bg-gray-100" min="<?php echo $currentdate;?>" required>
                                 </div>
 
-                                <div class="form-group">
-                                    <label for="ApptStartTime">Appointment Timeslot*:</label>
-                                    <select id="ApptStartTime" name="ApptStartTime" required>
+                                <div class="uk-width-1-1 mb-8">
+                                    <label class="text-base font-semibold mt-4 uk-form-label" for="ApptStartTime">Appointment Timeslot*: </label>
+                                    <select id="ApptStartTime" name="ApptStartTime" class="uk-select rounded w-64 bg-gray-100" required>
                                         <option value="0800">0800-0900</option>
                                         <option value="0900">0900-1000</option>
                                         <option value="1000">1000-1100</option>
@@ -66,13 +83,13 @@
                                         <option value="1700">1700-1800</option>
                                     </select>
                                 </div>
-                                <div class="form-group">
-                                    <label>Appointment Type</label>
-                                    <input type="text" name="ApptType" class="form-control" placeholder="e.g. General"> 
+                                <div class="uk-width-1-1 mb-8">
+                                    <label class="text-base font-semibold mt-4 uk-form-label" for="ApptType">Appointment Type: </label>
+                                    <input type="text" name="ApptType" class="uk-input rounded w-64 bg-gray-100" placeholder="e.g. General"> 
                                 </div>
-                                <div class="form-group">
-                                    <label>Doctor*</label>
-                                    </br>
+                                <div class="uk-width-1-1 mb-8 text-gray-900">
+                                    <label class="text-base font-semibold mt-4 uk-form-label">Doctor*: </label>
+                                    
 
                                     <?php 
                                     $stmt = $conn->prepare("
@@ -88,7 +105,7 @@
                                         // output data of each rows
                                         //echo '<input type="radio" name="Doctor>"';
                                         while ($row = $result->fetch_assoc()) {
-                                            echo '<input type="radio" name="DocID" required ';
+                                            echo '<input type="radio" name="DocID" class="uk-radio" required ';
 
                                             if (isset($DocID) && $DocID === $row["DocID"]) {
                                                 echo "checked";
@@ -110,9 +127,13 @@
 
                                 </div>
                                 <input type="hidden" id="ClinicID" name="ClinicID" value=" <?php echo $ClinicID; ?> " readonly><br>
-                                <input type="submit" class="btn btn-primary" name="submit" value="Submit">
+                                <button type="submit" class="uk-button uk-button-primary uk-width-1-1 rounded h-12 bg-blue-800" name="submit" value="Submit">Make appointment</button>
                             </form>
+                        </div>
+                                </div>
+                                 
                         </div> 
+                        </section>
                         <?php include "footer.inc.php";  ?>
                     </body>
                 </html>

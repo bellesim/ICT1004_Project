@@ -79,6 +79,11 @@ body {margin:0;font-family:Arial}
     background-color: #32287f;
     border: none;
     color: white;
+    padding: 6px 45px;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 12px;
+    margin: 4px 2px;
     padding: 4px 45px;
     text-decoration: none;
     display: inline-block;
@@ -207,3 +212,8 @@ hr{
     margin-left: 20px;
     border:none;
 }
+
+.uk-subnav-pill>.uk-active>a{
+    background-color: #004866;
+}
+

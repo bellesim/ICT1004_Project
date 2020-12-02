@@ -37,13 +37,14 @@
                     if ($result->num_rows > 0) {
                         // output data of each row
                         ?>
+                        <p style="margin-top: 100px;"></p>
                         <table class='uk-table uk-table-striped uk-table-hover uk-table-small uk-table-responsive'>
                             <thead>
-                                <tr class="uk-table-middle">
+                                <tr class="uk-table-middle font-bold">
                                     <th>Appointment booked at:</th><th>Date:</th>
                                     <th>Time</th>
                                     <th>Duration</th>
-                                    <th>Appointment type</th>
+                                    <th>Appointment type</th> 
                                     <th>Doctor Name</th>
                                     <th>Clinic name</th>
                                     <th>Clinic address</th>
@@ -65,14 +66,16 @@
                                     <td>
                                         <form action="appt_edit.php" method="POST">
                                             <input type="hidden" id="apptid" name="apptid" value=" <?php echo $row["ApptID"]; ?> " readonly>
-                                            <button type="submit">Edit</button>
+                                            <button class="uk-button uk-button-primary uk-button-medium uk-width-2-3 uk-width-auto@s rounded ml-24" type="submit">Edit</button>
+
                                         </form>
                                     </td>   
                                     <td>
 
                                         <!-- display username and logout button -->
                                         <div class="flex flex-row-reverse">
-                                            <div><button class="button mt-2" type="button" uk-toggle="target: #modal-deleteappt" >Delete</button></div>
+                                            <div><button class="uk-button uk-button-medium uk-width-2-3 uk-width-auto@s rounded ml-24 text-red-100 transition-colors duration-150 bg-red-700" type="submit" uk-toggle="target: #modal-deleteappt" >Delete</button></div>
+
                                         </div>
 
                                         <!-- show popup model if user click logout button -->

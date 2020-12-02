@@ -3,58 +3,71 @@
     session_start();
     if (isset($_SESSION["NRIC"])&&isset($_SESSION["username"])){
     ?>
-    <html>
-        <head>
-            <?php include "head.inc.php"; ?>
-        </head>
-        <body>
-            <?php include "nav.inc.php"; ?>
-            <?php include "timeout.inc.php"; ?>
-            <div class="detailsContainer m-0 h-full  ml-24 uk-width-1-2\@m" >
-                <h2 id="myAccount" class="text-black text-4xl font-bold  mb-4">Your Account</h2>   
+  <?php
+session_start();
+ 
+?>
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+        <?php include "head.inc.php"; ?>
 
-                <h3 class="uk-card-title font-bold">Edit Account Details</h3><br>
-                <p class="italic text-red-700 mb-8">* mandatory fields</p>
-                <form role="form" method="post" action="profileEdit_process.php">
-                    <div class="uk-grid-small" uk-grid>
-                        <div class="uk-width-1-1">
-                            <p>First Name*</p>
-                            <input class="uk-input" type="text" placeholder="Enter your first name" name="firstname">    
-                        </div>
-                        <div class="uk-width-1-1">
-                            <p>Last Name*</p>
-                            <input class="uk-input" type="text" placeholder="Enter your last name" name="lastname" required>
-                        </div>
-                        <div class="uk-width-1-1">
-                            <p>Email*</p>
-                            <input class="uk-input" type="email" placeholder="Enter your email" name="email" required>
-                        </div>
-                        <div class="uk-width-1-1">
-                            <p>Mobile*</p>
-                            <input class="uk-input" type="tel" name="mobile" pattern="[0-9]{8}"
-                            placeholder="Enter your contact number without space (e.g. 98765432)" required>
-                        </div>
-                        <div class="uk-width-1-4\@s">
-                            <p>Height*</p>
-                            <input class="uk-input" type="text" name="height" maxlength="5" 
-                            placeholder="Enter your height in cm (1 decimal point is allowed)" required>     
-                        </div>
-                        <div class="uk-width-1-4\@s">
-                            <p>Weight*</p>
-                            <input class="uk-input" type="text" name="weight" maxlength="5" 
-                            placeholder="Enter your weight in cm (1 decimal point is allowed)" required> 
-                        </div>
-                        <div class="uk-width-1-4\@s">
-                            <p>Allergies*</p>
-                            <input class="uk-input" type="text" placeholder="Enter your allergies" name="allergies" required>
-                        </div>
-                    </div><br>
-                    <button type="submit" class="uk-button">Update Details</button>
-                </form>
-            </div>  
+	</head>
+	<body>
+  <?php include "timeout.inc.php"; ?>
+        
+              <div class="uk-flex uk-flex-center uk-flex-middle uk-height-viewport uk-position-z-index uk-position-relative" data-uk-height-viewport="min-height: 400">
+                    <!-- <img src="images/profile.png" class="h-full w-6/12 " > -->
+             <?php include "nav.inc.php"; ?>
+                <div class="uk-card uk-card-default uk-card-body uk-width-1-2@m mr-6">
+                <h2 class="text-2xl font-semibold">Your Account</h2>
+                <p class="uk-heading-divider"><p>
+                 <form role="form" method="post" action="profileEdit_process.php">
+    <div class="uk-grid-small mt-8" uk-grid>
+    <div class="uk-width-1-1">
+    <p class="mb-2">What's your first name?</p>
+    <input class="uk-input rounded h-12 bg-gray-100" type="text" placeholder="Enter First Name" name="firstname" required>    
+    </div>
+    <div class="uk-width-1-1">
+    <p class="mb-2">What's your last name?</p>
+    <input class="uk-input rounded h-12 bg-gray-100" type="text" placeholder="Enter Last Name" name="lastname" required>
+    </div>
+    <div class="uk-width-1-1">
+    <p class="mb-2">Email</p>
+    <input class="uk-input rounded h-12 bg-gray-100" type="text" placeholder="Enter Email" name="email" required>
+    </div>
+    <div class="uk-width-1-1">
+    <p class="mb-2"> Mobile</p>
+    <input class="uk-input rounded h-12 bg-gray-100" type="text" placeholder="Enter Mobile" name="mobile" required>
+    </div>
+    <div class="uk-width-1-4@s">
+    <p class="mb-2">Height</p>
+    <input class="uk-input rounded h-12 bg-gray-100" type="text" placeholder="Enter Height" name="height" >     
+    </div>
+    <div class="uk-width-1-4@s">
+    <p class="mb-2">Weight</p>
+    <input class="uk-input rounded h-12 bg-gray-100" type="text" placeholder="Enter Weight" name="weight" > 
+    </div>
+    <div class="uk-width-1-4@s">
+    <p class="mb-2">Allergies</p>
+    <input class="uk-input rounded h-12 bg-gray-100" type="text" placeholder="Enter Allergies" name="allergies" required>
+    </div>
+    </div><br>
+    <div class="uk-margin-bottom">
+    <button type="submit" class="uk-button uk-button-primary uk-width-1-1 m-0 rounded h-12 bg-blue-800" href="profile_edit.php">Update Profile</button>
+      </div>    
+   </div>
+    </form><br>
+                 
+                </div>
+            
+            </fieldset>
+                </div>
+             </div>
+                
             <?php include "footer.inc.php";  ?>
-        </body>
-    </html>
+	</body>
+</html>
     <?php
     
     }else{
@@ -62,3 +75,5 @@
         include "404error.php";  
     }
 ?>
+
+

@@ -89,7 +89,7 @@
             if($db_success){
                 $username = combineName($fname,$lname);
                 $_SESSION["last_activity"] = time();
-                $_SESSION['inactive_timeout'] = 3*60;  // 1*60*60; will logout if user inactive for 1 hour
+                $_SESSION['inactive_timeout'] = 1*60*60;  // will logout if user inactive for 1 hour
                 $_SESSION["NRIC"] = $nric_fin;
                 $_SESSION["username"] = $username;
                 header("Location:index.php");

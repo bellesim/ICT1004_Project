@@ -1,21 +1,34 @@
-<!DOCTYPE html>
 <?php
 session_start();
 ?>
-<html>
+<!DOCTYPE html>
+<html lang="en">
     <head>
-        <?php include "head.inc.php"; ?>
+        <?php include "head.inc.php";?>
+        <style>
+            .lead {
+                font-size: 1.175em;
+                font-weight: 300;
+            }
+            .uk-logo img {
+                height: 28px;
+            }
+        </style>
     </head>
-    <body class='clinic'>
+    <body>
         <?php 
-        include "nav.inc.php";
         include "timeout.inc.php"; 
-        include "dbFunctions.php";
-        ?>
-        <div class="container">
-            <h2 class="font-bold text-4xl">List of Clinics available</h2><p>&nbsp;</p><p>&nbsp;</p>
-
-            <div class="row">
+        include "dbFunctions.php";?>
+        <div class="top-wrap uk-position-relative pb-20"> 
+            <?php include "nav.inc.php";?>
+       	</div>	
+		<div class="uk-grid-medium " uk-grid>
+	        <!-- BOTTOM -->
+        <section class="uk-section">
+               <div class="uk-container uk-text-center uk-section  ">
+                <h2 class="text-4xl font-bold"> Clinics</h2>
+            </div>
+            <div class="uk-child-width-1-3@m px-24" uk-grid >
                 <?php
                 $conn = db();
 
@@ -24,33 +37,55 @@ session_start();
                 }
                 $result = $conn->query("SELECT * FROM clinic.Clinic");
                 if ($result->num_rows > 0) {
-                    while ($row = $result->fetch_assoc()) {
-                        {
-                            ?> <body class='clinic'>
-                                <div class="column">
-                                    <div class="card">
-                                        <img src="images/vivaClinic.jpg" alt="viva" style="width:100%">
-                                        <h3><b><?php echo $row['ClinicName']?></b></h3>
-                                        <p><?php echo $row['ClinicAddress']?></p>
-                                        <p><?php echo $row['ClinicPostalCode']?></p>
-                                        <p><?php echo $row['ClinicContactNo']?></p>
-                                                                                
-                                        <form action="appt_booking.php" method="POST">
-                                            <input type="hidden" id="ClinicID" name="ClinicID" value=" <?php echo $row["ClinicID"]; ?> " readonly>
-                                            <button type="submit" class="apptButton">Make appointment</button>
-                                        </form>
-                                    </div>
-                                </div><?php
-                            }
-                        }
-                    } else {
+                    while ($row = $result->fetch_assoc()) { {
+                            ?>	<div>
+                            <div class="uk-card uk-card-default uk-card-small" style="box-shadow: none;">
+                                            <div class="uk-card-media-top">
+                                                <?php echo "<img src='images/".$row['Image']."'>"?>
+                                            </div>
+                                            <div class="uk-card-header">
+                                                    <div class="uk-grid-small uk-flex-middle" data-uk-grid>
+                                                            <div class="uk-width-auto">
+                                                            </div>
+                                                            <div class="uk-width-default">
+                                                                    <h6 class="uk-margin-remove-bottom uk-text-bold mt-4"><?php echo $row['ClinicName'] ?></h6>
+                                                            </div>
+                                                    </div>
+                                            </div>
+                                            <div class="uk-card-body">
+                                            <div class="flex pr-4">
+                                            <p class="text-base font-semibold mr-4">Address</p>
+                                            <span class="text-base"><?php echo $row['ClinicAddress'] ?></span>
+                                            </div>
+                                            <div class="flex">
+                                            <p class="text-base font-semibold mr-4 ">Opening Hours</p>
+                                            <span class="text-base"><?php echo $row['ClinicOpeningHours'] ?></span>
+                                            </div>
+                                                <form action="appt_booking.php" method="POST">
+                                                 <input type="hidden" id="ClinicID" name="ClinicID" value=" <?php echo $row["ClinicID"]; ?> ">
+                                                <button class="uk-button uk-button-text uk-text-bold uk-margin-small" type="submit">Book Appointment</button>
+                                                </form>
+											</div>
+										</div>
+									</div>
+                                
 
-                        echo "0 results";
+                                              
+                             
+                                
+                            <?php
+                        }
                     }
-                    $conn->close();
-                    ?>
-            </div>
-        </div>    
-        <?php include "footer.inc.php";  ?>
+                } else {
+
+                    echo "0 results";
+                }
+                $conn->close();
+                ?>  
+        </section>
+        </div>
+
+        
+        <?php include "footer.inc.php"; ?>
     </body>
 </html>

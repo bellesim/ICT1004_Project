@@ -18,8 +18,10 @@
             </script>
         </head>
         <body>
+            <div class="top-wrap uk-position-relative pb-40"> 
+                <?php include "nav.inc.php";?>
+            </div>	
             <?php 
-            include "nav.inc.php"; 
             include "timeout.inc.php"; 
             include "dbFunctions.php";
             $success = true;
