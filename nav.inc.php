@@ -2,7 +2,6 @@
      <style>
      .uk-navbar-nav>li>a {
     text-transform: none;
-
 }
      </style> -->
            <?php
@@ -16,8 +15,8 @@
                 <li class="uk-visible@s"><a href="index.php" >Home</a></li>
                   <li class="uk-visible@s"><a href="clinic.php">Clinics</a></li>
                   <li class="uk-visible@s"><a href="aboutus.php">About Us</a></li>
-                  <li class="uk-visible@s"><a href="clinic.php">Profile</a></li>
-                  <li class="uk-visible@s"><a href="aboutus.php">Appointments </a></li>
+                  <li class="uk-visible@s"><a href="profile.php">Profile</a></li>
+                  <li class="uk-visible@s"><a href="appt.php">Appointments </a></li>
                 </ul>
               </div>
 
