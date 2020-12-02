@@ -1,77 +1,68 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<title>Marketing - UIkit 3 KickOff</title>
-		<link rel="icon" href="img/favicon.ico">
-		<!-- CSS FILES -->
-		<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/uikit@latest/dist/css/uikit.min.css">
-        <link rel="stylesheet" type="text/css" href="css/main.css">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>About Us</title>
+        <link rel="icon" href="img/favicon.ico">
+        <!-- CSS FILES -->
+        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/uikit@latest/dist/css/uikit.min.css">
         <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="css/index.css">
 
-	</head>
-	<body>
-		<!-- TOP -->
-		<!--<div class="top-wrap uk-position-relative uk-light uk-background-secondary"> !-->
-        <div class="top-wrap uk-position-relative" uk-background-primary style="background-color: #515151;"> 
-        <div class="uk-flex uk-flex-center uk-flex-middle h-20">
+
+        <style>
+            .lead {
+                font-size: 1.175em;
+                font-weight: 300;
+            }
+            .uk-logo img {
+                height: 28px;
+            }
+        </style>
+    </head>
+    <body>
+        <?php include "timeout.inc.php"; ?>
+        <div class="top-wrap uk-position-relative pb-40"> 
+     
             <?php include "nav.inc.php";?>
-            </div>
-        </div>
-	<!-- /TOP -->
-		<section id="content" class="uk-section uk-section-default">
-			<div class="uk-container">
-				<div class="uk-section uk-section-small uk-padding-remove-top">
-					<ul class="uk-subnav uk-subnav-pill uk-flex uk-flex-center" data-uk-switcher="connect: .uk-switcher; animation: uk-animation-fade">
-						<li><a class="rounded" href="#">About Us</a></li>
-						<li><a class="rounded" href="#">Our services</a></li>
-					</ul>
-				</div>
+       		
+		<div class="uk-grid-medium " uk-grid>
+		<div class="mt-24 ml-40 mt-32 ">
+		<h1 class="k-heading-primary font-bold text-4xl ">Clinics </h1>
+		<p class="text-base mt-4 w-3/4 text-justify">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum nec tellus felis. Phasellus fringilla 
+			finibus turpis id commodo. Vivamus eu nisl sit amet tellus consequat gravida. Sed lobortis mattis eros, in luctus ex porttitor quis. Proin laoreet
+			lacus neque, a pellentesque dui porttitor eget. Pellentesque congue, tortor viverra suscipit pretium, </p>
+			  <img src="images/about_us.jpg" class="h-auto w-3/4 mt-12 "></div>
+    		</div>
 
-				<ul class="uk-switcher uk-margin">
-					<li>
-						<div class="uk-grid uk-child-width-1-2@l uk-flex-middle" data-uk-grid data-uk-scrollspy="target: > div; cls: uk-animation-slide-left-medium">
-							<div>
-                                <img src="images/indeximage.png" alt="aboutus"data-uk-img>
-                            </div>
-							<div data-uk-scrollspy-class="uk-animation-slide-right-medium">
-								<h2 class="font-semibold text-4xl">Who are we?</h6>
-								<p class="subtitle-text">
-									Clinic Finder offers a comprehensive range of primary healthcare services through our clinics located island-wide. 
-                                                                        Our experienced medical team consisting of doctors, specialists, nurses and phlebotomists seek to provide quality care
-                                                                        in an enriching, welcoming and tech-enabled environment.
-								</p>
-								
-							</div>
-						</div>
-					</li>
-					<li>
-						<div class="uk-grid uk-child-width-1-2@l uk-flex-middle" data-uk-grid data-uk-scrollspy="target: > div; cls: uk-animation-slide-left-medium">
-							<div>
-								<img src="images/aboutus2.png" alt="services" data-uk-img>
-							</div>
-							<div data-uk-scrollspy-class="uk-animation-slide-right-medium">
-								<h6 class="uk-text-primary">Services we provide</h6>
-								<h2 class="uk-margin-small-top">Take decisions with real time data based on users interaction.</h2>
-								<p class="subtitle-text">
-									Clinic Finder is a platform application where selected partnered clinics are gathered for Clinic Finder's members easier reference 
-                                                                        be able to select their preferred clinics and make an appointment straight from this website. Saves users time and ensures users satisfactory.
-								</p>
-								
-							</div>
-						</div>
-					</li>
-					
-				</ul>
-				
-				
-			</div>
+			<div class="mt-24 ml-40 flex">
+			<img src="images/about_us2.jpg" class="h-auto w-1/4 ">
+			<div class="row">
+			<h1 class="k-heading-primary font-bold text-4xl ml-12">Our Concept </h1>
+			<p class="text-base ml-12 mt-4 w-3/4 text-justify">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum nec tellus felis. Phasellus fringilla 
+			finibus turpis id commodo. Vivamus eu nisl sit amet tellus consequat gravida. Sed lobortis mattis eros, in luctus ex porttitor quis. Proin laoreet
+			lacus neque, a pellentesque dui porttitor eget. Pellentesque congue, tortor viverra suscipit pretium, </p></div>
+			  </div>
+
+    		</div>
+		</div>       
+        </section>
+
+	
+		<section class="uk-section uk-section-default">
+			<div class="uk-grid-divider uk-child-width-expand@s p-24" uk-grid>
+			<h1 class="k-heading-primary font-bold text-4xl ml-12">Why People Choose Us </h1>
+
+		<div>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</div>
+		<div>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</div>
+</div>
 		</section>
-
-		
-		 <?php include "footer.inc.php"; ?>
-
+        
+        <?php include "footer.inc.php"; ?>
         <!-- JS FILES -->
         <script src="https://cdn.jsdelivr.net/npm/uikit@latest/dist/js/uikit.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/uikit@latest/dist/js/uikit-icons.min.js"></script>
