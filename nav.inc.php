@@ -23,7 +23,7 @@
                 <div class="uk-navbar-right">
                 <div class="uk-navbar-item">
                   <div><p class="text-black font-bold mr-8 mt-3">Welcome, <?php echo $_SESSION["username"]; ?></p></div>
-                  <div><button class="button mt-2" type="button" uk-toggle="target: #modal-logout">Logout</button></div>
+                  <div><button class="class="uk-button  uk-button-medium uk-width-2-3 uk-width-auto@s rounded ml-24" type="button" uk-toggle="target: #modal-logout">Logout</button></div>
                 </div>
               </div>
                <!-- show popup model if user click logout button -->
