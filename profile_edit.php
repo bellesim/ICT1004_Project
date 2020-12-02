@@ -10,26 +10,20 @@ session_start();
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<title>Home</title>
-		<link rel="icon" href="img/favicon.ico">
-		<!-- CSS FILES -->
-        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/uikit@latest/dist/css/uikit.min.css">
-        <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
-        <link rel="stylesheet" type="text/css" href="css/index.css">
+        <?php include "head.inc.php"; ?>
 
 	</head>
 	<body>
   <?php include "timeout.inc.php"; ?>
+     <div class="top-wrap uk-position-relative pb-20"> 
+                <?php include "nav.inc.php";?>
+            </div>
         
-              <div class="uk-flex uk-flex-center uk-flex-middle uk-height-viewport uk-position-z-index uk-position-relative" data-uk-height-viewport="min-height: 400">
-                    <!-- <img src="images/profile.png" class="h-full w-6/12 " > -->
-             <?php include "nav.inc.php"; ?>
-                <div class="uk-card uk-card-default uk-card-body uk-width-1-2@m mr-6">
-                <h2 class="text-2xl font-semibold">Your Account</h2>
-                <p class="uk-heading-divider"><p>
-                 <form role="form" method="post" action="profileEdit_process.php">
+  <div class="uk-flex uk-flex-center uk-flex-middle uk-height-viewport uk-position-z-index uk-position-relative" data-uk-height-viewport="min-height: 400">
+   <div class="uk-card uk-card-default uk-card-body uk-width-1-2@m mr-6">
+     <h2 class="text-2xl font-semibold">Your Account</h2>
+    <p class="uk-heading-divider"><p>
+     <form role="form" method="post" action="profileEdit_process.php">
     <div class="uk-grid-small mt-8" uk-grid>
     <div class="uk-width-1-1">
     <p class="mb-2">What's your first name?</p>
@@ -73,13 +67,6 @@ session_start();
              </div>
                 
             <?php include "footer.inc.php";  ?>
-	
-	
-		
-		
-		<!-- JS FILES -->
-		<script src="https://cdn.jsdelivr.net/npm/uikit@latest/dist/js/uikit.min.js"></script>
-		<script src="https://cdn.jsdelivr.net/npm/uikit@latest/dist/js/uikit-icons.min.js"></script>
 	</body>
 </html>
     <?php

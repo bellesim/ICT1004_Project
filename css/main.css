@@ -1,4 +1,7 @@
+<<<<<<< HEAD
 
+=======
+>>>>>>> aa1178317c1e3643b563feb57b942887233efeda
 /* nav.inc.php*/
 #logo{
     width: 200px;
@@ -85,11 +88,33 @@ body {margin:0;font-family:Arial}
     display: inline-block;
     font-size: 12px;
     margin: 4px 2px;
+<<<<<<< HEAD
+=======
+    padding: 4px 45px;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 12px;
+    height: 30px;
+>>>>>>> aa1178317c1e3643b563feb57b942887233efeda
     font-family: Arial;
     float: right;
     cursor: pointer;
 }
+<<<<<<< HEAD
 .button {border-radius: 50px;}
+=======
+.button {border-radius: 25px;}
+
+.button a{
+    color:white;
+    font-size: 12px;
+    padding: 2px;
+}
+.button a:hover{
+    color:white;
+    background-color: #32287f;
+}
+>>>>>>> aa1178317c1e3643b563feb57b942887233efeda
 /* End of Buttons */
 
 .container {
@@ -137,4 +162,72 @@ hr{
 
 }
 
+<<<<<<< HEAD
+=======
+/* login.php*/
+.tabheader {
+    display: block;
+    color: black;
+    font-family: arial;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: bold;
+    border-bottom: 3px solid transparent;
+}
+
+.tabheader a{
+    margin: 10px;
+}
+
+.tabheader a:active, .tabheader a:hover{
+    margin: 10px;
+    border-bottom: 2px solid #32287f;
+    color: #32287f;
+}
+
+.tabcontent{
+    display:none;
+    margin: auto;
+    padding-bottom: 100px;
+    width: 60%; 
+}
+
+.loginformbutton{
+    background-color: #32287f;
+    border: none;
+    color: white;
+    padding: 4px 45px;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 12px;
+    height: 30px;
+    font-family: Arial;
+    border-radius: 25px;
+    margin-top: 20px;
+}
+
+.loginformbutton a{
+    color:white;
+    font-size: 12px;
+    padding: 2px;
+}
+
+.loginformbutton a:hover{
+    color:white;
+}
+
+.pwdrequirement{
+    color: rgba(185, 28, 28, 1);
+    font-size: 14px;
+    text-decoration: underline;
+    margin-left: 20px;
+    border:none;
+}
+
+.uk-subnav-pill>.uk-active>a{
+    background-color: #004866;
+}
+>>>>>>> aa1178317c1e3643b563feb57b942887233efeda
 
