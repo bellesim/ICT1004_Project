@@ -23,10 +23,10 @@ session_start();
 	<body>
   <?php include "timeout.inc.php"; ?>
         
-              <div class="uk-flex uk-flex-center uk-flex-middle uk-height-viewport uk-position-z-index uk-position-relative" data-uk-height-viewport="min-height: 400 mt-8">
+              <div class="uk-flex uk-flex-center uk-flex-middle uk-height-viewport uk-position-z-index uk-position-relative" data-uk-height-viewport="min-height: 400">
                     <!-- <img src="images/profile.png" class="h-full w-6/12 " > -->
              <?php include "nav.inc.php"; ?>
-                <div class="uk-card uk-card-default uk-card-body uk-width-1-2@m mt-20 mb-20">
+                <div class="uk-card uk-card-default uk-card-body uk-width-1-2@m mr-6">
                 <h2 class="text-2xl font-semibold">Your Account</h2>
                 <p class="uk-heading-divider"><p>
                  <form role="form" method="post" action="profileEdit_process.php">
