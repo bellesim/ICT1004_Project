@@ -34,7 +34,7 @@ session_start();
     </div>
     <div class="uk-width-1-1">
     <p class="mb-2">Email</p>
-    <input class="uk-input rounded h-12 bg-gray-100" type="text" placeholder="Enter Email" name="email" required>
+    <input class="uk-input rounded h-12 bg-gray-100" type="email" placeholder="Enter Email" name="email" required>
     </div>
     <div class="uk-width-1-1">
     <p class="mb-2"> Mobile</p>

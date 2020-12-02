@@ -23,8 +23,10 @@
                     <?php include "head.inc.php"; ?>
                 </head>
                 <body>
+                    <div class="top-wrap uk-position-relative pb-20"> 
+                        <?php include "nav.inc.php";?>
+                    </div>	
                     <?php 
-                    include "nav.inc.php"; 
                     include "timeout.inc.php";
 
                     $success = $dbsuccess = true;
@@ -143,33 +145,39 @@
                         insertApptToDB();
                         if($dbsuccess){
                             ?>
-                            <div class="space-y-6 text-black" style="margin: auto; width: 50%; ">
-                                <h1 class="font-bold text-2xl text-purple-800">Appointment Booked!</h1>
-                                <p>Your appointment is booked successfully.</p>
-                                <p>You may go to My Appointment page to view the appointment details.</p>
-                                <button class="loginformbutton font-semibold"><a href="appt.php">Go to My Appointment</a></button>
-                            </div>    
+                            <div class="uk-card uk-card-default uk-card-body uk-align-center mt-32" style="width: 50%">
+                                <div class="space-y-6 text-center">
+                                    <h3 class="uk-card-title font-bold" style="color:#1e40af;">Appointment Booked!</h3>
+                                    <p>Your appointment is booked successfully.</p>
+                                    <p>You may go to My Appointment page to view the appointment details.</p>
+                                    <button class="uk-button uk-button-primary uk-align-center rounded h-12 bg-blue-800 "><a href="appt.php">Go to Appointments</a></button>
+                                </div>
+                            </div> 
                             <?php
                         }else{
                             ?>
-                            <div class="space-y-6 text-black" style="margin: auto; width: 50%; ">
-                                <h2 class="font-bold text-2xl text-purple-800">Failed to Book Appointment!</h2>
-                                <p class="font-bold">Reason(s):</p>
-                                <?php echo "<p>".$errorMsg."</p>";?>
-                                <p class="mt-8">Please try again.</p>
-                                <button class="loginformbutton font-semibold"><a href="clinic.php">Back to Clinic</a></button>
-                            </div>
+                            <div class="uk-card uk-card-default uk-card-body uk-align-center mt-32" style="width: 50%">
+                                <div class="space-y-6">
+                                    <h3 class="uk-card-title font-bold" style="color:#B22222;">Failed to Book Appointment!</h3>
+                                    <p class="font-bold">Reason(s):</p>
+                                    <p><?php echo $errorMsg;?></p>
+                                    <p class="mt-16 mb-8">Please try again.</p>
+                                    <button class="uk-button uk-button-primary uk-align-center rounded h-12 bg-blue-800 "><a href="clinic.php">Back to Clinic</a></button>
+                                </div>
+                            </div>  
                             <?php
                         }
                     }else{
                         ?>
-                        <div class="space-y-6 text-black" style="margin: auto; width: 50%; ">
-                            <h2 class="font-bold text-2xl text-purple-800">Failed to Book Appointment!</h2>
-                            <p class="font-bold">Reason(s):</p>
-                            <?php echo "<p>".$errorMsg."</p>";?>
-                            <p class="mt-8">Please try again.</p>
-                            <button class="loginformbutton font-semibold"><a href="clinic.php">Back to Clinic</a></button>
-                        </div>
+                        <div class="uk-card uk-card-default uk-card-body uk-align-center mt-32" style="width: 50%">
+                            <div class="space-y-6">
+                                <h3 class="uk-card-title font-bold" style="color:#B22222;">Failed to Book Appointment!</h3>
+                                <p class="font-bold">Reason(s):</p>
+                                <p><?php echo $errorMsg;?></p>
+                                <p class="mt-16 mb-8">Please try again.</p>
+                                <button class="uk-button uk-button-primary uk-align-center rounded h-12 bg-blue-800 "><a href="clinic.php">Back to Clinic</a></button>
+                            </div>
+                        </div>  
                         <?php
                     }
                 ?>    

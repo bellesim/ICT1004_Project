@@ -98,13 +98,7 @@
              </div>
                 
             <?php include "footer.inc.php";  ?>
-	
-	
-		
-		
-		<!-- JS FILES -->
-		<script src="https://cdn.jsdelivr.net/npm/uikit@latest/dist/js/uikit.min.js"></script>
-		<script src="https://cdn.jsdelivr.net/npm/uikit@latest/dist/js/uikit-icons.min.js"></script>
+
 	</body>
 </html>
     <?php

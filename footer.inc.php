@@ -1,4 +1,4 @@
-<footer class="uk-padding-remove-bottom" style="background-color:#0F0F0F">
+<footer class="uk-padding-remove-bottom mt-32" style="background-color:#0F0F0F">
     <div class="uk-container">
         <div class="uk-grid uk-grid-large" data-uk-grid>
             <div class="uk-width-1-2@m">

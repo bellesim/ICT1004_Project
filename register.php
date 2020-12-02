@@ -9,7 +9,7 @@ session_start();
     <body>
         <div class="flex">
             <img src="images/login_asset.png" alt="login asset image" class="h-full w-7/12" >
-            <div id="login" class=" text-left">
+            <div class="text-left">
                 <div class="uk-card uk-card-default uk-card-body uk-width-1\@m  mt-20">
                     <div class="uk-width uk-padding-small mt-6">
                         <div class="mb-12">
@@ -22,7 +22,7 @@ session_start();
                             <div class="uk-grid-small " uk-grid>
                                 <div class="uk-width-1-1">
                                     <label class="uk-form-label text-blue-800 font-semibold" for="fname">First Name</label>
-                                    <input class="uk-input rounded h-12 bg-gray-100" placeholder="Enter your first name" type="text" id="fname" name="fname" required maxlength="50">      
+                                    <input class="uk-input rounded h-12 bg-gray-100" placeholder="Enter your first name" type="text" id="fname" name="fname" maxlength="50">      
                                 </div>
                                 <div class="uk-width-1-1">
                                     <label class="uk-form-label text-blue-800 font-semibold" for="lname">Last Name*</label>
