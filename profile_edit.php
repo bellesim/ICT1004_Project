@@ -26,28 +26,28 @@ session_start();
      <form role="form" method="post" action="profileEdit_process.php">
     <div class="uk-grid-small mt-8" uk-grid>
     <div class="uk-width-1-1">
-    <p class="mb-2">What's your first name?</p>
-    <input class="uk-input rounded h-12 bg-gray-100" type="text" placeholder="Enter First Name" name="firstname" required>    
+    <p class="mb-2">First Name</p>
+    <input class="uk-input rounded h-12 bg-gray-100" type="text" placeholder="Enter your first name" name="firstname" >    
     </div>
     <div class="uk-width-1-1">
-    <p class="mb-2">What's your last name?</p>
-    <input class="uk-input rounded h-12 bg-gray-100" type="text" placeholder="Enter Last Name" name="lastname" required>
+    <p class="mb-2">Last Name*</p>
+    <input class="uk-input rounded h-12 bg-gray-100" type="text" placeholder="Enter your last name" name="lastname" required>
     </div>
     <div class="uk-width-1-1">
-    <p class="mb-2">Email</p>
-    <input class="uk-input rounded h-12 bg-gray-100" type="text" placeholder="Enter Email" name="email" required>
+    <p class="mb-2">Email*</p>
+    <input class="uk-input rounded h-12 bg-gray-100" type="text" placeholder="Enter your email" name="email" required>
     </div>
     <div class="uk-width-1-1">
-    <p class="mb-2"> Mobile</p>
-    <input class="uk-input rounded h-12 bg-gray-100" type="text" placeholder="Enter Mobile" name="mobile" required>
+    <p class="mb-2"> <Mobile></Mobile></p>
+    <input class="uk-input rounded h-12 bg-gray-100" type="tel" pattern="[0-9]{8}"placeholder="Enter your contact" name="mobile" required>
     </div>
     <div class="uk-width-1-4@s">
     <p class="mb-2">Height</p>
-    <input class="uk-input rounded h-12 bg-gray-100" type="text" placeholder="Enter Height" name="height" >     
+    <input class="uk-input rounded h-12 bg-gray-100" type="text" maxlength="5" placeholder="Enter height" name="height" required>     
     </div>
     <div class="uk-width-1-4@s">
     <p class="mb-2">Weight</p>
-    <input class="uk-input rounded h-12 bg-gray-100" type="text" placeholder="Enter Weight" name="weight" > 
+    <input class="uk-input rounded h-12 bg-gray-100" type="text" maxlength="5"  placeholder="Enter weight" name="weight" > 
     </div>
     <div class="uk-width-1-4@s">
     <p class="mb-2">Allergies</p>
