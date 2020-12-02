@@ -1,54 +1,36 @@
-  
 <!DOCTYPE html>
-
-
-        
-        
-        
-        
-        
-        
-        
-        <!DOCTYPE html>
-<html lang="en">
-	<head>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<title>Marketing - UIkit 3 KickOff</title>
-		<link rel="icon" href="img/favicon.ico">
-		<!-- CSS FILES -->
-		<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/uikit@latest/dist/css/uikit.min.css">
-        <link rel="stylesheet" type="text/css" href="css/main.css">
+<?php
+session_start();
+?>
+<html>
+    <head>
+        <title>Clinic</title>
+        <link rel="icon" href="img/favicon.ico">
+        <!-- CSS FILES -->
+        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/uikit@latest/dist/css/uikit.min.css">
         <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
-
-	</head>
-	<body>
-		<!-- TOP -->
-		<!--<div class="top-wrap uk-position-relative uk-light uk-background-secondary"> !-->
+        <link rel="stylesheet" type="text/css" href="css/index.css">
+        <?php include "head.inc.php"; ?>
+    </head>
+    <body class='clinic'>
+         <!-- TOP -->
         <div class="top-wrap uk-position-relative" uk-background-primary style="background-color: #515151;"> 
         <div class="uk-flex uk-flex-center uk-flex-middle h-20">
             <?php include "nav.inc.php";?>
             </div>
         </div>
-	<!-- /TOP -->
-		<section id="content" class="uk-section uk-section-default">
-			<div class="uk-container">
-				<div class="uk-section uk-section-small uk-padding-remove-top">
-					<ul class="uk-subnav uk-subnav-pill uk-flex uk-flex-center" data-uk-switcher="connect: .uk-switcher; animation: uk-animation-fade">
-						<li><a class="rounded" href="#">Appointment</a></li>
-					</ul>
-				</div>
-
-				<ul class="uk-switcher uk-margin">
-					<li>
-						<div class="uk-grid uk-child-width-1-2@l uk-flex-middle" data-uk-grid data-uk-scrollspy="target: > div; cls: uk-animation-slide-left-medium">
-							<div>
-                                <img src="images/indeximage.png" alt="aboutus"data-uk-img>
-                            </div>
-							<div data-uk-scrollspy-class="uk-animation-slide-right-medium">
-								<h2 class="font-semibold text-4xl">Make an appointment</h6>
-								<p class="subtitle-text">
-									<?php
+        <?php include "timeout.inc.php"; ?>
+        <section class="uk-section">
+            
+             <div class="uk-flex uk-flex-center uk-flex-middle uk-height-viewport uk-position-z-index uk-position-relative" data-uk-height-viewport="min-height: 200">
+                 <img src="images/indeximage.png">
+                <div class="uk-card uk-card-default uk-card-body uk-width-1-2@m mr-6">
+                    
+                <h2 class="text-2xl font-semibold">Make an appointment</h2>
+                <p class="uk-heading-divider"><p>
+                           
+                    
+                    <?php
     session_start();
     
     if (isset($_SESSION["NRIC"]) && isset($_SESSION["username"])){
@@ -73,32 +55,29 @@
                 $stmt->close();
                 ?>
 
-                <html>
-                    <head>
-                        <?php include "head.inc.php"; ?>
-                    </head>
-                    <body>
+            
                         <?php 
-
                         $currentdate = new DateTime();
                         $currentdate = $currentdate->setTimezone(new DateTimeZone('Asia/Singapore'));
                         $interval = new DateInterval('P1D');
                         $currentdate->add($interval);
                         $currentdate = $currentdate->format('yy-m-d');
-
                         ?>
 
                         <div class="container">
                             <form action="appt_booked.php" method="POST" class="form-control">
                                 <p class="italic text-red-700 mb-8">* mandatory fields</p>
-                                <p>Clinic: <?php echo $ClinicName;?></p>
-                                <div class="form-group">
-                                    <label>Appointment Date*</label>
-                                    <input type="date" name="ApptDate" class="form-control" min="<?php echo $currentdate;?>" required>
+                                
+                                
+                                <div class="uk-width-1-1">
+                                    <h4 class="text-base font-semibold mt-4">Clinic: <?php echo $ClinicName;?> </h4>
                                 </div>
-
-                                <div class="form-group">
-                                    <label for="ApptStartTime">Appointment Timeslot*:</label>
+                                <div class="uk-width-1-1">
+                                    <h4 class="text-base font-semibold mt-4"><label>Appointment Date* <input type="date" name="ApptDate" class="form-control" min="<?php echo $currentdate;?>" required></label> </h4>                                                                     
+                                </div>
+                               <div class="uk-width-1-1">
+                                   <div class="form-group">
+                                    <h4 class="text-base font-semibold mt-4"><label for="ApptStartTime">Appointment Timeslot*:</label>
                                     <select id="ApptStartTime" name="ApptStartTime" required>
                                         <option value="0800">0800-0900</option>
                                         <option value="0900">0900-1000</option>
@@ -110,14 +89,20 @@
                                         <option value="1500">1500-1600</option>
                                         <option value="1600">1600-1700</option>
                                         <option value="1700">1700-1800</option>
-                                    </select>
+                                    </select></h4>
+                                   </div>
                                 </div>
-                                <div class="form-group">
-                                    <label>Appointment Type</label>
-                                    <input type="text" name="ApptType" class="form-control" placeholder="e.g. General"> 
+                                
+                                <div class="uk-width-1-1">
+                                    <div class="form-group">
+                                    <h4 class="text-base font-semibold mt-4"><label>Appointment Type</label>
+                                    <input type="text" name="ApptType" class="form-control" placeholder="e.g. General"> </h4>
+                                    </div>
                                 </div>
-                                <div class="form-group">
-                                    <label>Doctor*</label>
+                                
+                                <div class="uk-width-1-1">
+                                    <div class="form-group">
+                                    <h4 class="text-base font-semibold mt-4"><label>Doctor*</label>
                                     </br>
 
                                     <?php 
@@ -157,7 +142,10 @@
                                 </div>
                                 <input type="hidden" id="ClinicID" name="ClinicID" value=" <?php echo $ClinicID; ?> " readonly><br>
                                 <button onclick="window.location.href = 'appt_booking.php'" class="uk-button uk-button-primary uk-width-1-1 rounded h-12 bg-blue-800" href="#modal-overflow">Make appointment</button>
-                            </form>
+
+                            </form></h4>
+                                    </div>
+                              
                         </div> 
                     </body>
                 </html>
@@ -174,33 +162,29 @@
     }else{
         ?>
         <html>
-           
+          
             <body>
                 <div class="space-y-6 text-black" style="margin: auto; width: 50%; ">
                     <h1 class="font-bold text-2xl text-purple-800">Unable to Book!</h1>
                     <p>Please login before you book an appointment.</p>
+                <a href="login.php" class="uk-button uk-button-primary uk-button-medium uk-width-2-3 uk-width-auto@s rounded ml-24">Login</a>
                 </div>    
         </html>
     <?php                    
     }
 ?>
-								</p>
-								
-							</div>
-						</div>
-					</li>
-				
-				</ul>
-				
-				
-			</div>
-		</section>
-
-		
-		 <?php include "footer.inc.php"; ?>
+         <?php include "footer.inc.php"; ?>
 
         <!-- JS FILES -->
         <script src="https://cdn.jsdelivr.net/npm/uikit@latest/dist/js/uikit.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/uikit@latest/dist/js/uikit-icons.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/uikit@latest/dist/js/uikit-icons.min.js"></script>           
     </body>
 </html>
+
+
+
+
+
+
+
+
