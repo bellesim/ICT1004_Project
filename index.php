@@ -1,3 +1,4 @@
+
 <?php
 session_start();
 ?>
@@ -71,53 +72,44 @@ session_start();
             <div class="uk-container uk-text-center ">
             <div class="h-10">
                 <h2 class="text-4xl font-bold ">Our Partnering Clinics</h2>
-                <button onclick="window.location.href = 'clinic.php'" class="text-xl font-semibold float-right text-blue-500 mb-4" href="#modal-overflow">See more</button>
+                <button onclick="window.location.href = 'clinic.php'" class="text-xl font-semibold float-right text-right text-blue-500 mb-4" href="#modal-overflow">See more</button>
                 </div>
             </div>
             <div class="uk-child-width-1-4@m px-24" uk-grid >
-                <div>
-                    <div class="uk-card uk-card-default ">
-                        <div class="uk-card-media-top">
-                            <img src="images/doctor.jpg" alt="Clinic One">
-                        </div>
-                        <div class="uk-card-body">
-                            <h3 class="text-xl font-semibold clinicTitle">Trinity Medical Clinic</h3>
-                        </div>
-                    </div>
-                </div>
-                <div>
-                    <div class="uk-card uk-card-default ">
-                        <div class="uk-card-media-top">
-                        <img src="images/doctor.jpg" alt="faith"/>
-                        </div>
-                        <div class="uk-card-body">
-                          <h3 class="text-xl font-semibold clinicTitle">Trinity Medical Clinic</h3>
-                        </div>
-                    </div>
-                </div>
-                <div>
-                    <div class="uk-card uk-card-default">
-                        <div class="uk-card-media-top">
-                        <img src="images/doctor.jpg" alt="lifeline"/>
-                        </div>
-                        <div class="uk-card-body">                            
-                        <h3 class="text-xl font-semibold clinicTitle">Trinity Medical Clinic</h3>
-                        </div>
-                    </div>
-                </div>
-                <div>
-                    <div class="uk-card uk-card-default">
-                        <div class="uk-card-media-top">
-                        <img src="images/doctor.jpg" alt="faith"/>
-                        </div>
-                        <div class="uk-card-body">
-                            <h3 class="text-xl font-semibold clinicTitle ">Trinity Medical Clinic</h3>
-                        </div>
-                    </div>
-                </div>
-                <div>
-                    </div>
-                
+                <?php
+                $conn = new mysqli("localhost", "sqldev", "P@ssw0rd", "clinic");
+
+                if ($conn->connect_errno) {
+                    echo "Failed to connect to MYSQL: " . $conn->connect_error();
+                }
+                $result = $conn->query("SELECT * FROM clinic.Clinic");
+                if ($result->num_rows > 0) {
+                    while ($row = $result->fetch_assoc()) { {
+                            ?>
+
+                            <div>
+                                <div class="uk-card uk-card-default">
+                                    <div class="uk-card-media-top">
+                                        <?php echo "<img src='images/".$row['Image']."'>"?>
+                                    </div>
+                                    <div class="uk-card-body">
+                                        <h3><b><?php echo $row['ClinicName'] ?></b></h3>
+                                       
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <?php
+                        }
+                    }
+                } else {
+
+                    echo "0 results";
+                }
+                $conn->close();
+                ?> 
+            </div>
                     
         </section>
         <?php include "footer.inc.php"; ?>
