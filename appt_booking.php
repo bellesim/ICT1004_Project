@@ -19,6 +19,7 @@ session_start();
             <?php include "nav.inc.php";?>
             </div>
         </div>
+         <p style="margin-top: -100px;"></p>
         <?php include "timeout.inc.php"; ?>
         <section class="uk-section">
             
