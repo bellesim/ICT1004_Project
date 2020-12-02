@@ -1,3 +1,4 @@
+
 <?php
 session_start();
 ?>
@@ -71,7 +72,7 @@ session_start();
             <div class="uk-container uk-text-center ">
             <div class="h-10">
                 <h2 class="text-4xl font-bold ">Our Partnering Clinics</h2>
-                <button onclick="window.location.href = 'clinic.php'" class="text-xl font-semibold float-right text-blue-500 mb-4" href="#modal-overflow">See more</button>
+                <button onclick="window.location.href = 'clinic.php'" class="text-xl font-semibold float-right text-right text-blue-500 mb-4" href="#modal-overflow">See more</button>
                 </div>
             </div>
             <div class="uk-child-width-1-4@m px-24" uk-grid >
