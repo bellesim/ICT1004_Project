@@ -1,0 +1,21 @@
+.uk-subnav-pill>.uk-active>a{
+    background-color: #004866;
+}
+
+body {
+    background-color:#F5F8FA;
+}
+.clinicTitle {
+    color: #004866;
+}
+
+.uk-button-primary {
+    background-color: #004866;
+    margin: 0 auto;
+
+}
+
+.uk-card-default {
+  box-shadow:none;  
+}
+
