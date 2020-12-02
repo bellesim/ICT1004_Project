@@ -62,7 +62,7 @@ session_start();
                 <label class="text-base font-normal"><?php echo $allergies?><label>
                 </div><br>
                     <div class="uk-margin-bottom">
-                    <a href="profile_edit.php" class="uk-button uk-button-primary uk-width-1-1 m-0 rounded h-12 bg-blue-800">Edit Profile</a>
+                    <a href="profile_edit.php" class="uk-button uk-button-primary uk-width-1-1 m-0 rounded h-12 bg-blue-800">Edit Profile</a> 
                     <!-- <button type="submit" class="uk-button uk-button-primary uk-width-1-1 m-0 rounded h-12 bg-blue-800" href="profile_edit.php">Edit Profile</button> -->
                 </div>
                 </div>
