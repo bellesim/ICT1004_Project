@@ -22,7 +22,7 @@ if (isset($_SESSION["NRIC"])&&isset($_SESSION["username"])){
 
         <div class="uk-navbar-right">
         <div class="uk-navbar-item">
-          <div><p class="font-bold mr-8 mt-3">Welcome, <?php echo $_SESSION["username"]; ?></p></div>
+          <div><p class="font-bold mr-8 mt-3 text-white">Welcome, <?php echo $_SESSION["username"]; ?></p></div>
           <div><button class="uk-button  uk-button-medium uk-width-2-3 uk-width-auto\@s rounded ml-24" type="button" uk-toggle="target: #modal-logout">Logout</button></div>
         </div>
       </div>
