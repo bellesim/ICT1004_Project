@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <?php
         include "head.inc.php";
@@ -10,6 +10,7 @@
     <div class="top-wrap uk-position-relative pb-20"> 
         <?php include "nav.inc.php";?>
     </div>	
+    <main>
     <?php
         include "authentication.php";
         include "dbFunctions.php";
@@ -59,7 +60,7 @@
                 $result2 = $stmt2->get_result(); 
                 // if there's a row return, means registered before
                 if ($result2->num_rows > 0){            
-                    $errorMsg .= "&#10008;  NRIC/FIN is registered before, please login with the existing NRIC/FIN or register with a new NRIC/FIN.<br>";
+                    $errorMsg .= "&#10008;  Email is registered before, please login with the existing NRIC/FIN or register with a new NRIC/FIN.<br>";
                     $success = false;
                 } 
                 $stmt2->close();
@@ -67,9 +68,10 @@
             $conn->close();
         } 
         
+        
         // to insert the patient's details into db
         function insertMemberToDB(){     
-            global $nric_fin, $pwd_hashed, $fname, $lname, $email, $contact, $weight, $height, $allergies, $errorMsg, $db_success; 
+            global $nric_fin, $pwd_hashed, $fname, $lname, $email, $contact, $dob, $gender, $weight, $height, $allergies, $errorMsg, $db_success; 
             
             $conn = db();
             // check connection    
@@ -79,8 +81,8 @@
 
             } else {        
                 // insert data into patient table 
-                $stmt = $conn->prepare("INSERT INTO Patient (PatNRIC, PatPassword, PatFirstName, PatLastName, PatEmail, PatMobile, PatWeight, PatHeight, PatAllergies) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");            
-                $stmt->bind_param("ssssssdds", $nric_fin, $pwd_hashed, $fname, $lname, $email, $contact, $weight, $height, $allergies);  
+                $stmt = $conn->prepare("INSERT INTO Patient (PatNRIC, PatPassword, PatFirstName, PatLastName, PatEmail, PatMobile, PatWeight, PatHeight, PatAllergies, PatDoB, PatGender) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");            
+                $stmt->bind_param("ssssssddsss", $nric_fin, $pwd_hashed, $fname, $lname, $email, $contact, $weight, $height, $allergies, $dob, $gender);  
                 if (!$stmt->execute()){            
                     $errorMsg .= "&#10008;  Execute failed: (" . $stmt->errno . ") " . $stmt->error;            
                     $db_success = false;        
@@ -91,7 +93,7 @@
         } 
 
         // if required fields are not empty, validate each field with the functions in authentication.php
-        if((!empty($_POST["lname"]))&&(!empty($_POST["nric_fin"]))&&(!empty($_POST["email"]))&&(!empty($_POST["contact"]))&&(!empty($_POST["pwd"]))&&(!empty($_POST["pwd_confirm"]))&&(!empty($_POST["height"]))&&(!empty($_POST["weight"]))&&(!empty($_POST["allergies"]))){
+        if((!empty($_POST["lname"]))&&(!empty($_POST["nric_fin"]))&&(!empty($_POST["email"]))&&(!empty($_POST["contact"]))&&(!empty($_POST["pwd"]))&&(!empty($_POST["pwd_confirm"]))&&(!empty($_POST["height"]))&&(!empty($_POST["weight"]))&&(!empty($_POST["allergies"]))&&(!empty($_POST["dob"]))&&(!empty($_POST["gender"]))){
 
             // validate first name if exist
             if(!empty($_POST["fname"])){
@@ -153,6 +155,22 @@
                 $validate_pwd_identical = $success = false;
             }
             
+            // validate dob
+            if(!check_appt_date($_POST["dob"])){
+                $errorMsg .= "&#10008;  Invalid date of birth. <br>";
+                $success = false;
+            }else{
+                $dob = sanitize_input($_POST["dob"]);
+            }
+            
+            // sanitise gender
+            if (($_POST["gender"]=="male")||($_POST["gender"]=="female")){
+                $gender = sanitize_input($_POST["gender"]);
+            } else {
+                $errorMsg .= "&#10008;  Invalid gender. <br>";
+                $success = false;
+            }
+            
             
             // validate height
             $validate_height = check_double_format($_POST["height"]);
@@ -196,35 +214,39 @@
             if($db_success){
                 $username = combineName($fname,$lname);
                 ?>
+                <div class="h-screen">
                 <div class="uk-card uk-card-default uk-card-body uk-align-center mt-32" style="width: 50%">
-                    <div class="space-y-6 text-center">
+                    <div class="space-y-6 text-center text-black">
                         <h3 class="uk-card-title font-bold" style="color:#1e40af;">Your account is registered successfully!</h3>
                         <p>Welcome to be part of our family, <?php echo $username;?></p>
                         <p>You may proceed to login with your NRIC/FIN and password.</p>
                         <button class="uk-button uk-button-primary uk-align-center rounded h-12 bg-blue-800 "><a href="login.php">Login</a></button>
                     </div>
                 </div> 
+                </div>
                 <?php
 
             }else{
                 ?>
-    
+                <div class="h-screen">
                 <div class="uk-card uk-card-default uk-card-body uk-align-center mt-32" style="width: 50%">
-                    <div class="space-y-6">
-                        <h3 class="uk-card-title font-bold" style="color:#B22222;">Failed to register!</h3>
+                    <div class="space-y-6 text-black">
+                        <h1 class="uk-card-title font-bold" style="color:#B22222;">Failed to register!</h1>
                         <p class="font-bold">Reason(s):</p>
                         <p><?php echo $errorMsg;?></p>
                         <p class="mt-16 mb-8">Please try again.</p>
                         <button class="uk-button uk-button-primary uk-align-center rounded h-12 bg-blue-800 "><a href="register.php">Back to Register</a></button>
                     </div>
                 </div>  
+                </div>
                 <?php
             }
         }else{
             ?>
+            <div class="h-screen">
             <div class="uk-card uk-card-default uk-card-body uk-align-center mt-32" style="width: 50%">
-                <div class="space-y-6">
-                    <h3 class="uk-card-title font-bold" style="color:#B22222;">Failed to register!</h3>
+                <div class="space-y-6 text-black">
+                    <h1 class="uk-card-title font-bold" style="color:#B22222;">Failed to register!</h1>
                     <p class="font-bold">Reason(s):</p>
                 
                     <?php
@@ -238,9 +260,12 @@
                     <button class="uk-button uk-button-primary uk-align-center rounded h-12 bg-blue-800 "><a href="register.php">Back to Register</a></button>
                 </div>   
             </div>
-    
+            </div>
+        
         <?php
         }
+        ?>
+        </main><?php
         include "footer.inc.php";?>
 </body>
 </html>

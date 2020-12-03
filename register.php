@@ -2,18 +2,25 @@
 <?php
 session_start();
 ?>
-<html>
+<html lang="en">
     <head>
         <?php include "head.inc.php";?>
     </head>
     <body>
-        <div class="flex">
-            <img src="images/login_asset.png" alt="login asset image" class="h-full w-7/12" >
-            <div class="text-left">
-                <div class="uk-card uk-card-default uk-card-body uk-width-1\@m  mt-20">
+        <main>
+        <div class="top-wrap uk-position-relative pb-20"> 
+        <?php include "nav.inc.php";?>
+        </div>
+        <?php 
+        $now = new DateTime();
+        $date_created = $now->format('Y-m-d');
+        ?>
+        <div class="uk-card uk-card-default uk-card-body uk-align-center mt-32" style="width: 50%">
+            <div class="text-left text-black">
+                <div class="uk-card uk-card-default uk-card-body uk-width-1\@m">
                     <div class="uk-width uk-padding-small mt-6">
                         <div class="mb-12">
-                            <h2 class="text-4xl font-bold text-blue-800">Create An Account</h2>
+                            <h1 class="text-4xl font-bold text-blue-800">Create An Account</h1>
                             <p class="mt-2 text-base">Already have an account? <a href="login.php" class=" font-medium text-blue-600">Sign in</a></p>
                         </div>
 
@@ -22,11 +29,11 @@ session_start();
                             <div class="uk-grid-small " uk-grid>
                                 <div class="uk-width-1-1">
                                     <label class="uk-form-label text-blue-800 font-semibold" for="fname">First Name</label>
-                                    <input class="uk-input rounded h-12 bg-gray-100" placeholder="Enter your first name" type="text" id="fname" name="fname" maxlength="50">      
+                                    <input class="uk-input rounded h-12 bg-gray-100 text-black" placeholder="Enter your first name" type="text" id="fname" name="fname" maxlength="50">      
                                 </div>
                                 <div class="uk-width-1-1">
                                     <label class="uk-form-label text-blue-800 font-semibold" for="lname">Last Name*</label>
-                                    <input class="uk-input rounded h-12 bg-gray-100" placeholder="Enter your last name" type="text" id="fname" name="lname" required maxlength="50">      
+                                    <input class="uk-input rounded h-12 bg-gray-100" placeholder="Enter your last name" type="text" id="lname" name="lname" required maxlength="50">      
                                 </div>
                                 <div class="uk-width-1-1">
                                     <label class="uk-form-label text-blue-800 font-semibold" for="nric_fin">NRIC/FIN*</label>
@@ -39,7 +46,7 @@ session_start();
                                 <div class="uk-width-1-1">
                                     <label class="uk-form-label text-blue-800 font-semibold" for="contact">Mobile No*</label>
                                     <div class="uk-form-controls">
-                                        <input class="uk-input rounded h-12 bg-gray-100" placeholder="Enter your mobile number" type="tel" id="contact" name="contact" required pattern="[0-9]{8}">     
+                                        <input class="uk-input rounded h-12 bg-gray-100" placeholder="Enter your mobile number without space (e.g. 98765432)" type="tel" id="contact" name="contact" required pattern="[0-9]{8}">     
                                     </div>
                                 </div>
                                 <div class="uk-width-1-1">
@@ -51,14 +58,26 @@ session_start();
                                     <label class="uk-form-label text-blue-800 font-semibold" for="pwd_confirm">Confirm Password*</label>
                                     <input class="uk-input rounded h-12 bg-gray-100" placeholder="Enter password again" type="password" id="pwd_confirm" name="pwd_confirm" required >     
                                 </div>  
-                                <div class="uk-grid-small mt-8" uk-grid>
+                                <div class="uk-width-1-1">
+                                    <label class="uk-form-label text-blue-800 font-semibold"for="dob">Date of Birth*</label>
+                                    <input class="uk-input rounded h-12 bg-gray-100" type="date" id="dob" name="dob" max="<?PHP echo $date_created;?>" required>
+                                </div>
+                                <div class="uk-width-1-1">
+                                    <label class="uk-form-label text-blue-800 font-semibold mb-2" for="gender">Gender*</label><br>
+                                    <input class="uk-radio" type="radio" id="male" name="gender" value="male" checked required>
+                                    <label for="male">Male</label>
+                                    <input class="uk-radio" type="radio" id="female" name="gender" value="female" required>
+                                    <label for="female">Female</label>
+                                </div>
+
+                                <div class="uk-grid-small mt-8 mb-16" uk-grid>
                                     <div class="uk-width-1-3\@s">
                                         <label class="uk-form-label text-blue-800 font-semibold" for="height">Height*</label>
-                                        <input class="uk-input rounded h-12 bg-gray-100" placeholder="Enter your height" type="text" id="height" name="height" required maxlength="5">     
+                                        <input class="uk-input rounded h-12 bg-gray-100" placeholder="Enter your height in cm (1 decimal point is allowed)" type="text" id="height" name="height" required maxlength="5">     
                                     </div> 
                                     <div class="uk-width-1-3\@s">
                                         <label class="uk-form-label text-blue-800 font-semibold" for="weight">Weight*</label>
-                                        <input class="uk-input rounded h-12 bg-gray-100" placeholder="Enter your weight" type="text" id="weight" name="weight" required maxlength="5">     
+                                        <input class="uk-input rounded h-12 bg-gray-100" placeholder="Enter your weight in kg (1 decimal point is allowed)" type="text" id="weight" name="weight" required maxlength="5">     
                                     </div>  
                                     <div class="uk-width-1-3\@s">
                                         <label class="uk-form-label text-blue-800 font-semibold" for="allergies">Allergies*</label>
@@ -90,7 +109,8 @@ session_start();
                 </div>
             </div>
         </div>
-        <script src="https://cdn.jsdelivr.net/npm/uikit@latest/dist/js/uikit.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/uikit@latest/dist/js/uikit-icons.min.js"></script>
+            </main>
+        <?php include "footer.inc.php";?>
+
     </body>
 </html>

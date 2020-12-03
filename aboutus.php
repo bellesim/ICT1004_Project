@@ -20,44 +20,47 @@ session_start();
     <body>
         <?php include "timeout.inc.php"; ?>
         <div class="top-wrap uk-position-relative pb-40"> 
-     
-            <?php include "nav.inc.php";?>
-       		
-		<div class="uk-grid-medium " uk-grid>
-		<div class="mt-24 ml-40 mt-32 ">
-		<h1 class="k-heading-primary font-bold text-4xl ">Clinics </h1>
-		<p class="text-base mt-4 w-3/4 text-justify">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum nec tellus felis. Phasellus fringilla 
-			finibus turpis id commodo. Vivamus eu nisl sit amet tellus consequat gravida. Sed lobortis mattis eros, in luctus ex porttitor quis. Proin laoreet
-			lacus neque, a pellentesque dui porttitor eget. Pellentesque congue, tortor viverra suscipit pretium, </p>
-			  <img src="images/about_us.jpg" class="h-auto w-3/4 mt-12 "></div>
-    		</div>
 
-			<div class="mt-24 ml-40 flex">
-			<img src="images/about_us2.jpg" class="h-auto w-1/4 ">
-			<div class="row">
-			<h1 class="k-heading-primary font-bold text-4xl ml-12">Our Concept </h1>
-			<p class="text-base ml-12 mt-4 w-3/4 text-justify">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum nec tellus felis. Phasellus fringilla 
-			finibus turpis id commodo. Vivamus eu nisl sit amet tellus consequat gravida. Sed lobortis mattis eros, in luctus ex porttitor quis. Proin laoreet
-			lacus neque, a pellentesque dui porttitor eget. Pellentesque congue, tortor viverra suscipit pretium, </p></div>
-			  </div>
+            <?php include "nav.inc.php"; ?>
 
-    		</div>
-		</div>       
-        </section>
+            <div class="uk-grid-medium " uk-grid>
+                <div class="mt-24 ml-40 mt-32 ">
+                    <h1 class="k-heading-primary font-bold text-4xl ">Services we provide </h1>
+                    <p class="text-base mt-4 w-3/4 text-justify">Take decisions with real time data based on users interaction.
+                        Clinic Finder is a platform application where selected partnered clinics are gathered for Clinic Finder's members easier reference be able to select their preferred clinics and make an appointment straight from this website. Saves users time and ensures users satisfactory.
+                    </p>
+                    <img src="images/about_us.jpg" class="h-auto w-3/4 mt-12 "></div>
+            </div>
 
-	
-		<section class="uk-section uk-section-default">
-			<div class="uk-grid-divider uk-child-width-expand\@s p-24" uk-grid>
-			<h1 class="k-heading-primary font-bold text-4xl ml-12">Why People Choose Us </h1>
+            <div class="mt-24 ml-40 flex">
+                <img src="images/about_us2.jpg" class="h-auto w-1/4 uk-visible@m">
+                <div class="row">
+                    <h1 class="k-heading-primary font-bold text-4xl ml-12">Who are we?</h1>
+                    <p class="text-base ml-12 mt-4 w-3/4 text-justify">Clinic Finder offers a comprehensive range of primary healthcare services through our clinics located island-wide. Our experienced medical team consisting of doctors, specialists, nurses and phlebotomists seek to provide quality care in an enriching, welcoming and tech-enabled environment.
+                
+                    <p class="text-base ml-12 mt-4 w-3/4 text-justify"><h1 class="k-heading-primary font-bold text-4xl ml-12">Our concept</h1>
+                    <p class="text-base ml-12 mt-4 w-3/4 text-justify">Clinic Finder offers a comprehensive range of primary healthcare services through our clinics located island-wide. Our experienced medical team consisting of doctors, specialists, nurses and phlebotomists seek to provide quality care in an enriching, welcoming and tech-enabled environment.
+                
+                
+                </div>
 
-		<div>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</div>
-		<div>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</div>
-</div>
-		</section>
-        
-        <?php include "footer.inc.php"; ?>
-        <!-- JS FILES -->
-        <script src="https://cdn.jsdelivr.net/npm/uikit@latest/dist/js/uikit.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/uikit@latest/dist/js/uikit-icons.min.js"></script>
-    </body>
+            </div>
+        </div>       
+    </section>
+
+
+    <section class="uk-section uk-section-default">
+        <div class="uk-grid-divider uk-child-width-expand\@s p-24" uk-grid>
+            <h1 class="k-heading-primary font-bold text-4xl ml-12">Why People Choose Us </h1>
+
+            <div>Easier and hassle free to book any appointment of the preferred time and clinics. </div>
+            <div>Book your appointment now online at our website with just a few clicks and steps away.</div>
+        </div>
+    </section>
+
+    <?php include "footer.inc.php"; ?>
+    <!-- JS FILES -->
+    <script src="https://cdn.jsdelivr.net/npm/uikit@latest/dist/js/uikit.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/uikit@latest/dist/js/uikit-icons.min.js"></script>
+</body>
 </html>

@@ -29,7 +29,7 @@
                         <?php include "head.inc.php"; ?>
                     </head>
                     <body>
-                        <div class="top-wrap uk-position-relative pb-40"> 
+                        <div class="top-wrap uk-position-relative pb-20"> 
                             <?php include "nav.inc.php";?>
                         </div>	
                         <?php 
@@ -41,12 +41,8 @@
                         $currentdate = $currentdate->format('yy-m-d');
 
                         ?>
-                    <body class='clinic'>
+
                          <!-- TOP -->
-
-                            <?php include "nav.inc.php";?>
-
-                         <p style="margin-top: -100px;"></p>
                         <?php include "timeout.inc.php"; ?>
                         <section class="uk-section mt-8">
 
@@ -154,12 +150,17 @@
                 <?php include "head.inc.php"; ?>
             </head>
             <body>
-                <?php include "nav.inc.php"; ?>
-                <div class="space-y-6 text-black" style="margin: auto; width: 50%; ">
-                    <h1 class="font-bold text-2xl text-purple-800">Unable to Book!</h1>
-                    <p>Please login before you book an appointment.</p>
-                    <button class="loginformbutton font-semibold"><a href="login.php">Login</a></button>
-                </div>    
+                <div class="top-wrap uk-position-relative pb-20"> 
+                    <?php include "nav.inc.php";?>
+                </div>	
+                <div class="uk-card uk-card-default uk-card-body uk-align-center mt-32 pb-40" style="width: 50%">
+                    <div class="space-y-6 text-center">
+                        <h3 class="uk-card-title font-bold mt-20" style="color:#B22222;">Unable to Book!</h3>
+                        <p>Please login before you book an appointment.</p>
+                        <button class="uk-button uk-button-primary uk-align-center rounded h-12 bg-blue-800 "><a href="login.php">Login</a></button>
+                    </div>
+                </div>  
+                <?php include "footer.inc.php"; ?>
         </html>
     <?php                    
     }

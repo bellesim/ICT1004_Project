@@ -39,20 +39,21 @@
                     if ($result->num_rows > 0) {
                         // output data of each row
                         ?>
-                        <div class="ml-40">
+                        <div class="m-16 h-screen text-black">
                         <p style="margin-top: 100px;"></p>
                         <table class='uk-table uk-table-striped uk-table-hover uk-table-small uk-table-responsive'>
                             <thead>
-                                <tr class="uk-table-middle font-bold">
-                                    <th>Appointment booked at:</th><th>Date:</th>
-                                    <th>Time</th>
-                                    <th>Duration</th>
-                                    <th>Appointment type</th> 
-                                    <th>Doctor Name</th>
-                                    <th>Clinic name</th>
-                                    <th>Clinic address</th>
-                                    <th>Edit</th>
-                                    <th>Delete</th>
+                                <tr class="uk-table-middle">
+                                    <th style="color:black;font-weight: bold;">Appointment booked at:</th>
+                                    <th style="color:black;font-weight: bold;">Date</th>
+                                    <th style="color:black;font-weight: bold;">Time</th>
+                                    <th style="color:black;font-weight: bold;">Duration</th>
+                                    <th style="color:black;font-weight: bold;">Appointment type</th> 
+                                    <th style="color:black;font-weight: bold;">Doctor Name</th>
+                                    <th style="color:black;font-weight: bold;">Clinic name</th>
+                                    <th style="color:black;font-weight: bold;">Clinic address</th>
+                                    <th style="color:black;font-weight: bold;">Edit</th>
+                                    <th style="color:black;font-weight: bold;">Delete</th>
                                 </tr>                   
                             </thead>
                             <?php
@@ -69,17 +70,15 @@
                                     <td>
                                         <form action="appt_edit.php" method="POST">
                                             <input type="hidden" id="apptid" name="apptid" value=" <?php echo $row["ApptID"]; ?> " readonly>
-                                            <button class="uk-button uk-button-primary uk-button-medium uk-width-2-3 uk-width-auto@s rounded ml-24" type="submit">Edit</button>
+                                            <button class="uk-button uk-button-primary uk-button-medium uk-width-1-1 uk-width-auto@s rounded ml-24" type="submit">Edit</button>
 
                                         </form>
                                     </td>   
                                     <td>
 
                                         <!-- display username and logout button -->
-                                        <div class="flex flex-row-reverse">
-                                            <div><button class="uk-button uk-button-medium uk-width-2-3 uk-width-auto@s rounded ml-24 text-red-100 transition-colors duration-150 bg-red-700" type="submit" uk-toggle="target: #modal-deleteappt" >Delete</button></div>
+                                            <div><button class="uk-button uk-button-medium uk-width-1-1 rounded text-red-100 transition-colors duration-150 bg-red-700 uk-width-auto@s" type="submit" uk-toggle="target: #modal-deleteappt" >Delete</button></div>
 
-                                        </div>
 
                                         <!-- show popup model if user click logout button -->
                                         <div id="modal-deleteappt" uk-modal>
@@ -101,12 +100,15 @@
                                 <?php
                             } ?>
                             </table>
-                            </div><?php
-                        } else {
-                            echo "You do not have any appointments yet!";
-                        }
-                        echo "</table>";
+                        </div>
+                            <?php
+                        } else {    ?>
 
+                            <div class="uk-align-center h-screen">
+                                    <h1 class="uk-card-title font-bold text-center mt-16">You do not have an appointment yet.</h1>
+                            </div> 
+                            <?php
+                        }
                         $stmt->close();
                     }
 
@@ -114,8 +116,7 @@
                 }
                 ?>
 
-                <main class="container">
-                    <hr>
+
 
                     <?php
                     
@@ -123,7 +124,7 @@
                         retrieveApptFromDB();
                     }
                     ?>
-                </main>
+
      
             <?php include "footer.inc.php";  ?>
         </body>
