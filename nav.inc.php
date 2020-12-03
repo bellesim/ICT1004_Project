@@ -17,12 +17,6 @@ if (isset($_SESSION["NRIC"]) && isset($_SESSION["username"])) {
                     <a href="#" class="uk-navbar-toggle uk-hidden@s" uk-navbar-toggle-icon uk-toggle="target: #sidenav"></a>
                 </div>
 
-<<<<<<< HEAD
-        <div class="uk-navbar-right">
-        <div class="uk-navbar-item">
-          <div><p class="font-bold mr-8 mt-3 text-white">Welcome, <?php echo $_SESSION["username"]; ?></p></div>
-          <div><button class="uk-button  uk-button-medium uk-width-2-3 uk-width-auto\@s rounded ml-24" type="button" uk-toggle="target: #modal-logout">Logout</button></div>
-=======
                 <div class="uk-navbar-right">
                     <div class="uk-navbar-item">
                         <div><p class="text-black font-bold mr-8 mt-3">Welcome, <?php echo $_SESSION["username"]; ?></p></div>
@@ -41,7 +35,6 @@ if (isset($_SESSION["NRIC"]) && isset($_SESSION["username"])) {
                     </div>
                 </div>    
             </nav>
->>>>>>> f58f6d26779a466e7babb6261bd642135496cc02
         </div>
     </header>
     <div id="sidenav" uk-offcanvas="flip: false" class="uk-offcanvas">

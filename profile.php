@@ -13,11 +13,11 @@
             <?php 
             include "timeout.inc.php"; 
             include "dbFunctions.php";
-            $email = $fname = $lname = $email = $pwd_hashed = $mobile = $height = $weight = $allergies = $errorMsg="";
+            $email = $fname = $lname = $email = $pwd_hashed = $mobile = $height = $weight = $allergies = $DOB = $gender = $errorMsg="";
             $success = true;
 
             function showProfile() {
-                global $nric, $fname, $lname, $email, $mobile, $height, $weight, $allergies, $errorMsg, $success;
+                global $nric, $fname, $lname, $email, $mobile, $height, $weight, $allergies, $DOB, $gender, $errorMsg, $success;
                 $link = db();
                 // check connection    
                 if ($link->connect_error){        
@@ -39,7 +39,11 @@
                         $mobile = $row["PatMobile"];            
                         $height = $row["PatHeight"];   
                         $weight = $row["PatWeight"];  
-                        $allergies = $row["PatAllergies"];            
+                        $allergies = $row["PatAllergies"];  
+                        $DOB = $row["PatDoB"];    
+                        $gender = $row["PatGender"];            
+        
+          
                     }      
                     $stmt->close();    
                 }    
@@ -68,6 +72,14 @@
                 <h4 class="text-base font-semibold mt-4">Last Name</h4>
                 <label class="text-base font-normal"><?php echo $lname ?><label>
                 </div>
+                <div class="uk-width-1-2">
+                <h4 class="text-base font-semibold mt-4">Date of Birth </p>
+                <label class="text-base font-normal"><?php echo $DOB?><label>
+                </div>
+                  <div class="uk-width-1-2">
+                <h4 class="text-base font-semibold mt-4">Gender </p>
+                <label class="text-base font-normal"><?php echo $gender?><label>
+                </div>
                     <div class="uk-width-1-1">
                 <h4 class="text-base font-semibold mt-4">Email </h4>
                 <label class="text-base font-normal"><?php echo $email ?><label>
@@ -89,7 +101,8 @@
                 <label class="text-base font-normal"><?php echo $allergies?><label>
                 </div>
                 </div><br>
-                    <div class="uk-margin-centre">                    
+
+                    <div class="mb-8 flex">                    
                     <a href="profile_edit.php" class="uk-button uk-button-primary uk-width-1-3 m-0 rounded h-12 bg-blue-800">Edit Profile</a>
                     <a href="changePassword.php" class="uk-button uk-button-primary uk-width-1-3 m-0 rounded h-12 bg-blue-800">Edit Password</a></div>
 

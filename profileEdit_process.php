@@ -15,11 +15,11 @@
             include "timeout.inc.php";
             include "dbFunctions.php";
             include "authentication.php";
-            $email = $fname = $lname = $email = $pwd_hashed = $mobile = $height = $weight = $allergies = $errorMsg="";
+            $email = $fname = $lname = $email = $pwd_hashed = $mobile = $height = $weight = $allergies = $DOB = $gender = $errorMsg="";
             $success = true;
 
             function updateUserInfo() {
-                global $nric,$fname, $lname, $email, $mobile, $height, $weight, $allergies, $errorMsg, $success;
+                global $nric,$fname, $lname, $email, $mobile, $height, $weight, $allergies,$DOB, $gender, $errorMsg, $success;
                 $link = db();
                 // check connection    
                 if ($link->connect_error){        
@@ -42,9 +42,9 @@
 
                     if ($success) {
                         //Prepared statement
-                        $updateProfile = $link->prepare("UPDATE Patient SET PatFirstName=?, PatLastName=?, PatEmail=?, PatMobile=?, PatHeight=?, PatWeight=?, PatAllergies=? WHERE PatNRIC=?");
+                        $updateProfile = $link->prepare("UPDATE Patient SET PatFirstName=?, PatLastName=?, PatEmail=?, PatMobile=?, PatHeight=?, PatWeight=?, PatAllergies=?, PetDoB=?, PetGender=? WHERE PatNRIC=?");
                         //bind & execute the query statement:
-                        $updateProfile->bind_param("ssssddss", $fname, $lname, $email,$mobile, $height, $weight, $allergies,$nric);
+                        $updateProfile->bind_param("ssssddssss", $fname, $lname, $email,$mobile, $height, $weight, $allergies, $DOB, $gender,$nric);
                         $updateProfile->execute();
                         if (!$updateProfile->execute()) {
                             $errorMsg .= "&#10008;  Execute failed: (" . $updateProfile->errno . ") " . $updateProfile->error . "<br>";
@@ -82,6 +82,36 @@
                         $success = false;
                     }
                 }
+
+                 //DOB
+                if(!empty($_POST['dob'])){
+                    $errorMsg.= "&#10008;  DOB is required.<br>";
+                    $success = false;                   
+                }else{
+                    $DOB = "NULL";
+                }
+
+                //Gender
+                if(!empty($_POST['gender'])){
+                    $errorMsg.= "&#10008;  Gender is required.<br>";
+                    $success = false;                   
+                }else{
+                    $gender = "NULL";
+                }
+
+                //Last Name
+                if(empty($_POST['lastname'])) {
+                    $errorMsg.= "&#10008;  Last name is required.<br>";
+                    $success = false;
+                } else {
+                    $lname = sanitize_input($_POST['lastname']);
+                    $validate_lname = check_fullname($lname);
+                    if(!$validate_lname){
+                        $errorMsg.= "&#10008;  Invalid last name format (ONLY alphabets are allowed).<br>";
+                        $success = false;
+                    }
+                }
+
 
                 //Email
                 if(empty($_POST['email'])) {
@@ -170,8 +200,9 @@
                         <?php
                         } else {
                         ?>
-                        <div class="uk-card uk-card-default uk-card-body uk-align-center mt-32" style="width: 50%">
-                            <div class="space-y-6">
+                        <div class="h-screen">
+                         <div class="uk-card uk-card-default uk-card-body uk-align-center mt-32" style="width: 50%">
+                            <div class="space-y-6 text-black">
                                 <h3 class="uk-card-title font-bold" style="color:#B22222;">Unable to Update Profile!</h3>
                                 <p class="font-bold">Reason(s):</p>
                                 <p><?php echo $errorMsg;?></p>
@@ -179,6 +210,7 @@
                                 <button class="uk-button uk-button-primary uk-align-center rounded h-12 bg-blue-800 "><a href="profile.php">Back to Profile</a></button>
                             </div>
                         </div> 
+                        </div>
                           <?php
                         } 
                     ?>

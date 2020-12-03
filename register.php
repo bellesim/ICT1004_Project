@@ -1,25 +1,3 @@
-<<<<<<< HEAD
-<!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
-<html>
-    <head>
-        <meta charset="UTF-8">
-        <title></title>
-    </head>
-    <body>
-        <div class="container">
-            <p>Enter your contents here! :) </p>
-        </div>   
-        <?php
-        // put your code here
-        ?>
-    </body>
-</html>
-=======
 <!DOCTYPE html>
 <?php
 session_start();
@@ -116,4 +94,3 @@ session_start();
         <script src="https://cdn.jsdelivr.net/npm/uikit@latest/dist/js/uikit-icons.min.js"></script>
     </body>
 </html>
->>>>>>> aa1178317c1e3643b563feb57b942887233efeda
