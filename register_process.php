@@ -7,8 +7,10 @@
 </head>
 
 <body>
+    <div class="top-wrap uk-position-relative pb-20"> 
+        <?php include "nav.inc.php";?>
+    </div>	
     <?php
-        include "nav.inc.php";
         include "authentication.php";
         include "dbFunctions.php";
         $success = $db_success = true;
@@ -188,56 +190,54 @@
         }
         
         // display result
-        echo "<main class=\"container\" style=\"margin-top:40px;\">";
         if($success){
             
             insertMemberToDB();
             if($db_success){
-                // send notification email;
                 $username = combineName($fname,$lname);
-                /*
-                $subject = "Clinic Finder: Account Registered Successfully";
-                $txt = "Dear " .$username.",\n\nThank you for signing up to Clinic Finder! This is an email to inform you that your account is registered successfully.\n\nBest Regards,\n Clinic Finder Team";
-                $msg = wordwrap($txt,70);
-                $headers = "From: no-reply@ClinicFinder.com";
-
-                mail($email,$subject,$txt,$headers);*/
                 ?>
-                <div class="space-y-6 text-black" style="margin: auto; width: 50%; ">
-                    <h1 class="font-bold text-2xl text-purple-800">Your account is registered successfully!</h1>
-                    <p>Welcome to be part of our family, <?php echo $username;?></p>
-                    <p>You may proceed to login with your NRIC/FIN and password.</p>
-                    <button class="loginformbutton font-semibold"><a href="login.php">Login</a></button>
-                </div>    
+                <div class="uk-card uk-card-default uk-card-body uk-align-center mt-32" style="width: 50%">
+                    <div class="space-y-6 text-center">
+                        <h3 class="uk-card-title font-bold" style="color:#1e40af;">Your account is registered successfully!</h3>
+                        <p>Welcome to be part of our family, <?php echo $username;?></p>
+                        <p>You may proceed to login with your NRIC/FIN and password.</p>
+                        <button class="uk-button uk-button-primary uk-align-center rounded h-12 bg-blue-800 "><a href="login.php">Login</a></button>
+                    </div>
+                </div> 
                 <?php
 
             }else{
                 ?>
-                <div class="space-y-6 text-black" style="margin: auto; width: 50%; ">
-                    <h1 class="font-bold text-2xl text-purple-800">Failed to register!</h1>
-                    <p class="font-bold">Reason:</p>
-                    <p><?php echo $errorMsg;?></p>
-                    <p class="mt-16 mb-8">Please try again.</p>
-                    <button class="loginformbutton font-semibold"><a href="login.php">Back to Register</a></button>
-                </div>    
+    
+                <div class="uk-card uk-card-default uk-card-body uk-align-center mt-32" style="width: 50%">
+                    <div class="space-y-6">
+                        <h3 class="uk-card-title font-bold" style="color:#B22222;">Failed to register!</h3>
+                        <p class="font-bold">Reason(s):</p>
+                        <p><?php echo $errorMsg;?></p>
+                        <p class="mt-16 mb-8">Please try again.</p>
+                        <button class="uk-button uk-button-primary uk-align-center rounded h-12 bg-blue-800 "><a href="register.php">Back to Register</a></button>
+                    </div>
+                </div>  
                 <?php
             }
         }else{
             ?>
-            <div class="space-y-6 text-black" style="margin: auto; width: 50%; padding-bottom: 100px;">
-                <h1 class="font-bold text-2xl text-purple-800">Failed to register!</h1>
-                <p class="font-bold">The following input errors were detected:</p>
+            <div class="uk-card uk-card-default uk-card-body uk-align-center mt-32" style="width: 50%">
+                <div class="space-y-6">
+                    <h3 class="uk-card-title font-bold" style="color:#B22222;">Failed to register!</h3>
+                    <p class="font-bold">Reason(s):</p>
                 
-            <?php
-            if($empty_field){
-                echo "<p>&#10008;  All fields are required to fill in (except for first name).</p>";
-            }else{
-                echo "<p>" .$errorMsg. "</p>";
-            }
-                ?>
-                <p class="mt-16 mb-8">Please try again.</p>
-                <button class="loginformbutton font-semibold"><a href="login.php">Back to Register</a></button>
-            </div>    
+                    <?php
+                    if($empty_field){
+                        echo "<p>&#10008;  All fields are required to fill in (except for first name).</p>";
+                    }else{
+                        echo "<p>" .$errorMsg. "</p>";
+                    }
+                        ?>
+                    <p class="mt-16 mb-8">Please try again.</p>
+                    <button class="uk-button uk-button-primary uk-align-center rounded h-12 bg-blue-800 "><a href="register.php">Back to Register</a></button>
+                </div>   
+            </div>
     
         <?php
         }

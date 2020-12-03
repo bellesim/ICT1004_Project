@@ -8,8 +8,10 @@
             <?php include "head.inc.php"; ?>
         </head>
         <body>
+            <div class="top-wrap uk-position-relative pb-20"> 
+                <?php include "nav.inc.php";?>
+            </div>	
             <?php 
-            include "nav.inc.php"; 
             include "timeout.inc.php";
             include "dbFunctions.php";
             $success = true;
@@ -37,6 +39,7 @@
                     if ($result->num_rows > 0) {
                         // output data of each row
                         ?>
+                        <div class="ml-40">
                         <p style="margin-top: 100px;"></p>
                         <table class='uk-table uk-table-striped uk-table-hover uk-table-small uk-table-responsive'>
                             <thead>
@@ -96,7 +99,9 @@
                                     </td>
                                 </tr>
                                 <?php
-                            }
+                            } ?>
+                            </table>
+                            </div><?php
                         } else {
                             echo "You do not have any appointments yet!";
                         }

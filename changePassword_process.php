@@ -8,8 +8,10 @@
             <?php include "head.inc.php"; ?>
         </head>
         <body>
+            <div class="top-wrap uk-position-relative pb-20"> 
+                <?php include "nav.inc.php";?>
+            </div>
             <?php 
-            include "nav.inc.php"; 
             include "timeout.inc.php";
             include "dbFunctions.php";
             include "authentication.php";
@@ -102,33 +104,39 @@
                 updatePassword();
                 if($dbsuccess){
                     ?>
-                    <div class="space-y-6 text-black" style="margin: auto; width: 50%; ">
-                        <h1 class="font-bold text-2xl text-purple-800">Password Updated!</h1>
-                        <p>Your password has been successfully updated!</p>
-                        <button class="loginformbutton font-semibold"><a href="profile.php">Back to Profile</a></button>
-                    </div>    
+                    <div class="uk-card uk-card-default uk-card-body uk-align-center mt-32" style="width: 50%">
+                        <div class="space-y-6 text-center">
+                            <h3 class="uk-card-title font-bold" style="color:#1e40af;">Password Updated!</h3>
+                            <p>Your password has been successfully updated!</p>
+                            <button class="uk-button uk-button-primary uk-align-center rounded h-12 bg-blue-800 "><a href="profile.php">Back to Profile</a></button>
+                        </div>
+                    </div> 
                     <?php
                 } else {
                    ?>
-                    <div class="space-y-6 text-black" style="margin: auto; width: 50%; ">
-                        <h2 class="font-bold text-2xl text-purple-800">Unable to Update Password!</h2>
-                        <p class="font-bold">Reason(s):</p>
-                        <?php echo "<p>".$errorMsg."</p>";?>
-                        <p class="mt-8">Please try again.</p>
-                        <button class="loginformbutton font-semibold"><a href="profile.php">Back to Profile</a></button>
-                    </div>
+                    <div class="uk-card uk-card-default uk-card-body uk-align-center mt-32" style="width: 50%">
+                        <div class="space-y-6">
+                            <h3 class="uk-card-title font-bold" style="color:#B22222;">Unable to Update Password!</h3>
+                            <p class="font-bold">Reason(s):</p>
+                            <p><?php echo $errorMsg;?></p>
+                            <p class="mt-16 mb-8">Please try again.</p>
+                            <button class="uk-button uk-button-primary uk-align-center rounded h-12 bg-blue-800 "><a href="profile.php">Back to Profile</a></button>
+                        </div>
+                    </div> 
                     <?php
                 }
                 
             } else {
                 ?>
-                <div class="space-y-6 text-black" style="margin: auto; width: 50%; ">
-                    <h2 class="font-bold text-2xl text-purple-800">Unable to Update Password!</h2>
-                    <p class="font-bold">Reason(s):</p>
-                    <?php echo "<p>".$errorMsg."</p>";?>
-                    <p class="mt-8">Please try again.</p>
-                    <button class="loginformbutton font-semibold"><a href="profile.php">Back to Profile</a></button>
-                </div>
+                <div class="uk-card uk-card-default uk-card-body uk-align-center mt-32" style="width: 50%">
+                    <div class="space-y-6">
+                        <h3 class="uk-card-title font-bold" style="color:#B22222;">Unable to Update Password!</h3>
+                        <p class="font-bold">Reason(s):</p>
+                        <p><?php echo $errorMsg;?></p>
+                        <p class="mt-16 mb-8">Please try again.</p>
+                        <button class="uk-button uk-button-primary uk-align-center rounded h-12 bg-blue-800 "><a href="profile.php">Back to Profile</a></button>
+                    </div>
+                </div> 
                 <?php
             } 
             

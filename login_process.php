@@ -11,8 +11,10 @@
 </head>
 
 <body>
+    <div class="top-wrap uk-position-relative pb-20"> 
+        <?php include "nav.inc.php";?>
+    </div>	
     <?php
-        include "nav.inc.php";
         include "authentication.php";
         include "dbFunctions.php";
         $lname = $fname = $email = $pwd_hashed = $errorMsg = "";
@@ -83,7 +85,7 @@
             $success = false;
         }
 
-        echo "<main class=\"container\" style=\"margin-top:40px;\">";
+        
         if($success){
             authenticateUser();
             if($db_success){
@@ -96,25 +98,28 @@
             } else {
 
                 ?>
-                <div class="space-y-6 text-black" style="margin: auto; width: 50%; ">
-                    <h2 class="font-bold text-2xl text-purple-800">Failed to login!</h2>
-                    <p class="font-bold">The following input errors were detected:</p>
-                    <?php echo "<p>&#10008;  ".$errorMsg."</p>";?>
-                    <p class="mt-8">Please try again.</p>
-                    <button class="loginformbutton font-semibold"><a href="login.php">Back to Login</a></button>
-                </div>
-
+                <div class="uk-card uk-card-default uk-card-body uk-align-center mt-32" style="width: 50%">
+                    <div class="space-y-6">
+                        <h3 class="uk-card-title font-bold" style="color:#B22222;">Failed to login!</h3>
+                        <p class="font-bold">Reason(s):</p>
+                        <?php echo "<p>&#10008;  ".$errorMsg."</p>";?>
+                        <p class="mt-16 mb-8">Please try again.</p>
+                        <button class="uk-button uk-button-primary uk-align-center rounded h-12 bg-blue-800 "><a href="login.php">Back to Login</a></button>
+                    </div>
+                </div> 
                 <?php
                 }
         } else {
             if(!$validate_nric_fin){
                 ?>
-                <div class="space-y-6 text-black" style="margin: auto; width: 50%; ">
-                    <h1 class="font-bold text-2xl text-purple-800">Failed to login!</h1>
-                    <p class="font-bold">The following input errors were detected:</p>
-                    <p>&#10008;  Invalid NRIC/FIN format.</p>
-                    <p class="mt-16 mb-8">Please try again.</p>
-                    <button class="loginformbutton font-semibold"><a href="login.php">Back to Login</a></button>
+                <div class="uk-card uk-card-default uk-card-body uk-align-center mt-32" style="width: 50%">
+                    <div class="space-y-6">
+                        <h3 class="uk-card-title font-bold" style="color:#B22222;">Failed to login!</h3>
+                        <p class="font-bold">Reason(s):</p>
+                        <p>&#10008;  Invalid NRIC/FIN format.</p>
+                        <p class="mt-16 mb-8">Please try again.</p>
+                        <button class="uk-button uk-button-primary uk-align-center rounded h-12 bg-blue-800 "><a href="login.php">Back to Login</a></button>
+                    </div>
                 </div>    
                 <?php
             }
@@ -122,6 +127,10 @@
         
             
         include "footer.inc.php";
+        
     ?>
+    
 </body>
 </html>
+
+
