@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <title>Clinic Finder</title>
     <?php
         include "head.inc.php";
     ?>
@@ -220,7 +221,7 @@
                         <h3 class="uk-card-title font-bold" style="color:#1e40af;">Your account is registered successfully!</h3>
                         <p>Welcome to be part of our family, <?php echo $username;?></p>
                         <p>You may proceed to login with your NRIC/FIN and password.</p>
-                        <button class="uk-button uk-button-primary uk-align-center rounded h-12 bg-blue-800 "><a href="login.php">Login</a></button>
+                        <p class="uk-width-1-3 uk-button uk-button-primary uk-align-center rounded h-12 bg-blue-800 "><a href="login.php">Login</a></p>
                     </div>
                 </div> 
                 </div>
@@ -235,7 +236,7 @@
                         <p class="font-bold">Reason(s):</p>
                         <p><?php echo $errorMsg;?></p>
                         <p class="mt-16 mb-8">Please try again.</p>
-                        <button class="uk-button uk-button-primary uk-align-center rounded h-12 bg-blue-800 "><a href="register.php">Back to Register</a></button>
+                        <p class="uk-width-1-3 uk-button uk-button-primary uk-align-center rounded h-12 bg-blue-800 "><a href="register.php">Back to Register</a></p>
                     </div>
                 </div>  
                 </div>
@@ -257,7 +258,7 @@
                     }
                         ?>
                     <p class="mt-16 mb-8">Please try again.</p>
-                    <button class="uk-button uk-button-primary uk-align-center rounded h-12 bg-blue-800 "><a href="register.php">Back to Register</a></button>
+                    <p class="uk-width-1-3 uk-button uk-button-primary uk-align-center rounded h-12 bg-blue-800 "><a href="register.php">Back to Register</a></p>
                 </div>   
             </div>
             </div>

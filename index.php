@@ -46,7 +46,7 @@ session_start();
                                 <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="images/schedule_planning.png" alt="schedule planning image" data-uk-img>
                             </div>
                             <div data-uk-scrollspy-class="uk-animation-slide-right-medium">
-                                <h2 class="font-semibold text-2xl">Schedule Appointments</h6>
+                                <h2 class="font-semibold text-2xl">Schedule Appointments</h2>
                                     <h2 class="text-xl mt-4">Take decisions with real time data based on users interaction.</h2>
                                     <p class="text-base mt-4">
                                        This document website information that enables users of the Appointment scheduling system to create, 
@@ -64,7 +64,7 @@ session_start();
             <div class="uk-container uk-text-center ">
             <div class="h-10">
                 <h2 class="text-4xl font-bold ">Our Partnering Clinics</h2>
-                <button onclick="window.location.href = 'clinic.php'" class="text-xl font-semibold float-right text-right text-blue-500 mb-4" href="#modal-overflow">See more</button>
+                <button onclick="window.location.href = 'clinic.php'" class="text-xl font-semibold float-right text-right text-blue-500 mb-4 -mx-12" href="#modal-overflow">See more</button>
                 </div>
             </div>
             <div class="uk-child-width-1-4@m px-24" uk-grid >

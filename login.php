@@ -4,6 +4,7 @@ session_start();
 ?>
 <html lang="en">
     <head>
+        <title>Clinic Finder</title>
         <?php include "head.inc.php"; ?>
     </head>
 

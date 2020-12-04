@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-
-=======
->>>>>>> aa1178317c1e3643b563feb57b942887233efeda
 /* nav.inc.php*/
 #logo{
     width: 200px;
@@ -88,21 +84,15 @@ body {margin:0;font-family:Arial}
     display: inline-block;
     font-size: 12px;
     margin: 4px 2px;
-<<<<<<< HEAD
-=======
     padding: 4px 45px;
     text-decoration: none;
     display: inline-block;
     font-size: 12px;
     height: 30px;
->>>>>>> aa1178317c1e3643b563feb57b942887233efeda
     font-family: Arial;
     float: right;
     cursor: pointer;
 }
-<<<<<<< HEAD
-.button {border-radius: 50px;}
-=======
 .button {border-radius: 25px;}
 
 .button a{
@@ -114,7 +104,6 @@ body {margin:0;font-family:Arial}
     color:white;
     background-color: #32287f;
 }
->>>>>>> aa1178317c1e3643b563feb57b942887233efeda
 /* End of Buttons */
 
 .container {
@@ -162,8 +151,6 @@ hr{
 
 }
 
-<<<<<<< HEAD
-=======
 /* login.php*/
 .tabheader {
     display: block;
@@ -229,5 +216,4 @@ hr{
 .uk-subnav-pill>.uk-active>a{
     background-color: #004866;
 }
->>>>>>> aa1178317c1e3643b563feb57b942887233efeda
 

@@ -1,7 +1,7 @@
 <?php
     include "dbFunctions.php";
     global $errorMsg, $success, $patid, $apptid;
-    $apptid = $_POST['apptid'];
+    $apptid = $_POST['delapptid'];
     // Create database connection.
     $conn = db();
     // Check connection
