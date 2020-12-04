@@ -1,16 +1,20 @@
 <!DOCTYPE html>
+<?php 
+session_start();
+?>
+<html lang="en">
+    <head>
+        <title>Clinic Finder</title>
+        <?php include "head.inc.php"; ?>
+    </head>
+    <body>
+        <div class="top-wrap uk-position-relative pb-20"> 
+            <?php include "nav.inc.php";?>
+        </div>	
+        <main>
 <?php
-    session_start();
     if (isset($_SESSION["NRIC"])&&isset($_SESSION["username"])){
     ?>
-    <html>
-        <head>
-            <?php include "head.inc.php"; ?>
-        </head>
-        <body>
-            <div class="top-wrap uk-position-relative pb-20"> 
-                <?php include "nav.inc.php";?>
-            </div>	
             <?php 
             include "timeout.inc.php";
             include "dbFunctions.php";
@@ -41,6 +45,7 @@
                         ?>
                         <div class="m-16 h-screen text-black">
                         <p style="margin-top: 100px;"></p>
+                        <h1 class="text-2xl font-semibold mb-8">My Appointment</h1>
                         <table class='uk-table uk-table-striped uk-table-hover uk-table-small uk-table-responsive'>
                             <thead>
                                 <tr class="uk-table-middle">
@@ -87,7 +92,7 @@
                                                 <br><br><h1 class="text-black text-center">Are you sure you want to Delete?</h1><br><br><br>
                                                 <div style="margin:auto;">
                                                     <form action="delete_appt_process.php" method="POST">
-                                                        <input type="hidden" id="apptid" name="apptid" value=" <?php echo $row["ApptID"]; ?> " readonly>
+                                                        <input type="hidden" id="delapptid" name="delapptid" value=" <?php echo $row["ApptID"]; ?> " readonly>
                                                         <button class="button mr-6" type="submit" style="float:left;">Yes</button>
                                                     </form>
                                                     <button class="uk-modal-close button" type="button" style="float:right;">Cancel</button>
@@ -126,9 +131,7 @@
                     ?>
 
      
-            <?php include "footer.inc.php";  ?>
-        </body>
-    </html>
+
     <?php
     
     }else{
@@ -136,3 +139,7 @@
         include "404error.php";  
     }
 ?>
+        </main>
+            <?php include "footer.inc.php";  ?>
+        </body>
+    </html>

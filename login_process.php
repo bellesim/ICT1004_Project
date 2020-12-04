@@ -5,6 +5,7 @@
 ?>
 
 <head>
+    <title>Clinic Finder</title>
     <?php
         include "head.inc.php";
     ?>
@@ -104,9 +105,9 @@
                     <div class="space-y-6 text-black">
                         <h1 class="uk-card-title font-bold" style="color:#B22222;">Failed to login!</h1>
                         <p class="font-bold">Reason(s):</p>
-                        <?php echo "<p>&#10008;  ".$errorMsg."</p>";?>
+                        <p>&#10008;  <?php echo $errorMsg;?></p>
                         <p class="mt-16 mb-8">Please try again.</p>
-                        <button class="uk-button uk-button-primary uk-align-center rounded h-12 bg-blue-800 "><a href="login.php">Back to Login</a></button>
+                        <p class="uk-width-1-3 uk-button uk-button-primary uk-align-center rounded h-12 bg-blue-800 "><a href="login.php">Back to Login</a></p>
                     </div>
                 </div> 
                 </div>
@@ -122,7 +123,7 @@
                         <p class="font-bold">Reason(s):</p>
                         <p>&#10008;  Invalid NRIC/FIN format.</p>
                         <p class="mt-16 mb-8">Please try again.</p>
-                        <button class="uk-button uk-button-primary uk-align-center rounded h-12 bg-blue-800 "><a href="login.php">Back to Login</a></button>
+                        <p class="uk-width-1-3 uk-button uk-button-primary uk-align-center rounded h-12 bg-blue-800 "><a href="login.php">Back to Login</a></p>
                     </div>
                 </div>    
                 </div>

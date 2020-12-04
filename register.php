@@ -4,6 +4,7 @@ session_start();
 ?>
 <html lang="en">
     <head>
+        <title>Clinic Finder</title>
         <?php include "head.inc.php";?>
     </head>
     <body>
@@ -51,7 +52,7 @@ session_start();
                                 </div>
                                 <div class="uk-width-1-1">
                                     <label class="uk-form-label text-blue-800 font-semibold" for="pwd">Password*</label>
-                                    <button class="pwdrequirement" type="button" uk-toggle="target: #modal-pwd-requirement">Click to view requirement</button>
+                                    <p class="pwdrequirement" style="margin:0;" uk-toggle="target: #modal-pwd-requirement">Click to view requirement</p>
                                     <input class="uk-input rounded h-12 bg-gray-100" placeholder="Enter password" type="password" id="pwd" name="pwd" required >     
                                 </div>    
                                 <div class="uk-width-1-1">
@@ -59,11 +60,11 @@ session_start();
                                     <input class="uk-input rounded h-12 bg-gray-100" placeholder="Enter password again" type="password" id="pwd_confirm" name="pwd_confirm" required >     
                                 </div>  
                                 <div class="uk-width-1-1">
-                                    <label class="uk-form-label text-blue-800 font-semibold"for="dob">Date of Birth*</label>
+                                    <label class="uk-form-label text-blue-800 font-semibold" for="dob">Date of Birth*</label>
                                     <input class="uk-input rounded h-12 bg-gray-100" type="date" id="dob" name="dob" max="<?PHP echo $date_created;?>" required>
                                 </div>
                                 <div class="uk-width-1-1">
-                                    <label class="uk-form-label text-blue-800 font-semibold mb-2" for="gender">Gender*</label><br>
+                                    <label class="uk-form-label text-blue-800 font-semibold mb-2">Gender*</label><br>
                                     <input class="uk-radio" type="radio" id="male" name="gender" value="male" checked required>
                                     <label for="male">Male</label>
                                     <input class="uk-radio" type="radio" id="female" name="gender" value="female" required>

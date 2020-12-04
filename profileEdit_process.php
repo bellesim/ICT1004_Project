@@ -5,7 +5,7 @@
     ?>
     <html lang="en">
         <head>
-              <title>Edit Profile</title>
+              <title>Clinic Finder</title>
             <?php include "head.inc.php"; ?>
         </head>
         <body>
@@ -193,7 +193,11 @@
                                 <div class="space-y-6 text-center">
                                     <h3 class="uk-card-title font-bold" style="color:#1e40af;">Profile Updated!</h3>
                                     <p>Your profile has been successfully updated!</p>
+<<<<<<< HEAD
                                     <p class="uk-button uk-button-primary uk-align-center rounded h-12 bg-blue-800 "><a href="profile.php">Back to Profile</a></p>
+=======
+                                    <p class="uk-button uk-width-1-3 uk-button-primary uk-align-center rounded h-12 bg-blue-800 "><a href="profile.php">Back to Profile</a></p>
+>>>>>>> b6d9e82cd7833fd447ea18170e2a7ecd5c51d113
 
                                 </div>
                             </div> 
@@ -209,7 +213,11 @@
                                 <p class="font-bold">Reason(s):</p>
                                 <p><?php echo errorMsg;?></p>
                                 <p class="mt-16 mb-8">Please try again.</p>
+<<<<<<< HEAD
                                 <p class="uk-button uk-button-primary uk-align-center rounded h-12 bg-blue-800 "><a href="profile.php">Back to Profile</a></p>
+=======
+                                <p class="uk-button uk-width-1-3 uk-button-primary uk-align-center rounded h-12 bg-blue-800 "><a href="profile.php">Back to Profile</a></p>
+>>>>>>> b6d9e82cd7833fd447ea18170e2a7ecd5c51d113
                             </div>
                         </div> 
                         </div>

@@ -9,7 +9,7 @@ session_start();
 ?>
 <html lang="en">
 	<head>
-      <title>Edit Profile</title>
+      <title>Clinic Finder</title>
         <?php include "head.inc.php"; ?>
 
 	</head>

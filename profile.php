@@ -6,7 +6,7 @@
 
 <html lang="en">
 	<head>
-            <title>Profile</title>
+            <title>Clinic Finder</title>
             <?php include "head.inc.php"; ?>
 	</head>
 	<body>

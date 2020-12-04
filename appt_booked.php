@@ -1,6 +1,18 @@
 <!DOCTYPE html>
+<?php 
+session_start();
+?>
+<html lang="en">
+    <head>
+        <title>Clinic Finder</title>
+        <?php include "head.inc.php"; ?>
+    </head>
+    <body>
+        <div class="top-wrap uk-position-relative pb-20"> 
+            <?php include "nav.inc.php";?>
+        </div>	
+        <main>
 <?php
-    session_start();
     if (isset($_SESSION["NRIC"]) && isset($_SESSION["username"]) && (!empty($_POST["ClinicID"]))){
         include "dbFunctions.php";
         include "authentication.php";
@@ -18,14 +30,7 @@
         if ($result->num_rows > 0) {
             $stmt->close();
             ?>
-            <html>
-                <head>
-                    <?php include "head.inc.php"; ?>
-                </head>
-                <body>
-                    <div class="top-wrap uk-position-relative pb-20"> 
-                        <?php include "nav.inc.php";?>
-                    </div>	
+
                     <?php 
                     include "timeout.inc.php";
 
@@ -148,10 +153,10 @@
                             <div class="h-screen">
                             <div class="uk-card uk-card-default uk-card-body uk-align-center mt-32" style="width: 50%">
                                 <div class="space-y-6 text-center text-black">
-                                    <h3 class="uk-card-title font-bold" style="color:#1e40af;">Appointment Booked!</h3>
+                                    <h1 class="uk-card-title font-bold" style="color:#1e40af;">Appointment Booked!</h1>
                                     <p>Your appointment is booked successfully.</p>
                                     <p>You may go to My Appointment page to view the appointment details.</p>
-                                    <button class="uk-button uk-button-primary uk-align-center rounded h-12 bg-blue-800 "><a href="appt.php">Go to Appointments</a></button>
+                                    <p class="uk-button uk-width-1-3 uk-button-primary uk-align-center rounded h-12 bg-blue-800 "><a href="appt.php">Go to Appointments</a></p>
                                 </div>
                             </div> 
                             </div>
@@ -161,11 +166,11 @@
                             <div class="h-screen">
                             <div class="uk-card uk-card-default uk-card-body uk-align-center mt-32" style="width: 50%">
                                 <div class="space-y-6 text-black">
-                                    <h3 class="uk-card-title font-bold" style="color:#B22222;">Failed to Book Appointment!</h3>
+                                    <h1 class="uk-card-title font-bold" style="color:#B22222;">Failed to Book Appointment!</h1>
                                     <p class="font-bold">Reason(s):</p>
                                     <p><?php echo $errorMsg;?></p>
                                     <p class="mt-16 mb-8">Please try again.</p>
-                                    <button class="uk-button uk-button-primary uk-align-center rounded h-12 bg-blue-800 "><a href="clinic.php">Back to Clinic</a></button>
+                                    <p class="uk-button uk-width-1-3 uk-button-primary uk-align-center rounded h-12 bg-blue-800 "><a href="clinic.php">Back to Clinic</a></p>
                                 </div>
                             </div>  
                             </div>
@@ -176,20 +181,18 @@
                     <div class="h-screen">
                         <div class="uk-card uk-card-default uk-card-body uk-align-center mt-32" style="width: 50%">
                             <div class="space-y-6 text-black">
-                                <h3 class="uk-card-title font-bold" style="color:#B22222;">Failed to Book Appointment!</h3>
+                                <h1 class="uk-card-title font-bold" style="color:#B22222;">Failed to Book Appointment!</h1>
                                 <p class="font-bold">Reason(s):</p>
                                 <p><?php echo $errorMsg;?></p>
                                 <p class="mt-16 mb-8">Please try again.</p>
-                                <button class="uk-button uk-button-primary uk-align-center rounded h-12 bg-blue-800 "><a href="clinic.php">Back to Clinic</a></button>
+                                <p class="uk-button uk-width-1-3 uk-button-primary uk-align-center rounded h-12 bg-blue-800 "><a href="clinic.php">Back to Clinic</a></p>
                             </div>
                         </div>  
                     </div>
                         <?php
                     }
                 ?>    
-                    <?php include "footer.inc.php";  ?>
-                </body>
-            </html>
+
             <?php
         }else{
             // show 404 error page
@@ -200,3 +203,7 @@
         include "404error.php";  
     }
 ?>
+        </main>
+<?php include "footer.inc.php";  ?>
+    </body>
+</html>
