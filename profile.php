@@ -4,9 +4,9 @@
     if (isset($_SESSION["NRIC"])&&isset($_SESSION["username"])){
     ?>
 
-<!DOCTYPE html>
 <html lang="en">
 	<head>
+            <title>Profile</title>
             <?php include "head.inc.php"; ?>
 	</head>
 	<body>
@@ -62,43 +62,43 @@
                     <div class="uk-grid-small mt-8" uk-grid>
                 <div class="uk-width-1-1">
                 <h4 class="text-base font-semibold mt-4">NRIC </h4>
-                <label class="text-base font-normal"><?php echo $nric ?><label>
+                <label class="text-base font-normal"><?php echo $nric ?></label>
                 </div>
                     <div class="uk-width-1-2">
                 <h4 class="text-base font-semibold mt-4">First Name</h4>
-                <label class="text-base font-normal"><?php echo $fname ?><label>
+                <label class="text-base font-normal"><?php echo $fname ?></label>
                 </div>
                     <div class="uk-width-1-2">
                 <h4 class="text-base font-semibold mt-4">Last Name</h4>
-                <label class="text-base font-normal"><?php echo $lname ?><label>
+                <label class="text-base font-normal"><?php echo $lname ?></label>
                 </div>
                 <div class="uk-width-1-2">
-                <h4 class="text-base font-semibold mt-4">Date of Birth </p>
-                <label class="text-base font-normal"><?php echo $DOB?><label>
+                <h4 class="text-base font-semibold mt-4">Date of Birth </h4>
+                <label class="text-base font-normal"><?php echo $DOB?></label>
                 </div>
                   <div class="uk-width-1-2">
-                <h4 class="text-base font-semibold mt-4">Gender </p>
-                <label class="text-base font-normal"><?php echo $gender?><label>
+                <h4 class="text-base font-semibold mt-4">Gender </h4>
+                <label class="text-base font-normal"><?php echo $gender?></label>
                 </div>
                     <div class="uk-width-1-1">
                 <h4 class="text-base font-semibold mt-4">Email </h4>
-                <label class="text-base font-normal"><?php echo $email ?><label>
+                <label class="text-base font-normal"><?php echo $email ?></label>
                 </div>
                     <div class="uk-width-1-1">
                 <h4 class="text-base font-semibold mt-4">Mobile </h4>
-                <label class="text-base font-normal"><?php echo $mobile ?><label>
+                <label class="text-base font-normal"><?php echo $mobile ?></label>
                 </div>
                 <div class="uk-width-1-4@s">
                 <h4 class="text-base font-semibold mt-4">Height</h4>
-                <label class="text-base font-normal"><?php echo $height ?><label>
+                <label class="text-base font-normal"><?php echo $height ?></label>
                 </div>
                 <div class="uk-width-1-4@s">
                 <h4 class="text-base font-semibold mt-4">Weight </h4>
-                <label class="text-base font-normal"><?php echo $weight ?><label>
+                <label class="text-base font-normal"><?php echo $weight ?></label>
                 </div>
                 <div class="uk-width-1-4@s">
-                <h4 class="text-base font-semibold mt-4">Allergies </p>
-                <label class="text-base font-normal"><?php echo $allergies?><label>
+                <h4 class="text-base font-semibold mt-4">Allergies </h4>
+                <label class="text-base font-normal"><?php echo $allergies?></label>
                 </div>
                 </div><br>
 
@@ -107,13 +107,7 @@
                     <a href="changePassword.php" class="uk-button uk-button-primary uk-width-1-3 m-0 rounded h-12 bg-blue-800">Edit Password</a></div>
 
                 </div>
-            
-            </fieldset>
                 </div>
-             </div>
-
-      
-                
             <?php include "footer.inc.php";  ?>
 		<!-- JS FILES -->
 		<script src="https://cdn.jsdelivr.net/npm/uikit@latest/dist/js/uikit.min.js"></script>

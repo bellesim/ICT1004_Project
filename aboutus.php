@@ -22,7 +22,6 @@ session_start();
         <div class="top-wrap uk-position-relative pb-40"> 
 
             <?php include "nav.inc.php"; ?>
-
             <div class="uk-grid-medium " uk-grid>
                 <div class="mt-24 ml-40 mt-32 ">
                     <h1 class="k-heading-primary font-bold text-4xl ">Services we provide </h1>
@@ -46,17 +45,9 @@ session_start();
 
             </div>
         </div>       
-    </section>
 
 
-    <section class="uk-section uk-section-default">
-        <div class="uk-grid-divider uk-child-width-expand\@s p-24" uk-grid>
-            <h1 class="k-heading-primary font-bold text-4xl ml-12">Why People Choose Us </h1>
-
-            <div>Easier and hassle free to book any appointment of the preferred time and clinics. </div>
-            <div>Book your appointment now online at our website with just a few clicks and steps away.</div>
-        </div>
-    </section>
+   
 
     <?php include "footer.inc.php"; ?>
     <!-- JS FILES -->

@@ -7,9 +7,9 @@
 session_start();
  
 ?>
-<!DOCTYPE html>
 <html lang="en">
 	<head>
+      <title>Edit Profile</title>
         <?php include "head.inc.php"; ?>
 
 	</head>
@@ -25,7 +25,7 @@ session_start();
    <div class="uk-card uk-card-default uk-card-body uk-width-1-2@m mr-6 mt-8 ">
      <h2 class="text-2xl font-semibold">Your Account</h2>
     <p class="uk-heading-divider"><p>
-     <form role="form" method="post" action="profileEdit_process.php">
+     <form method="post" action="profileEdit_process.php">
     <div class="uk-grid-small mt-8" uk-grid>
     <div class="uk-width-1-1">
     <p class="mb-2">First Name</p>
@@ -41,7 +41,7 @@ session_start();
     </div>
     <div class="uk-width-1-1">
     <p class="mb-2">Mobile*</p>
-    <input class="uk-input rounded h-12 bg-gray-100" type="tel" pattern="[0-9]{8}"placeholder="Enter your contact" name="mobile" aria-label="mobile" required>
+    <input class="uk-input rounded h-12 bg-gray-100" type="tel" pattern="[0-9]{8}" placeholder="Enter your contact" name="mobile" aria-label="mobile" required>
     </div>
     <div class="uk-width-1-4@s">
     <p class="mb-2">Height</p>
@@ -55,20 +55,15 @@ session_start();
     <p class="mb-2">Allergies</p>
     <input class="uk-input rounded h-12 bg-gray-100" type="text" placeholder="Enter Allergies" name="allergies" aria-label="allergies" required>
     </div>
-    </div>
-       <div class="uk-margin-bottom mt-4">
-    <button type="submit" class="uk-button uk-button-primary uk-width-1-1 m-0 rounded h-12 bg-blue-800" href="profile_edit.php">Update Profile</button>
+      <div class="uk-margin-bottom mt-4">
+      <p class="uk-button uk-button-primary uk-width-1-1 m-0 rounded h-12 bg-blue-800 "><a href="profile_edit.php">Update Profile</a></p>
+
       </div>  
    
    </div>
-    </form><br>
-                 
+    </form><br>   
                 </div>
-            
-            </fieldset>
-                </div>
-             </div>
-                
+                  </div>
             <?php include "footer.inc.php";  ?>
 	</body>
 </html>

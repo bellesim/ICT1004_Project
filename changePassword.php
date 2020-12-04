@@ -7,9 +7,9 @@
 session_start();
  
 ?>
-<!DOCTYPE html>
 <html lang="en">
 	<head>
+        <title>Change Password</title>
         <?php include "head.inc.php"; ?>
 
 	</head>
@@ -23,7 +23,7 @@ session_start();
    <div class="uk-card uk-card-default uk-card-body uk-width-1-2@m mr-6">
      <h2 class="text-2xl font-semibold">Your Account</h2>
     <p class="uk-heading-divider"><p>
-           <form role="form" method="post" action="changePassword_process.php">
+           <form method="post" action="changePassword_process.php">
                             <div class="uk-grid-small" uk-grid>
                                 <div class="uk-width-1-1">
                                     <p>Old Password</p>
@@ -45,8 +45,6 @@ session_start();
                  
                 </div>
             
-            </fieldset>
-                </div>
              </div>
                 
             <?php include "footer.inc.php";  ?>
